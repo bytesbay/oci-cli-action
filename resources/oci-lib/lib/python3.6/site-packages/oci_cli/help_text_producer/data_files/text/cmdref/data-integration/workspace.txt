@@ -1,0 +1,32 @@
+workspace
+*********
+
+
+Description
+===========
+
+A workspace is an organizational construct to keep multiple data
+integration solutions and their resources (data assets, data flows,
+tasks, and so on) separate from each other, helping you to stay
+organized. For example, you could have separate workspaces for
+development, testing, and production.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* start
+
+* stop
+
+* update

@@ -1,0 +1,22 @@
+connection
+**********
+
+
+Description
+===========
+
+The connection object.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

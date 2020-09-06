@@ -1,0 +1,14 @@
+virtual-circuit-bandwidth-shape
+*******************************
+
+
+Description
+===========
+
+An individual bandwidth level for virtual circuits.
+
+
+Available Commands
+==================
+
+* list

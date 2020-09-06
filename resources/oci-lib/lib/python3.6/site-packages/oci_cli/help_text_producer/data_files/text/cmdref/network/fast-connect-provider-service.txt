@@ -1,0 +1,21 @@
+fast-connect-provider-service
+*****************************
+
+
+Description
+===========
+
+A service offering from a supported provider. For more information,
+see FastConnect Overview.
+
+
+Available Commands
+==================
+
+* get
+
+* list
+
+* virtual-circuit-bandwidth-shape
+
+  * list

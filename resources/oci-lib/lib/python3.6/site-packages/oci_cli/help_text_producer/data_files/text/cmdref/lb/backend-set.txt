@@ -1,0 +1,31 @@
+backend-set
+***********
+
+
+Description
+===========
+
+The configuration of a load balancer backend set. For more information
+on backend set configuration, see Managing Backend Sets.
+
+**Note:** The *sessionPersistenceConfiguration* (application cookie
+stickiness) and *lbCookieSessionPersistenceConfiguration* (LB cookie
+stickiness) attributes are mutually exclusive. To avoid returning an
+error, configure only one of these two attributes per backend set.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

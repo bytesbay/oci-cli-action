@@ -1,0 +1,15 @@
+ping-probe
+**********
+
+
+Description
+===========
+
+This model contains all of the mutable and immutable properties for a
+ping probe.
+
+
+Available Commands
+==================
+
+* create-on-demand

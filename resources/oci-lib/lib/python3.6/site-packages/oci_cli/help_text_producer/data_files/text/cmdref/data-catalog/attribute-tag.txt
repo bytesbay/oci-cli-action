@@ -1,0 +1,20 @@
+attribute-tag
+*************
+
+
+Description
+===========
+
+Represents an association of an entity attribute to a term.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list

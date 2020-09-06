@@ -1,0 +1,16 @@
+ping-probe-result
+*****************
+
+
+Description
+===========
+
+The results returned by running a ping probe.  All times and durations
+are returned in milliseconds. All times are relative to the POSIX
+epoch (1970-01-01T00:00Z).
+
+
+Available Commands
+==================
+
+* list

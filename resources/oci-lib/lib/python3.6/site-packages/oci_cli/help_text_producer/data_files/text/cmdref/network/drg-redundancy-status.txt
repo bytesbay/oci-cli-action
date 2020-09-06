@@ -1,0 +1,15 @@
+drg-redundancy-status
+*********************
+
+
+Description
+===========
+
+The redundancy status of the DRG. For more information, see Redundancy
+Remedies.
+
+
+Available Commands
+==================
+
+* get

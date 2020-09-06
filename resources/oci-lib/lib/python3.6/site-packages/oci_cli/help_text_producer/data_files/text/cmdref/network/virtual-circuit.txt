@@ -1,0 +1,49 @@
+virtual-circuit
+***************
+
+
+Description
+===========
+
+For use with Oracle Cloud Infrastructure FastConnect.
+
+A virtual circuit is an isolated network path that runs over one or
+more physical network connections to provide a single, logical
+connection between the edge router on the customer's existing network
+and Oracle Cloud Infrastructure. *Private* virtual circuits support
+private peering, and *public* virtual circuits support public peering.
+For more information, see FastConnect Overview.
+
+Each virtual circuit is made up of information shared between a
+customer, Oracle, and a provider (if the customer is using FastConnect
+via a provider). Who fills in a given property of a virtual circuit
+depends on whether the BGP session related to that virtual circuit
+goes from the customer's edge router to Oracle, or from the provider's
+edge router to Oracle. Also, in the case where the customer is using a
+provider, values for some of the properties may not be present
+immediately, but may get filled in as the provider and Oracle each do
+their part to provision the virtual circuit.
+
+To use any of the API operations, you must be authorized in an IAM
+policy. If you're not authorized, talk to an administrator. If you're
+an administrator who needs to write policies to give users access, see
+Getting Started with Policies.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

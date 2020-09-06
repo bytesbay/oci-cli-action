@@ -1,0 +1,14 @@
+tagging-work-request-log
+************************
+
+
+Description
+===========
+
+The log entity.
+
+
+Available Commands
+==================
+
+* list

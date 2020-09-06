@@ -1,0 +1,21 @@
+rrset
+*****
+
+
+Description
+===========
+
+A collection of DNS records of the same domain and type. For more
+information about record types, see Resource Record (RR) TYPEs.
+
+
+Available Commands
+==================
+
+* delete
+
+* get
+
+* patch
+
+* update

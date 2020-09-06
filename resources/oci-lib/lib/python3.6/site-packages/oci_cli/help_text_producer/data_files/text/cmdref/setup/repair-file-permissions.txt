@@ -1,0 +1,41 @@
+"repair-file-permissions"
+*************************
+
+
+Description
+===========
+
+Resets permissions on a given file to an appropriate access level for
+sensitive files. Generally this is used to fix permissions on a
+private key file or config file to meet the requirements of the CLI.
+On Windows, full control will be given to System, Administrators, and
+the current user.  On Unix, Read / Write permissions will be given to
+the current user.
+
+
+Usage
+=====
+
+   oci setup repair-file-permissions [OPTIONS]
+
+
+Required Parameters
+===================
+
+--file [text]
+
+The file to repair permissions on.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

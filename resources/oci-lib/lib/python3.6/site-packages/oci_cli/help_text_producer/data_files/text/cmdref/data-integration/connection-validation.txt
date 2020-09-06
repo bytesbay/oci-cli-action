@@ -1,0 +1,20 @@
+connection-validation
+*********************
+
+
+Description
+===========
+
+The information about connection validation
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list

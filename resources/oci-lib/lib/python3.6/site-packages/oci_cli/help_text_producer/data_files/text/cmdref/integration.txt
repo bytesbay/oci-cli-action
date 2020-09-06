@@ -1,0 +1,44 @@
+integration
+***********
+
+
+Description
+===========
+
+Oracle Integration CLI.
+
+
+Available Commands
+==================
+
+* integration-instance
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * start
+
+  * stop
+
+  * update
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list-work-request-logs

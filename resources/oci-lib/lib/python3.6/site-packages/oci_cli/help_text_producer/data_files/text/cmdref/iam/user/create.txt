@@ -1,0 +1,174 @@
+"create"
+********
+
+
+Description
+===========
+
+Creates a new user in your tenancy. For conceptual information about
+users, your tenancy, and other IAM Service components, see Overview of
+the IAM Service.
+
+You must specify your tenancy's OCID as the compartment ID in the
+request object (remember that the tenancy is simply the root
+compartment). Notice that IAM resources (users, groups, compartments,
+and some policies) reside within the tenancy itself, unlike cloud
+resources such as compute instances, which typically reside within
+compartments inside the tenancy. For information about OCIDs, see
+Resource Identifiers.
+
+You must also specify a *name* for the user, which must be unique
+across all users in your tenancy and cannot be changed. Allowed
+characters: No spaces. Only letters, numerals, hyphens, periods,
+underscores, +, and @. If you specify a name that's already in use,
+you'll get a 409 error. This name will be the user's login to the
+Console. You might want to pick a name that your company's own
+identity system (e.g., Active Directory, LDAP, etc.) already uses. If
+you delete a user and then create a new user with the same name,
+they'll be considered different users because they have different
+OCIDs.
+
+You must also specify a *description* for the user (although it can be
+an empty string). It does not have to be unique, and you can change it
+anytime with UpdateUser. You can use the field to provide the user's
+full name, a description, a nickname, or other information to
+generally identify the user.
+
+After you send your request, the new object's *lifecycleState* will
+temporarily be CREATING. Before using the object, first make sure its
+*lifecycleState* has changed to ACTIVE.
+
+A new user has no permissions until you place the user in one or more
+groups (see AddUserToGroup). If the user needs to access the Console,
+you need to provide the user a password (see CreateOrResetUIPassword).
+If the user needs to access the Oracle Cloud Infrastructure REST API,
+you need to upload a public API signing key for that user (see
+Required Keys and OCIDs and also UploadApiKey).
+
+**Important:** Make sure to inform the new user which compartment(s)
+they have access to.
+
+
+Usage
+=====
+
+   oci iam user create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--description [text]
+
+The description you assign to the user during creation. Does not have
+to be unique, and it's changeable.
+
+--name [text]
+
+The name you assign to the user during creation. This is the user's
+login for the Console. The name must be unique across all users in the
+tenancy and cannot be changed.
+
+
+Optional Parameters
+===================
+
+--compartment-id, -c [text]
+
+The OCID of the tenancy containing the user. If not provided, this
+parameter will use the tenancy's OCID (root compartment's OCID) from
+the config file.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags. Example:
+*{"Operations": {"CostCenter": "42"}}* This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--email [text]
+
+The email you assign to the user. Has to be unique across the tenancy.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags. Example: *{"Department": "Finance"}* This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING, INACTIVE
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

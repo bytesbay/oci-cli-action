@@ -1,0 +1,14 @@
+agreements
+**********
+
+
+Description
+===========
+
+PIC listing resource version agreements.
+
+
+Available Commands
+==================
+
+* get

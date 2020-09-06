@@ -1,0 +1,209 @@
+data-integration
+****************
+
+
+Description
+===========
+
+Use the Data Integration Service CLI to perform common extract, load,
+and transform (ETL) tasks.
+
+
+Available Commands
+==================
+
+* application
+
+  * create
+
+  * create-patch
+
+  * delete
+
+  * delete-patch
+
+  * get
+
+  * get-dependent-object
+
+  * get-patch
+
+  * get-published-object
+
+  * list
+
+  * list-dependent-objects
+
+  * list-patches
+
+  * list-published-objects
+
+  * update
+
+* connection
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* connection-validation
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* data-asset
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* data-entity
+
+  * create-entity-shape-from-file
+
+  * get
+
+  * list
+
+* data-flow
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* data-flow-validation
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* folder
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* project
+
+  * create
+
+  * delete
+
+  * get
+
+  * get-count-statistic
+
+  * list
+
+  * update
+
+* schema
+
+  * get
+
+  * list
+
+* task
+
+  * create-data-loader-task
+
+  * create-integration-task
+
+  * delete
+
+  * delete-task-validation
+
+  * get
+
+  * get-task-validation
+
+  * list
+
+  * list-task-validations
+
+  * update-data-loader-task
+
+  * update-integration-task
+
+* task-run
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* task-run-log
+
+  * list
+
+* task-validation
+
+  * create-from-data-loader-task
+
+  * create-from-integration-task
+
+* work-request
+
+  * get
+
+  * list
+
+  * list-work-request-errors
+
+  * list-work-request-logs
+
+* workspace
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * start
+
+  * stop
+
+  * update

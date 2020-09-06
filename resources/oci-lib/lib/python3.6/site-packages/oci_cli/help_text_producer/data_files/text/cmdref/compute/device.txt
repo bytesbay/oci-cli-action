@@ -1,0 +1,15 @@
+device
+******
+
+
+Description
+===========
+
+Device Path corresponding to the block devices attached to instances
+having a name and isAvailable flag.
+
+
+Available Commands
+==================
+
+* list-instance

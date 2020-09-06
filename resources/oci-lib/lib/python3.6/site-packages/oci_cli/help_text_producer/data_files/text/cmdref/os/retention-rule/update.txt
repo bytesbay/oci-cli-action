@@ -1,0 +1,179 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates the specified retention rule. Rule changes take effect
+typically within 30 seconds.
+
+
+Usage
+=====
+
+   oci os retention-rule update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--bucket-name, --bucket, -bn [text]
+
+The name of the bucket. Avoid entering confidential information.
+Example: *my-new-bucket1*
+
+--retention-rule-id [text]
+
+The ID of the retention rule.
+
+
+Optional Parameters
+===================
+
+--display-name [text]
+
+A user-specified name for the retention rule. Names can be helpful in
+identifying retention rules.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+The entity tag (ETag) to match. For creating and committing a
+multipart upload to an object, this is the entity tag of the target
+object. For uploading a part, this is the entity tag of the target
+part.
+
+--namespace-name, --namespace, -ns [text]
+
+The Object Storage namespace used for the request. If not provided,
+this parameter will be obtained internally using a call to 'oci os ns
+get'
+
+--time-amount [text]
+
+The amount of time that objects in the bucket should be preserved for
+and which is calculated in relation to each object's Last-Modified
+timestamp. To unset it, specify an empty string.
+
+--time-rule-locked [text]
+
+The date and time as per RFC 3339 after which this rule is locked and
+can only be deleted by deleting the bucket. Once a rule is locked,
+only increases in the duration are allowed and no other properties can
+be changed. Specifying it when a duration is not specified is
+considered an error. This property cannot be updated for rules that
+are in a locked state. Before time-rule-locked has elapsed, it can be
+unset by specifying an empty string.
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+--time-unit [text]
+
+The unit that should be used to interpret time-amount
+
+Accepted values are:
+
+   DAYS, YEARS
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

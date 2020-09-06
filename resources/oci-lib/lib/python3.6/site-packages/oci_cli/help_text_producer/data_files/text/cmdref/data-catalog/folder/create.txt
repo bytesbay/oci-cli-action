@@ -1,0 +1,214 @@
+"create"
+********
+
+
+Description
+===========
+
+Creates a new folder.
+
+
+Usage
+=====
+
+   oci data-catalog folder create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--catalog-id [text]
+
+Unique catalog identifier.
+
+--data-asset-key [text]
+
+Unique data asset key.
+
+--display-name [text]
+
+A user-friendly display name. Does not have to be unique, and it's
+changeable. Avoid entering confidential information.
+
+--time-external [datetime]
+
+Last modified timestamp of this object in the external system.
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+
+Optional Parameters
+===================
+
+--description [text]
+
+Detailed description of a folder.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--harvest-status [text]
+
+Folder harvesting status.
+
+Accepted values are:
+
+   COMPLETE, DEFERRED, ERROR, IN_PROGRESS
+
+--last-job-key [text]
+
+The job key of the harvest process that updated the folder definition
+from the source system.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--parent-folder-key [text]
+
+The key of the containing folder or null if there isn't a parent
+folder.
+
+--properties [complex type]
+
+A map of maps that contains the properties which are specific to the
+folder type. Each folder type definition defines it's set of required
+and optional properties. The map keys are category names and the
+values are maps of property name to property value. Every property is
+contained inside of a category. Most folders have required properties
+within the "default" category. To determine the set of optional and
+required properties for a folder type, a query can be done on
+'/types?type=folder' that returns a collection of all folder types.
+The appropriate folder type, which includes definitions of all of it's
+properties, can be identified from this collection. Example:
+*{"properties": { "default": { "key1": "value1"}}}* This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING, FAILED, INACTIVE, MOVING, UPDATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

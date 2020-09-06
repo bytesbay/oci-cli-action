@@ -1,0 +1,40 @@
+fn
+**
+
+
+Description
+===========
+
+CLI for the Functions service.
+
+
+Available Commands
+==================
+
+* application
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* function
+
+  * create
+
+  * delete
+
+  * get
+
+  * invoke
+
+  * list
+
+  * update

@@ -1,0 +1,252 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "WAAS_PROTECTION-SETTINGS_UPDATE" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+waas_protection-settings_update \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Updates the protection settings in the Web Application Firewall configuration for a WAAS policy. Protection settings allow you define what action is taken when a request is blocked by the Web Application Firewall, such as returning a response code or block page. Only the fields specified in the request body will be updated; all other fields will remain unchanged.
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci waas protection\-settings update [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-waas\-policy\-id [text]
+.UNINDENT
+.sp
+The \fI\%OCID\fP <\fBhttps://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm\fP> of the WAAS policy.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-allowed\-http\-methods [text]
+.UNINDENT
+.sp
+The list of allowed HTTP methods. If unspecified, default to \fI[OPTIONS, GET, HEAD, POST]\fP\&. This setting only applies if a corresponding protection rule is enabled, such as the "Restrict HTTP Request Methods" rule (key: 911100).
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PROPFIND, PUT, TRACE
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-block\-action [text]
+.UNINDENT
+.sp
+If \fIaction\fP is set to \fIBLOCK\fP, this specifies how the traffic is blocked when detected as malicious by a protection rule. If unspecified, defaults to \fISET_RESPONSE_CODE\fP\&.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+SET_RESPONSE_CODE, SHOW_ERROR_PAGE
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-block\-error\-page\-code [text]
+.UNINDENT
+.sp
+The error code to show on the error page when \fIaction\fP is set to \fIBLOCK\fP, \fIblockAction\fP is set to \fISHOW_ERROR_PAGE\fP, and the traffic is detected as malicious by a protection rule. If unspecified, defaults to \fI403\fP\&.
+.INDENT 0.0
+.TP
+.B \-\-block\-error\-page\-description [text]
+.UNINDENT
+.sp
+The description text to show on the error page when \fIaction\fP is set to \fIBLOCK\fP, \fIblockAction\fP is set to \fISHOW_ERROR_PAGE\fP, and the traffic is detected as malicious by a protection rule. If unspecified, defaults to \fIAccess blocked by website owner. Please contact support.\fP
+.INDENT 0.0
+.TP
+.B \-\-block\-error\-page\-message [text]
+.UNINDENT
+.sp
+The message to show on the error page when \fIaction\fP is set to \fIBLOCK\fP, \fIblockAction\fP is set to \fISHOW_ERROR_PAGE\fP, and the traffic is detected as malicious by a protection rule. If unspecified, defaults to \(aqAccess to the website is blocked.\(aq
+.INDENT 0.0
+.TP
+.B \-\-block\-response\-code [integer]
+.UNINDENT
+.sp
+The response code returned when \fIaction\fP is set to \fIBLOCK\fP, \fIblockAction\fP is set to \fISET_RESPONSE_CODE\fP, and the traffic is detected as malicious by a protection rule. If unspecified, defaults to \fI403\fP\&. The list of available response codes: \fI400\fP, \fI401\fP, \fI403\fP, \fI405\fP, \fI409\fP, \fI411\fP, \fI412\fP, \fI413\fP, \fI414\fP, \fI415\fP, \fI416\fP, \fI500\fP, \fI501\fP, \fI502\fP, \fI503\fP, \fI504\fP, \fI507\fP\&.
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+Perform update without prompting for confirmation.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the \fIPUT\fP or \fIDELETE\fP call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous \fIGET\fP or \fIPOST\fP response for that resource. The resource will be updated or deleted only if the etag provided matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-is\-response\-inspected [boolean]
+.UNINDENT
+.sp
+Inspects the response body of origin responses. Can be used to detect leakage of sensitive data. If unspecified, defaults to \fIfalse\fP\&.
+.sp
+\fBNote:\fP Only origin responses with a Content\-Type matching a value in \fImediaTypes\fP will be inspected.
+.INDENT 0.0
+.TP
+.B \-\-max\-argument\-count [integer]
+.UNINDENT
+.sp
+The maximum number of arguments allowed to be passed to your application before an action is taken. Arguements are query parameters or body parameters in a PUT or POST request. If unspecified, defaults to \fI255\fP\&. This setting only applies if a corresponding protection rule is enabled, such as the "Number of Arguments Limits" rule (key: 960335).
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+If \(gamaxArgumentCount\(ga to \(ga2\(ga for the Max Number of Arguments protection rule (key: 960335), the following requests would be blocked: \(gaGET /myapp/path?query=one&query=two&query=three\(ga \(gaPOST /myapp/path\(ga with Body \(ga{"argument1":"one","argument2":"two","argument3":"three"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-max\-name\-length\-per\-argument [integer]
+.UNINDENT
+.sp
+The maximum length allowed for each argument name, in characters. Arguements are query parameters or body parameters in a PUT or POST request. If unspecified, defaults to \fI400\fP\&. This setting only applies if a corresponding protection rule is enabled, such as the "Values Limits" rule (key: 960208).
+.INDENT 0.0
+.TP
+.B \-\-max\-response\-size\-in\-ki\-b [integer]
+.UNINDENT
+.sp
+The maximum response size to be fully inspected, in binary kilobytes (KiB). Anything over this limit will be partially inspected. If unspecified, defaults to \fI1024\fP\&.
+.INDENT 0.0
+.TP
+.B \-\-max\-total\-name\-length\-of\-arguments [integer]
+.UNINDENT
+.sp
+The maximum length allowed for the sum of the argument name and value, in characters. Arguements are query parameters or body parameters in a PUT or POST request. If unspecified, defaults to \fI64000\fP\&. This setting only applies if a corresponding protection rule is enabled, such as the "Total Arguments Limits" rule (key: 960341).
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the work request to reach the state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-media\-types [complex type]
+.UNINDENT
+.sp
+The list of media types to allow for inspection, if \fIisResponseInspected\fP is enabled. Only responses with MIME types in this list will be inspected. If unspecified, defaults to \fI["text/html", "text/plain", "text/xml"]\fP\&.
+.INDENT 0.0
+.INDENT 3.5
+Supported MIME types include:
+.INDENT 0.0
+.IP \(bu 2
+text/html     \- text/plain     \- text/asp     \- text/css     \- text/x\-script     \- application/json     \- text/webviewhtml     \- text/x\-java\-source     \- application/x\-javascript     \- application/javascript     \- application/ecmascript     \- text/javascript     \- text/ecmascript     \- text/x\-script.perl     \- text/x\-script.phyton     \- application/plain     \- application/xml     \- text/xml
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-recommendations\-period\-in\-days [integer]
+.UNINDENT
+.sp
+The length of time to analyze traffic traffic, in days. After the analysis period, \fIWafRecommendations\fP will be populated. If unspecified, defaults to \fI10\fP\&.
+.sp
+Use \fIGET /waasPolicies/{waasPolicyId}/wafRecommendations\fP to view WAF recommendations.
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation asynchronously creates, modifies or deletes a resource and uses a work request to track the progress of the operation. Specify this option to perform the action and then wait until the work request reaches a certain state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACCEPTED, CANCELED, CANCELING, FAILED, IN_PROGRESS, SUCCEEDED
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the work request to see if it has reached the state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

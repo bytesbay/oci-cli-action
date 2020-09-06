@@ -1,0 +1,25 @@
+project
+*******
+
+
+Description
+===========
+
+The project type contains the audit summary information and the
+definition of the project.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* get-count-statistic
+
+* list
+
+* update

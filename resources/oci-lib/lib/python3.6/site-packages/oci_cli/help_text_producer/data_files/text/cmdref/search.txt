@@ -1,0 +1,24 @@
+search
+******
+
+
+Description
+===========
+
+Search for resources in your cloud network.
+
+
+Available Commands
+==================
+
+* resource
+
+  * free-text-search
+
+  * structured-search
+
+* resource-type
+
+  * get
+
+  * list

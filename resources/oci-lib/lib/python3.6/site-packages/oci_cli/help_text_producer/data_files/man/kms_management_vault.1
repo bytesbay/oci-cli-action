@@ -1,0 +1,1044 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "KMS_MANAGEMENT_VAULT" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+kms_management_vault \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+A logical entity where Key Management creates and stores your keys
+.SH AVAILABLE COMMANDS
+.INDENT 0.0
+.IP \(bu 2
+backup
+.IP \(bu 2
+cancel\-deletion
+.IP \(bu 2
+change\-compartment
+.IP \(bu 2
+create
+.IP \(bu 2
+get
+.IP \(bu 2
+list
+.IP \(bu 2
+restore
+.IP \(bu 2
+restore\-from\-file
+.IP \(bu 2
+schedule\-deletion
+.IP \(bu 2
+update
+.IP \(bu 2
+usage
+.INDENT 2.0
+.IP \(bu 2
+get
+.UNINDENT
+.UNINDENT
+.SS \fBbackup\fP
+.SS Description
+.sp
+Backs up an encrypted file that contains all the metadata of a vault so that you can restore the vault later. You can backup a vault whether or not it contains keys. This operation only backs up the metadata of the vault, and does not include key metadata.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault backup [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-vault\-id [text]
+.UNINDENT
+.sp
+The OCID of the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-bucket\-name [text]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-is\-include\-keys [boolean]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-namespace [text]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-object\-name [text]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-uri [text]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACTIVE, BACKUP_IN_PROGRESS, CANCELLING_DELETION, CREATING, DELETED, DELETING, PENDING_DELETION, RESTORING, SCHEDULING_DELETION, UPDATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBcancel\-deletion\fP
+.SS Description
+.sp
+Cancels the scheduled deletion of the specified vault. Canceling a scheduled deletion restores the vault and all keys in it to their respective states from before their scheduled deletion. All keys that were scheduled for deletion prior to vault deletion retain their lifecycle state and time of deletion.
+.sp
+As a provisioning operation, this call is subject to a Key Management limit that applies to the total number of requests across all provisioning write operations. Key Management might throttle this call to reject an otherwise valid request when the total rate of provisioning write operations exceeds 10 requests per second for a given tenancy.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault cancel\-deletion [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-vault\-id [text]
+.UNINDENT
+.sp
+The OCID of the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACTIVE, BACKUP_IN_PROGRESS, CANCELLING_DELETION, CREATING, DELETED, DELETING, PENDING_DELETION, RESTORING, SCHEDULING_DELETION, UPDATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBchange\-compartment\fP
+.SS Description
+.sp
+Moves a vault into a different compartment within the same tenancy. For information about moving resources between compartments, see \fI\%Moving Resources to a Different Compartment\fP <\fBhttps://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes\fP>\&.
+.sp
+When provided, if\-match is checked against the ETag values of the resource.
+.sp
+As a provisioning operation, this call is subject to a Key Management limit that applies to the total number of requests across all provisioning write operations. Key Management might throttle this call to reject an otherwise valid request when the total rate of provisioning write operations exceeds 10 requests per second for a given tenancy.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault change\-compartment [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-compartment\-id, \-c [text]
+.UNINDENT
+.sp
+The \fI\%OCID\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP> of the compartment to move the vault to.
+.INDENT 0.0
+.TP
+.B \-\-vault\-id [text]
+.UNINDENT
+.sp
+The OCID of the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBcreate\fP
+.SS Description
+.sp
+Creates a new vault. The type of vault you create determines key placement, pricing, and available options. Options include storage isolation, a dedicated service endpoint instead of a shared service endpoint for API calls, and either a dedicated hardware security module (HSM) or a multitenant HSM.
+.sp
+As a provisioning operation, this call is subject to a Key Management limit that applies to the total number of requests across all provisioning write operations. Key Management might throttle this call to reject an otherwise valid request when the total rate of provisioning write operations exceeds 10 requests per second for a given tenancy.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault create [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-compartment\-id, \-c [text]
+.UNINDENT
+.sp
+The OCID of the compartment where you want to create this vault.
+.INDENT 0.0
+.TP
+.B \-\-display\-name [text]
+.UNINDENT
+.sp
+A user\-friendly name for the vault. It does not have to be unique, and it is changeable. Avoid entering confidential information.
+.INDENT 0.0
+.TP
+.B \-\-vault\-type [text]
+.UNINDENT
+.sp
+The type of vault to create. Each type of vault stores the key with different degrees of isolation and has different options and pricing.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+DEFAULT, VIRTUAL_PRIVATE
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-defined\-tags [complex type]
+.UNINDENT
+.sp
+Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&. Example: \fI{"Operations": {"CostCenter": "42"}}\fP
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-freeform\-tags [complex type]
+.UNINDENT
+.sp
+Free\-form tags for this resource. Each tag is a simple key\-value pair with no predefined name, type, or namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&. Example: \fI{"Department": "Finance"}\fP
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACTIVE, BACKUP_IN_PROGRESS, CANCELLING_DELETION, CREATING, DELETED, DELETING, PENDING_DELETION, RESTORING, SCHEDULING_DELETION, UPDATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBget\fP
+.SS Description
+.sp
+Gets the specified vault\(aqs configuration information.
+.sp
+As a provisioning operation, this call is subject to a Key Management limit that applies to the total number of requests across all provisioning read operations. Key Management might throttle this call to reject an otherwise valid request when the total rate of provisioning read operations exceeds 10 requests per second for a given tenancy.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault get [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-vault\-id [text]
+.UNINDENT
+.sp
+The OCID of the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBlist\fP
+.SS Description
+.sp
+Lists the vaults in the specified compartment.
+.sp
+As a provisioning operation, this call is subject to a Key Management limit that applies to the total number of requests across all provisioning read operations. Key Management might throttle this call to reject an otherwise valid request when the total rate of provisioning read operations exceeds 10 requests per second for a given tenancy.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault list [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-compartment\-id, \-c [text]
+.UNINDENT
+.sp
+The OCID of the compartment.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-all
+.UNINDENT
+.sp
+Fetches all pages of results. If you provide this option, then you cannot provide the \fB\-\-limit\fP option.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-limit [integer]
+.UNINDENT
+.sp
+The maximum number of items to return in a paginated "List" call.
+.INDENT 0.0
+.TP
+.B \-\-page [text]
+.UNINDENT
+.sp
+The value of the \fIopc\-next\-page\fP response header from the previous "List" call.
+.INDENT 0.0
+.TP
+.B \-\-page\-size [integer]
+.UNINDENT
+.sp
+When fetching results, the number of results to fetch per call. Only valid when used with \fB\-\-all\fP or \fB\-\-limit\fP, and ignored otherwise.
+.INDENT 0.0
+.TP
+.B \-\-sort\-by [text]
+.UNINDENT
+.sp
+The field to sort by. You can specify only one sort order. The default order for \fITIMECREATED\fP is descending. The default order for \fIDISPLAYNAME\fP is ascending.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+DISPLAYNAME, TIMECREATED
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-sort\-order [text]
+.UNINDENT
+.sp
+The sort order to use, either ascending (\fIASC\fP) or descending (\fIDESC\fP).
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ASC, DESC
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBrestore\fP
+.SS Description
+.sp
+Restores a vault from an encrypted backup file stored in Oracle Cloud Infrastructure Object Storage. If a vault with the same OCID already exists, this operation returns a response with a 409 HTTP status error code.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault restore [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-compartment\-id, \-c [text]
+.UNINDENT
+.sp
+The OCID of the compartment.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-bucket\-name [text]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-namespace [text]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-object\-name [text]
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-uri [text]
+.UNINDENT
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBrestore\-from\-file\fP
+.SS Description
+.sp
+Restores a vault from an encrypted backup file. If a vault with the same OCID already exists, this operation returns a response with a 409 HTTP status error code.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault restore\-from\-file [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-compartment\-id, \-c [text]
+.UNINDENT
+.sp
+The OCID of the compartment.
+.INDENT 0.0
+.TP
+.B \-\-restore\-vault\-from\-file\-location [text]
+.UNINDENT
+.sp
+The file location which contains the encrypted payload to upload to restore the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-content\-length [integer]
+.UNINDENT
+.sp
+The content length of the body.
+.INDENT 0.0
+.TP
+.B \-\-content\-md5 [text]
+.UNINDENT
+.sp
+The base64\-encoded MD5 hash value of the body, as described in \fI\%RFC 2616\fP <\fBhttps://tools.ietf.org/rfc/rfc2616\fP>, section 14.15. If the Content\-MD5 header is present, Key Management performs an integrity check on the body of the HTTP request by computing the MD5 hash for the body and comparing it to the MD5 hash supplied in the header. If the two hashes don\(aqt match, the object is rejected and a response with 400 Unmatched Content MD5 error is returned, along with the message: "The computed MD5 of the request body (ACTUAL_MD5) does not match the Content\-MD5 header (HEADER_MD5)."
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBschedule\-deletion\fP
+.SS Description
+.sp
+Schedules the deletion of the specified vault. This sets the lifecycle state of the vault and all keys in it that are not already scheduled for deletion to \fIPENDING_DELETION\fP and then deletes them after the retention period ends. The lifecycle state and time of deletion for keys already scheduled for deletion won\(aqt change. If any keys in the vault are scheduled to be deleted after the specified time of deletion for the vault, the call is rejected with the error code 409.
+.sp
+As a provisioning operation, this call is subject to a Key Management limit that applies to the total number of requests across all provisioning write operations. Key Management might throttle this call to reject an otherwise valid request when the total rate of provisioning write operations exceeds 10 requests per second for a given tenancy.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault schedule\-deletion [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-vault\-id [text]
+.UNINDENT
+.sp
+The OCID of the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-time\-of\-deletion [datetime]
+.UNINDENT
+.sp
+An optional property indicating when to delete the vault, expressed in \fI\%RFC 3339\fP <\fBhttps://tools.ietf.org/html/rfc3339\fP> timestamp format. The specified time must be between 7 and 30 days from the time when the request is received. If this property is missing, it will be set to 30 days from the time of the request by default.
+.sp
+The following datetime formats are supported:
+.SS UTC with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ss.sssTZD
+Example: 2017\-09\-15T20:30:00.123Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T20:30:00Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T20:30Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00.456\-08:00, 2017\-09\-15T12:30:00.456\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00\-08:00, 2017\-09\-15T12:30:00\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T12:30\-08:00, 2017\-09\-15T12:30\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Short date and time
+.sp
+The timezone for this date and time will be taken as UTC (Needs to be surrounded by single or double quotes)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: \(aqYYYY\-MM\-DD HH:mm\(aq or "YYYY\-MM\-DD HH:mm"
+Example: \(aq2017\-09\-15 17:25\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Date Only
+.sp
+This date will be taken as midnight UTC of that day
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DD
+Example: 2017\-09\-15
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Epoch seconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Example: 1412195400
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACTIVE, BACKUP_IN_PROGRESS, CANCELLING_DELETION, CREATING, DELETED, DELETING, PENDING_DELETION, RESTORING, SCHEDULING_DELETION, UPDATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBupdate\fP
+.SS Description
+.sp
+Updates the properties of a vault. Specifically, you can update the \fIdisplayName\fP, \fIfreeformTags\fP, and \fIdefinedTags\fP properties. Furthermore, the vault must be in an ACTIVE or CREATING state to be updated.
+.sp
+As a provisioning operation, this call is subject to a Key Management limit that applies to the total number of requests across all provisioning write operations. Key Management might throttle this call to reject an otherwise valid request when the total rate of provisioning write operations exceeds 10 requests per second for a given tenancy.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault update [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-vault\-id [text]
+.UNINDENT
+.sp
+The OCID of the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-defined\-tags [complex type]
+.UNINDENT
+.sp
+Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&. Example: \fI{"Operations": {"CostCenter": "42"}}\fP
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-display\-name [text]
+.UNINDENT
+.sp
+A user\-friendly name for the vault. It does not have to be unique, and it is changeable. Avoid entering confidential information.
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+Perform update without prompting for confirmation.
+.INDENT 0.0
+.TP
+.B \-\-freeform\-tags [complex type]
+.UNINDENT
+.sp
+Free\-form tags for this resource. Each tag is a simple key\-value pair with no predefined name, type, or namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&. Example: \fI{"Department": "Finance"}\fP
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACTIVE, BACKUP_IN_PROGRESS, CANCELLING_DELETION, CREATING, DELETED, DELETING, PENDING_DELETION, RESTORING, SCHEDULING_DELETION, UPDATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS usage
+.SS Description
+.SS Available Commands
+.INDENT 0.0
+.IP \(bu 2
+get
+.UNINDENT
+.SS \fBget\fP
+.SS Description
+.sp
+Gets the count of keys and key versions in the specified vault to calculate usage against service limits.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci kms management vault usage get [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-vault\-id [text]
+.UNINDENT
+.sp
+The OCID of the vault.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

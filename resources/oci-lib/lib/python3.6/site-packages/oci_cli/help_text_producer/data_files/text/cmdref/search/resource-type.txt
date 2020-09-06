@@ -1,0 +1,16 @@
+resource-type
+*************
+
+
+Description
+===========
+
+Defines a type of resource that you can find with a search or query.
+
+
+Available Commands
+==================
+
+* get
+
+* list

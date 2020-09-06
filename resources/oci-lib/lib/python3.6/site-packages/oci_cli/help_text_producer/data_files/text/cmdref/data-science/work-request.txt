@@ -1,0 +1,22 @@
+work-request
+************
+
+
+Description
+===========
+
+An asynchronous work request.
+
+
+Available Commands
+==================
+
+* cancel
+
+* get
+
+* list
+
+* list-work-request-errors
+
+* list-work-request-logs

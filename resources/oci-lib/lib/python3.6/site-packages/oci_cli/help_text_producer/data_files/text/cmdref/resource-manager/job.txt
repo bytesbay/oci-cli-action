@@ -1,0 +1,49 @@
+job
+***
+
+
+Description
+===========
+
+The properties that define a job. Jobs perform the actions that are
+defined in your configuration. - **Plan job**. A plan job takes your
+Terraform configuration, parses it, and creates an execution plan. -
+**Apply job**. The apply job takes your execution plan, applies it to
+the associated stack, then executes the configuration's instructions.
+- **Destroy job**. To clean up the infrastructure controlled by the
+stack, you run a destroy job. A destroy job does not delete the stack
+or associated job resources, but instead releases the resources
+managed by the stack. - **Import_TF_State job**. An import Terraform
+state job takes a Terraform state file and sets it as the current
+state of the stack. This is used to migrate local Terraform
+environments to Resource Manager.
+
+
+Available Commands
+==================
+
+* cancel
+
+* create
+
+* create-apply-job
+
+* create-destroy-job
+
+* create-import-tf-state-job
+
+* create-plan-job
+
+* get
+
+* get-job-logs
+
+* get-job-logs-content
+
+* get-job-tf-config
+
+* get-job-tf-state
+
+* list
+
+* update

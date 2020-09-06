@@ -1,0 +1,240 @@
+"update"
+********
+
+
+Description
+===========
+
+Update the configuration of a DB System.
+
+Updating different fields in the DB System will have different results
+on the uptime of the DB System. For example, changing the displayName
+of a DB System will take effect immediately, but changing the shape of
+a DB System is an asynchronous operation that involves provisioning
+new Compute resources, pausing the DB System and migrating storage
+before making the DB System available again.
+
+
+Usage
+=====
+
+   oci mysql db-system update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--db-system-id [text]
+
+The DB System OCID.
+
+
+Optional Parameters
+===================
+
+--admin-password [text]
+
+The password for the administrative user. The password must be between
+8 and 32 characters long, and must contain at least 1 numeric
+character, 1 lowercase character, 1 uppercase character, and 1 special
+(nonalphanumeric) character.
+
+--admin-username [text]
+
+The username for the administrative user for the MySQL Instance.
+
+--availability-domain [text]
+
+The Availability Domain where the primary instance should be located.
+
+--backup-policy [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--configuration-id [text]
+
+The OCID of the Configuration to be used for Instances in this DB
+System.
+
+--data-storage-size-in-gbs [integer]
+
+New size of the data volume in GBs that will be created and attached.
+
+Increases in data storage size will happen asynchronously and will
+require DB System downtime.
+
+Decreases in data storage size are not supported.
+
+--defined-tags [complex type]
+
+Usage of predefined tag keys. These predefined keys are scoped to
+namespaces. Example: *{"foo-namespace": {"bar-key": "value"}}* This is
+a complex type whose value must be valid JSON. The value can be
+provided as a string on the command line or passed in as a file using
+the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--description [text]
+
+User-provided data about the DB System.
+
+--display-name [text]
+
+The user-friendly name for the DB System. It does not have to be
+unique.
+
+--fault-domain [text]
+
+The name of the Fault Domain the DB System is located in.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--freeform-tags [complex type]
+
+Simple key-value pair applied without any predefined name, type or
+scope. Exists for cross-compatibility only. Example: *{"bar-key":
+"value"}* This is a complex type whose value must be valid JSON. The
+value can be provided as a string on the command line or passed in as
+a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--hostname-label [text]
+
+The hostname for the primary endpoint of the DB System. Used for DNS.
+The value is the hostname portion of the primary private IP's fully
+qualified domain name (FQDN) (for example, "dbsystem-1" in FQDN
+"dbsystem-1.subnet123.vcn1.oraclevcn.com"). Must be unique across all
+VNICs in the subnet and comply with RFC 952 and RFC 1123.
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *If-Match* header to the value of the etag from a
+previous GET or POST response for that resource. The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--ip-address [text]
+
+The IP address the DB System should be configured to listen on the
+provided subnet. It must be a free private IP address within the
+subnet's CIDR. If you don't specify a value, Oracle automatically
+assigns a private IP address from the subnet. This should be a
+"dotted-quad" style IPv4 address.
+
+--maintenance [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--mysql-version [text]
+
+The specific MySQL version identifier.
+
+--port [integer]
+
+The port for primary endpoint of the DB System to listen on.
+
+--port-x [integer]
+
+The TCP network port on which X Plugin listens for connections. This
+is the X Plugin equivalent of port.
+
+--shape-name [text]
+
+The shape of the DB System. The shape determines resources allocated
+to the DB System - CPU cores and memory for VM shapes; CPU cores,
+memory and storage for non-VM (or bare metal) shapes. To get a list of
+shapes, use the ListShapes operation.
+
+Changes in Shape will result in a downtime as the MySQL DB System is
+migrated to the new Compute instance.
+
+--subnet-id [text]
+
+The OCID of the subnet the DB System is associated with.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, CANCELED, CANCELING, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

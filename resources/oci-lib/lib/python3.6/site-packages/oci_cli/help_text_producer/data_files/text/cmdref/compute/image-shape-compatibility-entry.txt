@@ -1,0 +1,20 @@
+image-shape-compatibility-entry
+*******************************
+
+
+Description
+===========
+
+An image and shape that are compatible.
+
+
+Available Commands
+==================
+
+* add
+
+* get
+
+* list
+
+* remove

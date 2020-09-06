@@ -1,0 +1,733 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "DATA-CATALOG_ENTITY_LIST" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+data-catalog_entity_list \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Returns a list of all entities of a data asset.
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci data\-catalog entity list [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-catalog\-id [text]
+.UNINDENT
+.sp
+Unique catalog identifier.
+.INDENT 0.0
+.TP
+.B \-\-data\-asset\-key [text]
+.UNINDENT
+.sp
+Unique data asset key.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-all
+.UNINDENT
+.sp
+Fetches all pages of results. If you provide this option, then you cannot provide the \fB\-\-limit\fP option.
+.INDENT 0.0
+.TP
+.B \-\-created\-by\-id [text]
+.UNINDENT
+.sp
+OCID of the user who created the resource.
+.INDENT 0.0
+.TP
+.B \-\-display\-name [text]
+.UNINDENT
+.sp
+A filter to return only resources that match the entire display name given. The match is not case sensitive.
+.INDENT 0.0
+.TP
+.B \-\-display\-name\-contains [text]
+.UNINDENT
+.sp
+A filter to return only resources that match display name pattern given. The match is not case sensitive. For Example : /folders?displayNameContains=Cu.* The above would match all folders with display name that starts with "Cu".
+.INDENT 0.0
+.TP
+.B \-\-external\-key [text]
+.UNINDENT
+.sp
+Unique external identifier of this resource in the external source system.
+.INDENT 0.0
+.TP
+.B \-\-fields [text]
+.UNINDENT
+.sp
+Specifies the fields to return in an entity summary response.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+dataAssetKey, description, displayName, externalKey, folderKey, folderName, key, lifecycleState, path, timeCreated, timeUpdated, updatedById, uri
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-folder\-key [text]
+.UNINDENT
+.sp
+Key of the associated folder.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-harvest\-status [text]
+.UNINDENT
+.sp
+Harvest status of the harvestable resource as updated by the harvest process.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+COMPLETE, DEFERRED, ERROR, IN_PROGRESS
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-is\-logical [boolean]
+.UNINDENT
+.sp
+Identifies if the object is a physical object (materialized) or virtual/logical object defined on other objects.
+.INDENT 0.0
+.TP
+.B \-\-is\-partition [boolean]
+.UNINDENT
+.sp
+Identifies if an object is a sub object (partition) of a physical or materialized parent object.
+.INDENT 0.0
+.TP
+.B \-\-last\-job\-key [text]
+.UNINDENT
+.sp
+Key of the last harvest process to update this resource.
+.INDENT 0.0
+.TP
+.B \-\-lifecycle\-state [text]
+.UNINDENT
+.sp
+A filter to return only resources that match the specified lifecycle state. The value is case insensitive.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACTIVE, CREATING, DELETED, DELETING, FAILED, INACTIVE, MOVING, UPDATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-limit [integer]
+.UNINDENT
+.sp
+The maximum number of items to return.
+.INDENT 0.0
+.TP
+.B \-\-page [text]
+.UNINDENT
+.sp
+The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+.INDENT 0.0
+.TP
+.B \-\-page\-size [integer]
+.UNINDENT
+.sp
+When fetching results, the number of results to fetch per call. Only valid when used with \fB\-\-all\fP or \fB\-\-limit\fP, and ignored otherwise.
+.INDENT 0.0
+.TP
+.B \-\-path [text]
+.UNINDENT
+.sp
+Full path of the resource for resources that support paths.
+.INDENT 0.0
+.TP
+.B \-\-sort\-by [text]
+.UNINDENT
+.sp
+The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. If no value is specified TIMECREATED is default.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+DISPLAYNAME, TIMECREATED
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-sort\-order [text]
+.UNINDENT
+.sp
+The sort order to use, either \(aqasc\(aq or \(aqdesc\(aq.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ASC, DESC
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-time\-created [datetime]
+.UNINDENT
+.sp
+Time that the resource was created. An \fI\%RFC3339\fP <\fBhttps://tools.ietf.org/html/rfc3339\fP> formatted datetime string.
+.sp
+The following datetime formats are supported:
+.SS UTC with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ss.sssTZD
+Example: 2017\-09\-15T20:30:00.123Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T20:30:00Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T20:30Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00.456\-08:00, 2017\-09\-15T12:30:00.456\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00\-08:00, 2017\-09\-15T12:30:00\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T12:30\-08:00, 2017\-09\-15T12:30\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Short date and time
+.sp
+The timezone for this date and time will be taken as UTC (Needs to be surrounded by single or double quotes)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: \(aqYYYY\-MM\-DD HH:mm\(aq or "YYYY\-MM\-DD HH:mm"
+Example: \(aq2017\-09\-15 17:25\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Date Only
+.sp
+This date will be taken as midnight UTC of that day
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DD
+Example: 2017\-09\-15
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Epoch seconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Example: 1412195400
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-time\-external [datetime]
+.UNINDENT
+.sp
+Last modified timestamp of this object in the external system.
+.sp
+The following datetime formats are supported:
+.SS UTC with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ss.sssTZD
+Example: 2017\-09\-15T20:30:00.123Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T20:30:00Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T20:30Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00.456\-08:00, 2017\-09\-15T12:30:00.456\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00\-08:00, 2017\-09\-15T12:30:00\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T12:30\-08:00, 2017\-09\-15T12:30\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Short date and time
+.sp
+The timezone for this date and time will be taken as UTC (Needs to be surrounded by single or double quotes)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: \(aqYYYY\-MM\-DD HH:mm\(aq or "YYYY\-MM\-DD HH:mm"
+Example: \(aq2017\-09\-15 17:25\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Date Only
+.sp
+This date will be taken as midnight UTC of that day
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DD
+Example: 2017\-09\-15
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Epoch seconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Example: 1412195400
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-time\-status\-updated [datetime]
+.UNINDENT
+.sp
+Time that the resource\(aqs status was last updated. An \fI\%RFC3339\fP <\fBhttps://tools.ietf.org/html/rfc3339\fP> formatted datetime string.
+.sp
+The following datetime formats are supported:
+.SS UTC with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ss.sssTZD
+Example: 2017\-09\-15T20:30:00.123Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T20:30:00Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T20:30Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00.456\-08:00, 2017\-09\-15T12:30:00.456\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00\-08:00, 2017\-09\-15T12:30:00\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T12:30\-08:00, 2017\-09\-15T12:30\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Short date and time
+.sp
+The timezone for this date and time will be taken as UTC (Needs to be surrounded by single or double quotes)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: \(aqYYYY\-MM\-DD HH:mm\(aq or "YYYY\-MM\-DD HH:mm"
+Example: \(aq2017\-09\-15 17:25\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Date Only
+.sp
+This date will be taken as midnight UTC of that day
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DD
+Example: 2017\-09\-15
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Epoch seconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Example: 1412195400
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-time\-updated [datetime]
+.UNINDENT
+.sp
+Time that the resource was updated. An \fI\%RFC3339\fP <\fBhttps://tools.ietf.org/html/rfc3339\fP> formatted datetime string.
+.sp
+The following datetime formats are supported:
+.SS UTC with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ss.sssTZD
+Example: 2017\-09\-15T20:30:00.123Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T20:30:00Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS UTC with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T20:30Z
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00.456\-08:00, 2017\-09\-15T12:30:00.456\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone without milliseconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mm:ssTZD
+Example: 2017\-09\-15T12:30:00\-08:00, 2017\-09\-15T12:30:00\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Timezone with minute precision
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DDTHH:mmTZD
+Example: 2017\-09\-15T12:30\-08:00, 2017\-09\-15T12:30\-0800
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Short date and time
+.sp
+The timezone for this date and time will be taken as UTC (Needs to be surrounded by single or double quotes)
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: \(aqYYYY\-MM\-DD HH:mm\(aq or "YYYY\-MM\-DD HH:mm"
+Example: \(aq2017\-09\-15 17:25\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Date Only
+.sp
+This date will be taken as midnight UTC of that day
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Format: YYYY\-MM\-DD
+Example: 2017\-09\-15
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Epoch seconds
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Example: 1412195400
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-updated\-by\-id [text]
+.UNINDENT
+.sp
+OCID of the user who updated the resource.
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

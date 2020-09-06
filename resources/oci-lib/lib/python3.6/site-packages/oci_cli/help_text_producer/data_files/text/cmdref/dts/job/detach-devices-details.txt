@@ -1,0 +1,12 @@
+detach-devices-details
+**********************
+
+
+Description
+===========
+
+
+Available Commands
+==================
+
+* change-compartment

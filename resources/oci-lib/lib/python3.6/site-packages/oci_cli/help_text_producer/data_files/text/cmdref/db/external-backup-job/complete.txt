@@ -1,0 +1,111 @@
+"complete"
+**********
+
+
+Description
+===========
+
+Changes the status of the standalone backup resource to *ACTIVE* after
+the backup is created from the on-premises database and placed in
+Oracle Cloud Infrastructure Object Storage.
+
+**Note:** This API is used by an Oracle Cloud Infrastructure Python
+script that is packaged with the Oracle Cloud Infrastructure CLI.
+Oracle recommends that you use the script instead using the API
+directly. See Migrating an On-Premises Database to Oracle Cloud
+Infrastructure by Creating a Backup in the Cloud for more information.
+
+
+Usage
+=====
+
+   oci db external-backup-job complete [OPTIONS]
+
+
+Required Parameters
+===================
+
+--backup-id [text]
+
+The backup OCID.
+
+
+Optional Parameters
+===================
+
+--cf-backup-handle [text]
+
+The handle of the control file backup.
+
+--data-size [integer]
+
+The size of the data in the database, in megabytes.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource.  The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--redo-size [integer]
+
+The size of the redo in the database, in megabytes.
+
+--spf-backup-handle [text]
+
+The handle of the spfile backup.
+
+--sql-patches [complex type]
+
+The list of SQL patches that need to be applied to the backup during
+the restore. This is a complex type whose value must be valid JSON.
+The value can be provided as a string on the command line or passed in
+as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--tde-wallet-path [text]
+
+If the database being backed up is TDE enabled, this will be the path
+to the associated TDE wallet in Object Storage.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

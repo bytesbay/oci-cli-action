@@ -1,0 +1,20 @@
+domain
+******
+
+
+Description
+===========
+
+A collection of DNS records for the same domain.
+
+
+Available Commands
+==================
+
+* delete
+
+* get
+
+* patch
+
+* update

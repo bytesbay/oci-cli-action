@@ -1,0 +1,34 @@
+tag-namespace
+*************
+
+
+Description
+===========
+
+A managed container for defined tags. A tag namespace is unique in a
+tenancy. For more information, see Managing Tags and Tag Namespaces.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* cascade-delete
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* reactivate
+
+* retire
+
+* update

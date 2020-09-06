@@ -1,0 +1,17 @@
+cloudsql
+********
+
+
+Description
+===========
+
+Adds Cloud SQL to your cluster. This will add a query server node to
+the cluster and create cell servers on all your worker nodes.
+
+
+Available Commands
+==================
+
+* add
+
+* remove

@@ -1,0 +1,456 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "DB_SYSTEM_LAUNCH" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+db_system_launch \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Creates a new DB system in the specified compartment and availability domain. The Oracle Database edition that you specify applies to all the databases on that DB system. The selected edition cannot be changed.
+.sp
+An initial database is created on the DB system based on the request parameters you provide and some default options. For detailed information about default options, see the following:
+.INDENT 0.0
+.IP \(bu 2
+\fI\%Bare metal and virtual machine DB system default options\fP <\fBhttps://docs.cloud.oracle.com/Content/Database/Tasks/creatingDBsystem.htm#DefaultOptionsfortheInitialDatabase\fP> \- \fI\%Exadata DB system default options\fP <\fBhttps://docs.cloud.oracle.com/Content/Database/Tasks/exacreatingDBsystem.htm#DefaultOptionsfortheInitialDatabase\fP>
+.UNINDENT
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci db system launch [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-admin\-password [text]
+.UNINDENT
+.sp
+A strong password for SYS, SYSTEM, and PDB Admin. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numbers, and two special characters. The special characters must be _, #, or \-.
+.INDENT 0.0
+.TP
+.B \-\-availability\-domain [text]
+.UNINDENT
+.sp
+The availability domain where the DB system is located.
+.INDENT 0.0
+.TP
+.B \-\-compartment\-id, \-c [text]
+.UNINDENT
+.sp
+The \fI\%OCID\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP> of the compartment the DB system  belongs in.
+.INDENT 0.0
+.TP
+.B \-\-cpu\-core\-count [integer]
+.UNINDENT
+.sp
+The number of CPU cores to enable for a bare metal or Exadata DB system. The valid values depend on the specified shape:
+.INDENT 0.0
+.IP \(bu 2
+BM.DenseIO1.36 \- Specify a multiple of 2, from 2 to 36. \- BM.DenseIO2.52 \- Specify a multiple of 2, from 2 to 52. \- Exadata.Base.48 \- Specify a multiple of 2, from 0 to 48. \- Exadata.Quarter1.84 \- Specify a multiple of 2, from 22 to 84. \- Exadata.Half1.168 \- Specify a multiple of 4, from 44 to 168. \- Exadata.Full1.336 \- Specify a multiple of 8, from 88 to 336. \- Exadata.Quarter2.92 \- Specify a multiple of 2, from 0 to 92. \- Exadata.Half2.184 \- Specify a multiple of 4, from 0 to 184. \- Exadata.Full2.368 \- Specify a multiple of 8, from 0 to 368.
+.UNINDENT
+.sp
+This parameter is not used for virtual machine DB systems because virtual machine DB systems have a set number of cores for each shape. For information about the number of cores for a virtual machine DB system shape, see \fI\%Virtual Machine DB Systems\fP <\fBhttps://docs.cloud.oracle.com/Content/Database/Concepts/overview.htm#virtualmachine\fP>
+.INDENT 0.0
+.TP
+.B \-\-database\-edition [text]
+.UNINDENT
+.sp
+The Oracle Database Edition that applies to all the databases on the DB system. Exadata DB systems and 2\-node RAC DB systems require ENTERPRISE_EDITION_EXTREME_PERFORMANCE.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ENTERPRISE_EDITION, ENTERPRISE_EDITION_EXTREME_PERFORMANCE, ENTERPRISE_EDITION_HIGH_PERFORMANCE, STANDARD_EDITION
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-db\-name [text]
+.UNINDENT
+.sp
+The database name. It must begin with an alphabetic character and can contain a maximum of eight alphanumeric characters. Special characters are not permitted.
+.INDENT 0.0
+.TP
+.B \-\-db\-version [text]
+.UNINDENT
+.sp
+A valid Oracle database version. To get a list of supported versions, use the command \(aqoci db version list\(aq.
+.INDENT 0.0
+.TP
+.B \-\-hostname [text]
+.UNINDENT
+.sp
+The hostname for the DB system. The hostname must begin with an alphabetic character, and can contain alphanumeric characters and hyphens (\-). The maximum length of the hostname is 16 characters for bare metal and virtual machine DB systems, and 12 characters for Exadata DB systems.
+.sp
+The maximum length of the combined hostname and domain is 63 characters.
+.sp
+\fBNote:\fP The hostname must be unique within the subnet. If it is not unique, the DB system will fail to provision.
+.INDENT 0.0
+.TP
+.B \-\-shape [text]
+.UNINDENT
+.sp
+The shape of the DB system. The shape determines resources allocated to the DB system. \- For virtual machine shapes, the number of CPU cores and memory \- For bare metal and Exadata shapes, the number of CPU cores, memory, and storage
+.sp
+To get a list of shapes, use the \fI\%ListDbSystemShapes\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/database/20160918/DbSystemShapeSummary/ListDbSystemShapes\fP> operation.
+.INDENT 0.0
+.TP
+.B \-\-ssh\-authorized\-keys\-file [filename]
+.UNINDENT
+.sp
+A file containing one or more public SSH keys to use for SSH access to the DB System. Use a newline character to separate multiple keys. The length of the combined keys cannot exceed 10,000 characters.
+.INDENT 0.0
+.TP
+.B \-\-subnet\-id [text]
+.UNINDENT
+.sp
+The \fI\%OCID\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP> of the subnet the DB system is associated with.
+.sp
+\fBSubnet Restrictions:\fP \- For bare metal DB systems and for single node virtual machine DB systems, do not use a subnet that overlaps with 192.168.16.16/28. \- For Exadata and virtual machine 2\-node RAC DB systems, do not use a subnet that overlaps with 192.168.128.0/20.
+.sp
+These subnets are used by the Oracle Clusterware private interconnect on the database instance. Specifying an overlapping subnet will cause the private interconnect to malfunction. This restriction applies to both the client subnet and the backup subnet.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-auto\-backup\-enabled [boolean]
+.UNINDENT
+.sp
+If set to true, schedules backups automatically. Default is false.
+.INDENT 0.0
+.TP
+.B \-\-backup\-network\-nsg\-ids [complex type]
+.UNINDENT
+.sp
+A list of the \fI\%OCIDs\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP> of the network security groups (NSGs) that the backup network of this DB system belongs to. Setting this to an empty array after the list is created removes the resource from all NSGs. For more information about NSGs, see \fI\%Security Rules\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm\fP>\&. Applicable only to Exadata DB systems.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-backup\-subnet\-id [text]
+.UNINDENT
+.sp
+The \fI\%OCID\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP> of the backup network subnet the DB system is associated with. Applicable only to Exadata DB systems.
+.sp
+\fBSubnet Restrictions:\fP See the subnet restrictions information for \fBsubnetId\fP\&.
+.INDENT 0.0
+.TP
+.B \-\-character\-set [text]
+.UNINDENT
+.sp
+The character set for the database. The default is AL32UTF8. Allowed values are: AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8859P6, AR8MSWIN1256, AR8MUSSAD768, AR8NAFITHA711, AR8NAFITHA721, AR8SAKHR706, AR8SAKHR707, AZ8ISO8859P9E, BG8MSWIN, BG8PC437S, BLT8CP921, BLT8ISO8859P13, BLT8MSWIN1257, BLT8PC775, BN8BSCII, CDN8PC863, CEL8ISO8859P14, CL8ISO8859P5, CL8ISOIR111, CL8KOI8R, CL8KOI8U, CL8MACCYRILLICS, CL8MSWIN1251, EE8ISO8859P2, EE8MACCES, EE8MACCROATIANS, EE8MSWIN1250, EE8PC852, EL8DEC, EL8ISO8859P7, EL8MACGREEKS, EL8MSWIN1253, EL8PC437S, EL8PC851, EL8PC869, ET8MSWIN923, HU8ABMOD, HU8CWI2, IN8ISCII, IS8PC861, IW8ISO8859P8, IW8MACHEBREWS, IW8MSWIN1255, IW8PC1507, JA16EUC, JA16EUCTILDE, JA16SJIS, JA16SJISTILDE, JA16VMS, KO16KSC5601, KO16KSCCS, KO16MSWIN949, LA8ISO6937, LA8PASSPORT, LT8MSWIN921, LT8PC772, LT8PC774, LV8PC1117, LV8PC8LR, LV8RST104090, N8PC865, NE8ISO8859P10, NEE8ISO8859P4, RU8BESTA, RU8PC855, RU8PC866, SE8ISO8859P3, TH8MACTHAIS, TH8TISASCII, TR8DEC, TR8MACTURKISHS, TR8MSWIN1254, TR8PC857, US7ASCII, US8PC437, UTF8, VN8MSWIN1258, VN8VN3, WE8DEC, WE8DG, WE8ISO8859P1, WE8ISO8859P15, WE8ISO8859P9, WE8MACROMAN8S, WE8MSWIN1252, WE8NCR4970, WE8NEXTSTEP, WE8PC850, WE8PC858, WE8PC860, WE8ROMAN8, ZHS16CGB231280, ZHS16GBK, ZHT16BIG5, ZHT16CCDC, ZHT16DBT, ZHT16HKSCS, ZHT16MSWIN950, ZHT32EUC, ZHT32SOPS, ZHT32TRIS.
+.INDENT 0.0
+.TP
+.B \-\-cluster\-name [text]
+.UNINDENT
+.sp
+The cluster name for Exadata and 2\-node RAC virtual machine DB systems. The cluster name must begin with an an alphabetic character, and may contain hyphens (\-). Underscores (_) are not permitted. The cluster name can be no longer than 11 characters and is not case sensitive.
+.INDENT 0.0
+.TP
+.B \-\-data\-storage\-percentage [integer]
+.UNINDENT
+.sp
+The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Specify 80 or 40. The default is 80 percent assigned to DATA storage. Not applicable for virtual machine DB systems.
+.INDENT 0.0
+.TP
+.B \-\-db\-unique\-name [text]
+.UNINDENT
+.sp
+The database unique name. It must be greater than 3 characters, but at most 30 characters, begin with a letter, and contain only letters, numbers, and underscores. The first eight characters must also be unique within a Database Domain and within a Database System or VM Cluster. In addition, if it is not on a VM Cluster it might either be identical to the database name or prefixed by the datbase name and followed by an underscore.
+.INDENT 0.0
+.TP
+.B \-\-db\-workload [text]
+.UNINDENT
+.sp
+Database workload type. Allowed values are: OLTP, DSS
+.INDENT 0.0
+.TP
+.B \-\-defined\-tags [complex type]
+.UNINDENT
+.sp
+Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-disk\-redundancy [text]
+.UNINDENT
+.sp
+The type of redundancy configured for the DB system. Normal is 2\-way redundancy, recommended for test and development systems. High is 3\-way redundancy, recommended for production systems.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+HIGH, NORMAL
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-display\-name [text]
+.UNINDENT
+.sp
+The user\-friendly name for the DB system. The name does not have to be unique.
+.INDENT 0.0
+.TP
+.B \-\-domain [text]
+.UNINDENT
+.sp
+A domain name used for the DB system. If the Oracle\-provided Internet and VCN Resolver is enabled for the specified subnet, the domain name for the subnet is used (do not provide one). Otherwise, provide a valid DNS domain name. Hyphens (\-) are not permitted.
+.INDENT 0.0
+.TP
+.B \-\-fault\-domains [complex type]
+.UNINDENT
+.sp
+A Fault Domain is a grouping of hardware and infrastructure within an availability domain. Fault Domains let you distribute your instances so that they are not on the same physical hardware within a single availability domain. A hardware failure or maintenance that affects one Fault Domain does not affect DB systems in other Fault Domains.
+.sp
+If you do not specify the Fault Domain, the system selects one for you. To change the Fault Domain for a DB system, terminate it and launch a new DB system in the preferred Fault Domain.
+.sp
+If the node count is greater than 1, you can specify which Fault Domains these nodes will be distributed into. The system assigns your nodes automatically to the Fault Domains you specify so that no Fault Domain contains more than one node.
+.sp
+To get a list of Fault Domains, use the \fI\%ListFaultDomains\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/identity/20160918/FaultDomain/ListFaultDomains\fP> operation in the Identity and Access Management Service API.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+FAULT\-DOMAIN\-1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-freeform\-tags [complex type]
+.UNINDENT
+.sp
+Free\-form tags for this resource. Each tag is a simple key\-value pair with no predefined name, type, or namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{"Department": "Finance"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-initial\-data\-storage\-size\-in\-gb [integer]
+.UNINDENT
+.sp
+Size (in GB) of the initial data volume that will be created and attached to a virtual machine DB system. You can scale up storage after provisioning, as needed. Note that the total storage size attached will be more than the amount you specify to allow for REDO/RECO space and software volume.
+.INDENT 0.0
+.TP
+.B \-\-license\-model [text]
+.UNINDENT
+.sp
+The Oracle license model that applies to all the databases on the DB system. The default is LICENSE_INCLUDED.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+BRING_YOUR_OWN_LICENSE, LICENSE_INCLUDED
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-maintenance\-window\-details [complex type]
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-ncharacter\-set [text]
+.UNINDENT
+.sp
+National character set for the database. The default is AL16UTF16. Allowed values are: AL16UTF16 or UTF8.
+.INDENT 0.0
+.TP
+.B \-\-node\-count [integer]
+.UNINDENT
+.sp
+The number of nodes to launch for a 2\-node RAC virtual machine DB system. Specify either 1 or 2.
+.INDENT 0.0
+.TP
+.B \-\-nsg\-ids [complex type]
+.UNINDENT
+.sp
+A list of the \fI\%OCIDs\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP> of the network security groups (NSGs) that this resource belongs to. Setting this to an empty array after the list is created removes the resource from all NSGs. For more information about NSGs, see \fI\%Security Rules\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm\fP>\&. \fBNsgIds restrictions:\fP \- Autonomous Databases with private access require at least 1 Network Security Group (NSG). The nsgIds array cannot be empty.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-pdb\-name [text]
+.UNINDENT
+.sp
+Pluggable database name. It must begin with an alphabetic character and can contain a maximum of eight alphanumeric characters. Special characters are not permitted. Pluggable database should not be same as database name.
+.INDENT 0.0
+.TP
+.B \-\-private\-ip [text]
+.UNINDENT
+.sp
+A private IP address of your choice. Must be an available IP address within the subnet\(aqs CIDR. If you don\(aqt specify a value, Oracle automatically assigns a private IP address from the subnet.
+.INDENT 0.0
+.TP
+.B \-\-recovery\-window\-in\-days [integer range]
+.UNINDENT
+.sp
+The number of days between the current and the earliest point of recoverability covered by automatic backups (1 to 60).
+.INDENT 0.0
+.TP
+.B \-\-sparse\-diskgroup [boolean]
+.UNINDENT
+.sp
+If true, Sparse Diskgroup is configured for Exadata dbsystem. If False, Sparse diskgroup is not configured.
+.INDENT 0.0
+.TP
+.B \-\-storage\-management [text]
+.UNINDENT
+.sp
+Option for storage management for the database system. Allowed values are: LVM, ASM.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ASM, LVM
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-time\-zone [text]
+.UNINDENT
+.sp
+The time zone to use for the DB system. For details, see \fI\%DB System Time Zones\fP <\fBhttps://docs.cloud.oracle.com/Content/Database/References/timezones.htm\fP>\&.
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+AVAILABLE, FAILED, MAINTENANCE_IN_PROGRESS, PROVISIONING, TERMINATED, TERMINATING, UPDATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

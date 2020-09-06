@@ -1,0 +1,14 @@
+report-type-collection
+**********************
+
+
+Description
+===========
+
+A collection of report types.
+
+
+Available Commands
+==================
+
+* list-report-types

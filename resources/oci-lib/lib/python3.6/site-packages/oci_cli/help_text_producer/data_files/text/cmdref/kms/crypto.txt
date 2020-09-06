@@ -1,0 +1,19 @@
+crypto
+******
+
+
+Description
+===========
+
+Operations for performing data encryption, decryption and generation
+of data encryption keys.
+
+
+Available Commands
+==================
+
+* decrypt
+
+* encrypt
+
+* generate-data-encryption-key

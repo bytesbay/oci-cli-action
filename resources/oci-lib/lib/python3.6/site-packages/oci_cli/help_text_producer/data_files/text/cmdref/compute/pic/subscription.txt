@@ -1,0 +1,18 @@
+subscription
+************
+
+
+Description
+===========
+
+A PIC subscription.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* list

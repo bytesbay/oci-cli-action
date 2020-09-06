@@ -1,0 +1,20 @@
+data-asset-tag
+**************
+
+
+Description
+===========
+
+Represents an association of a data asset to a term.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list

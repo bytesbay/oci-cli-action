@@ -1,0 +1,33 @@
+instance-console-connection
+***************************
+
+
+Description
+===========
+
+The *InstanceConsoleConnection* API provides you with console access
+to Compute instances, enabling you to troubleshoot malfunctioning
+instances remotely.
+
+For more information about console access, see Accessing the Console.
+
+If you are attempting to start a VNC connection to an instance from a
+Windows machine without SSH installed, you can consider using plink
+instead. The 'oci compute instance-console-connection get-plink-
+connection-string' command returns a PowerShell command which uses
+plink to launch the SSH tunnel necessary to start a VNC connection to
+the instance.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* get-plink-connection-string
+
+* list

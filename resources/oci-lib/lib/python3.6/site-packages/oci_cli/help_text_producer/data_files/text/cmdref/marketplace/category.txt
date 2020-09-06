@@ -1,0 +1,14 @@
+category
+********
+
+
+Description
+===========
+
+The model for a summary of product categories for listings.
+
+
+Available Commands
+==================
+
+* list

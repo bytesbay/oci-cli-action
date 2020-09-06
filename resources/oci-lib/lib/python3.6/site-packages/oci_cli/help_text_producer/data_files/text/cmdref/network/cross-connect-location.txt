@@ -1,0 +1,14 @@
+cross-connect-location
+**********************
+
+
+Description
+===========
+
+An individual FastConnect location.
+
+
+Available Commands
+==================
+
+* list

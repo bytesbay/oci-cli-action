@@ -1,0 +1,18 @@
+address-rate-limiting
+*********************
+
+
+Description
+===========
+
+The IP rate limiting configuration. Defines the amount of allowed
+requests from a unique IP address and the resulting block response
+code when that threshold is exceeded.
+
+
+Available Commands
+==================
+
+* get-waf
+
+* update-waf

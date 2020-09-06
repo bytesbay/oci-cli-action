@@ -1,0 +1,23 @@
+term-relationship
+*****************
+
+
+Description
+===========
+
+Full term relationship definition. Business term relationship between
+two terms in a business glossary.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

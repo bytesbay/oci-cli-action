@@ -1,0 +1,25 @@
+deployment
+**********
+
+
+Description
+===========
+
+A deployment deploys an API on a gateway. Avoid entering confidential
+information. For more information, see API Gateway Concepts.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

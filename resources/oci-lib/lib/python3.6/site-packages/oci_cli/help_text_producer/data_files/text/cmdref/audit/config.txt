@@ -1,0 +1,17 @@
+config
+******
+
+
+Description
+===========
+
+The retention period setting, specified in days. For more information,
+see Setting Audit Log Retention Period.
+
+
+Available Commands
+==================
+
+* get
+
+* update

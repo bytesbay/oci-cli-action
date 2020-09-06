@@ -1,0 +1,24 @@
+private-endpoint
+****************
+
+
+Description
+===========
+
+A Data Flow private endpoint object.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

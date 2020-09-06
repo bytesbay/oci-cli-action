@@ -1,0 +1,40 @@
+vault
+*****
+
+
+Description
+===========
+
+CLI for managing secrets.
+
+
+Available Commands
+==================
+
+* secret
+
+  * cancel-secret-deletion
+
+  * change-compartment
+
+  * create-base64
+
+  * get
+
+  * list
+
+  * schedule-secret-deletion
+
+  * update
+
+  * update-base64
+
+* secret-version
+
+  * cancel-deletion
+
+  * get
+
+  * list
+
+  * schedule-deletion

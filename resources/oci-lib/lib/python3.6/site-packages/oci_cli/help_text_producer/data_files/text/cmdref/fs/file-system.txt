@@ -1,0 +1,35 @@
+file-system
+***********
+
+
+Description
+===========
+
+An NFS file system. To allow access to a file system, add it to an
+export set and associate the export set with a mount target. The same
+file system can be in multiple export sets and associated with
+multiple mount targets.
+
+To use any of the API operations, you must be authorized in an IAM
+policy. If you're not authorized, talk to an administrator. If you're
+an administrator who needs to write policies to give users access, see
+Getting Started with Policies.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

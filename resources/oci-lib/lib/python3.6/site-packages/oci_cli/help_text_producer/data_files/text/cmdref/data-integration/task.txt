@@ -1,0 +1,33 @@
+task
+****
+
+
+Description
+===========
+
+The task type contains the audit summary information and the
+definition of the task.
+
+
+Available Commands
+==================
+
+* create-data-loader-task
+
+* create-integration-task
+
+* delete
+
+* delete-task-validation
+
+* get
+
+* get-task-validation
+
+* list
+
+* list-task-validations
+
+* update-data-loader-task
+
+* update-integration-task

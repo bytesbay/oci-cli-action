@@ -1,0 +1,24 @@
+vm-cluster
+**********
+
+
+Description
+===========
+
+Details of the VM cluster.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

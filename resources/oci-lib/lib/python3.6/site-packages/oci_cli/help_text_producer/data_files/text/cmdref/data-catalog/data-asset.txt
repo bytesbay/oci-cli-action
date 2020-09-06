@@ -1,0 +1,32 @@
+data-asset
+**********
+
+
+Description
+===========
+
+Data asset representation. A physical store, or stream, of data known
+to the data catalog and containing one or many data entities, possibly
+in an organized structure of folders. A data asset is often synonymous
+with a 'System', such as a database, or may be a file container or a
+message stream.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* import-connection
+
+* list
+
+* parse-connection
+
+* update
+
+* validate-connection

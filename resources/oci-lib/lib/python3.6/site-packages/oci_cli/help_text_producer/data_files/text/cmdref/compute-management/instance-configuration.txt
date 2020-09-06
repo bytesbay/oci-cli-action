@@ -1,0 +1,30 @@
+instance-configuration
+**********************
+
+
+Description
+===========
+
+An instance configuration is a template that defines the settings to
+use when creating Compute instances. For more information about
+instance configurations, see Managing Compute Instances.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* create-from-instance
+
+* delete
+
+* get
+
+* launch-compute-instance
+
+* list
+
+* update

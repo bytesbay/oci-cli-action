@@ -1,0 +1,14 @@
+work-request-error
+******************
+
+
+Description
+===========
+
+Error encountered during the execution of a work request.
+
+
+Available Commands
+==================
+
+* list

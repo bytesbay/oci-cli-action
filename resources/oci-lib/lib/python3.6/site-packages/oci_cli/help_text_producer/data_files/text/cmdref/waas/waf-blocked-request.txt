@@ -1,0 +1,12 @@
+waf-blocked-request
+*******************
+
+
+Description
+===========
+
+
+Available Commands
+==================
+
+* list

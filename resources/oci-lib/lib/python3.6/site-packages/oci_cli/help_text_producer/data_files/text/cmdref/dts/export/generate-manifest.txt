@@ -1,0 +1,63 @@
+"generate-manifest"
+*******************
+
+
+Description
+===========
+
+Generates a manifest file for the objects that need to be exported
+
+
+Usage
+=====
+
+   oci dts export generate-manifest [OPTIONS]
+
+
+Required Parameters
+===================
+
+--bucket [text]
+
+Name of the bucket for which export is requested
+
+--compartment-id, -c [text]
+
+Compartment OCID where the bucket resides
+
+--job-id [text]
+
+OCID of the Export Job
+
+
+Optional Parameters
+===================
+
+--end [text]
+
+The subset of objects that needs to be exported upto this object
+(inclusive)
+
+--prefix [text]
+
+The subset of objects that needs to be exported whose names starts
+with this Prefix
+
+--start [text]
+
+The subset of objects that needs to be exported starting with this
+object (inclusive)
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

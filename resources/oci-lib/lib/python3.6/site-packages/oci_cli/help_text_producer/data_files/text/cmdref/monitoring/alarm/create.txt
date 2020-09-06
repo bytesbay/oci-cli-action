@@ -1,0 +1,287 @@
+"create"
+********
+
+
+Description
+===========
+
+Creates a new alarm in the specified compartment.
+
+
+Usage
+=====
+
+   oci monitoring alarm create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--compartment-id, -c [text]
+
+The OCID of the compartment containing the alarm.
+
+--destinations [complex type]
+
+A list of destinations to which the notifications for this alarm will
+be delivered. Each destination is represented by an OCID related to
+the supported destination service. For example, a destination using
+the Notifications service is represented by a topic OCID. Supported
+destination services: Notifications Service. Limit: One destination
+per supported destination service. This is a complex type whose value
+must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--display-name [text]
+
+A user-friendly name for the alarm. It does not have to be unique, and
+it's changeable. Avoid entering confidential information.
+
+This name is sent as the title for notifications related to this
+alarm.
+
+Example:
+
+   High CPU Utilization
+
+--is-enabled [boolean]
+
+Whether the alarm is enabled.
+
+Example:
+
+   true
+
+--metric-compartment-id [text]
+
+The OCID of the compartment containing the metric being evaluated by
+the alarm.
+
+--namespace [text]
+
+The source service or application emitting the metric that is
+evaluated by the alarm.
+
+Example:
+
+   oci_computeagent
+
+--query-text [text]
+
+The Monitoring Query Language (MQL) expression to evaluate for the
+alarm. The Alarms feature of the Monitoring service interprets results
+for each returned time series as Boolean values, where zero represents
+false and a non-zero value represents true. A true value means that
+the trigger rule condition has been met. The query must specify a
+metric, statistic, interval, and trigger rule (threshold or absence).
+Supported values for interval: *1m*-*60m* (also *1h*). You can
+optionally specify dimensions and grouping functions. Supported
+grouping functions: *grouping()*, *groupBy()*. For details about
+Monitoring Query Language (MQL), see Monitoring Query Language (MQL)
+Reference. For available dimensions, review the metric definition for
+the supported service. See Supported Services.
+
+Example of threshold alarm:
+
+      CpuUtilization[1m]{availabilityDomain="cumS:PHX-
+      AD-1"}.groupBy(availabilityDomain).percentile(0.9) > 85
+
+Example of absence alarm:
+
+      CpuUtilization[1m]{availabilityDomain="cumS:PHX-AD-1"}.absent()
+
+--severity [text]
+
+The perceived type of response required when the alarm is in the
+"FIRING" state.
+
+Example:
+
+   CRITICAL
+
+
+Optional Parameters
+===================
+
+--body [text]
+
+The human-readable content of the notification delivered. Oracle
+recommends providing guidance to operators for resolving the alarm
+condition. Consider adding links to standard runbook practices. Avoid
+entering confidential information.
+
+Example:
+
+   High CPU usage alert. Follow runbook instructions for resolution.
+
+--defined-tags [complex type]
+
+Usage of predefined tag keys. These predefined keys are scoped to
+namespaces. Example: *{"Operations": {"CostCenter": "42"}}* This is a
+complex type whose value must be valid JSON. The value can be provided
+as a string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--freeform-tags [complex type]
+
+Simple key-value pair that is applied without any predefined name,
+type or scope. Exists for cross-compatibility only. Example:
+*{"Department": "Finance"}* This is a complex type whose value must be
+valid JSON. The value can be provided as a string on the command line
+or passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--metric-compartment-id-in-subtree [boolean]
+
+When true, the alarm evaluates metrics from all compartments and
+subcompartments. The parameter can only be set to true when
+metricCompartmentId is the tenancy OCID (the tenancy is the root
+compartment). A true value requires the user to have tenancy-level
+permissions. If this requirement is not met, then the call is
+rejected. When false, the alarm evaluates metrics from only the
+compartment specified in metricCompartmentId. Default is false.
+
+Example:
+
+   true
+
+--pending-duration [text]
+
+The period of time that the condition defined in the alarm must
+persist before the alarm state changes from "OK" to "FIRING". For
+example, a value of 5 minutes means that the alarm must persist in
+breaching the condition for five minutes before the alarm updates its
+state to "FIRING".
+
+The duration is specified as a string in ISO 8601 format (*PT10M* for
+ten minutes or *PT1H* for one hour). Minimum: PT1M. Maximum: PT1H.
+Default: PT1M.
+
+Under the default value of PT1M, the first evaluation that breaches
+the alarm updates the state to "FIRING".
+
+The alarm updates its status to "OK" when the breaching condition has
+been clear for the most recent minute.
+
+Example:
+
+   PT5M
+
+--repeat-notification-duration [text]
+
+The frequency at which notifications are re-submitted, if the alarm
+keeps firing without interruption. Format defined by ISO 8601. For
+example, *PT4H* indicates four hours. Minimum: PT1M. Maximum: P30D.
+
+Default value: null (notifications are not re-submitted).
+
+Example:
+
+   PT2H
+
+--resolution [text]
+
+The time between calculated aggregation windows for the alarm.
+Supported value: *1m*
+
+--resource-group [text]
+
+Resource group that you want to use as a filter. The alarm retrieves
+metric data associated with the specified resource group only. Only
+one resource group can be applied per metric. A valid resourceGroup
+value starts with an alphabetical character and includes only
+alphanumeric characters, periods (.), underscores (_), hyphens (-),
+and dollar signs ($). Avoid entering confidential information.
+
+Example:
+
+   frontend-fleet
+
+--suppression [complex type]
+
+The configuration details for suppressing an alarm. This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   ACTIVE, DELETED, DELETING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

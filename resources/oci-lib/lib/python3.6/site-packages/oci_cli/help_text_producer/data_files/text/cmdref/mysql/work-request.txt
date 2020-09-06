@@ -1,0 +1,16 @@
+work-request
+************
+
+
+Description
+===========
+
+The status of an asynchronous task in the system.
+
+
+Available Commands
+==================
+
+* get
+
+* list

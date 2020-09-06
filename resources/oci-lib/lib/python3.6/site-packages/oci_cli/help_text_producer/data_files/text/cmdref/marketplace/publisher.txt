@@ -1,0 +1,14 @@
+publisher
+*********
+
+
+Description
+===========
+
+The model for a publisher.
+
+
+Available Commands
+==================
+
+* list

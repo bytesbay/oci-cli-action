@@ -1,0 +1,14 @@
+host-shape
+**********
+
+
+Description
+===========
+
+The shape used to launch the dedicated virtual machine (VM) host.
+
+
+Available Commands
+==================
+
+* list

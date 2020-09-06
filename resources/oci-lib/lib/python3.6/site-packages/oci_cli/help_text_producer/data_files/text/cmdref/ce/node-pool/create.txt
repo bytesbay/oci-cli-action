@@ -1,0 +1,219 @@
+"create"
+********
+
+
+Description
+===========
+
+Create a new node pool.
+
+
+Usage
+=====
+
+   oci ce node-pool create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--cluster-id [text]
+
+The OCID of the cluster to which this node pool is attached.
+
+--compartment-id, -c [text]
+
+The OCID of the compartment in which the node pool exists.
+
+--kubernetes-version [text]
+
+The version of Kubernetes to install on the nodes in the node pool.
+
+--name [text]
+
+The name of the node pool. Avoid entering confidential information.
+
+--node-shape [text]
+
+The name of the node shape of the nodes in the node pool.
+
+
+Optional Parameters
+===================
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--initial-node-labels [complex type]
+
+A list of key/value pairs to add to nodes after they join the
+Kubernetes cluster.
+
+This option is a JSON list with items of type KeyValue.  For
+documentation on KeyValue please see our API reference: https://docs.
+cloud.oracle.com/api/#/en/containerengine/20180222/datatypes/KeyValue.
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--node-boot-volume-size-in-gbs [integer]
+
+The size of the boot volume in GBs. This is a shortcut for specifying
+a boot volume size via the --node-source-details complex JSON
+parameter. If this parameter is provided, you cannot provide the
+--node-source-details parameter.
+
+--node-image-id [text]
+
+The OCID of the image used to launch the node. This is a shortcut for
+specifying an image id via the --node-source-details complex JSON
+parameter. If this parameter is provided, you cannot provide the
+--node-source-details parameter
+
+--node-image-name [text]
+
+Deprecated. Use *nodeSourceDetails* instead. If you specify values for
+both, this value is ignored. The name of the image running on the
+nodes in the node pool.
+
+--node-metadata [complex type]
+
+A list of key/value pairs to add to each underlying OCI instance in
+the node pool on launch. This is a complex type whose value must be
+valid JSON. The value can be provided as a string on the command line
+or passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--node-shape-config [complex type]
+
+Specify the configuration of the shape to launch nodes in the node
+pool. This is a complex type whose value must be valid JSON. The value
+can be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--node-source-details [complex type]
+
+Specify the source to use to launch nodes in the node pool. Currently,
+image is the only supported source. This is a complex type whose value
+must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--placement-configs [complex type]
+
+The placement configurations that determine where the nodes will be
+placed. This is a complex type whose value must be valid JSON. The
+value can be provided as a string on the command line or passed in as
+a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--quantity-per-subnet [integer]
+
+Optional, default to 1. The number of nodes to create in each subnet
+specified in subnetIds property. When used, subnetIds is required.
+This property is deprecated, use nodeConfigDetails instead.
+
+--size [integer]
+
+The number of nodes spread across placement configurations.
+
+--ssh-public-key [text]
+
+The SSH public key on each node in the node pool on launch.
+
+--subnet-ids [complex type]
+
+The OCIDs of the subnets in which to place nodes for this node pool.
+When used, quantityPerSubnet can be provided. This property is
+deprecated, use nodeConfigDetails. Exactly one of the subnetIds or
+nodeConfigDetails properties must be specified. This is a complex type
+whose value must be valid JSON. The value can be provided as a string
+on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, CANCELED, CANCELING, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

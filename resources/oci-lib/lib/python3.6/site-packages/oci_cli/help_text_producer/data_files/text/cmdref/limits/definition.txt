@@ -1,0 +1,14 @@
+definition
+**********
+
+
+Description
+===========
+
+The metadata specific to a resource limit definition.
+
+
+Available Commands
+==================
+
+* list

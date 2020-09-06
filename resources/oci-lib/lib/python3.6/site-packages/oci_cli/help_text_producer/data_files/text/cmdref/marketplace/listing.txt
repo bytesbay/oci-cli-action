@@ -1,0 +1,16 @@
+listing
+*******
+
+
+Description
+===========
+
+The model for an Oracle Cloud Infrastructure Marketplace listing.
+
+
+Available Commands
+==================
+
+* get
+
+* list

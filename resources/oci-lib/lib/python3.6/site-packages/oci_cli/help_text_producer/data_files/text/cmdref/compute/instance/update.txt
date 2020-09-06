@@ -1,0 +1,284 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates certain fields on the specified instance. Fields that are not
+provided in the request will not be updated. Avoid entering
+confidential information.
+
+Changes to metadata fields will be reflected in the instance metadata
+service (this may take up to a minute).
+
+The OCID of the instance remains the same.
+
+
+Usage
+=====
+
+   oci compute instance update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--instance-id [text]
+
+The OCID of the instance.
+
+
+Optional Parameters
+===================
+
+--agent-config [complex type]
+
+Instance agent configuration options to choose for updating the
+instance This is a complex type whose value must be valid JSON. The
+value can be provided as a string on the command line or passed in as
+a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--availability-config [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags.
+
+Example:
+
+   {"Operations": {"CostCenter": "42"}}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--display-name [text]
+
+A user-friendly name. Does not have to be unique, and it's changeable.
+Avoid entering confidential information.
+
+Example:
+
+   My bare metal instance
+
+--extended-metadata [complex type]
+
+Additional metadata key/value pairs that you provide. They serve the
+same purpose and functionality as fields in the *metadata* object.
+
+They are distinguished from *metadata* fields in that these can be
+nested JSON objects (whereas *metadata* fields are string/string maps
+only).
+
+The "user_data" field and the "ssh_authorized_keys" field cannot be
+changed after an instance has launched. Any request that updates,
+removes, or adds either of these fields will be rejected. You must
+provide the same values for "user_data" and "ssh_authorized_keys" that
+already exist on the instance.
+
+The combined size of the *metadata* and *extendedMetadata* objects can
+be a maximum of 32,000 bytes. This is a complex type whose value must
+be valid JSON. The value can be provided as a string on the command
+line or passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--fault-domain [text]
+
+A fault domain is a grouping of hardware and infrastructure within an
+availability domain. Each availability domain contains three fault
+domains. Fault domains let you distribute your instances so that they
+are not on the same physical hardware within a single availability
+domain. A hardware failure or Compute hardware maintenance that
+affects one fault domain does not affect instances in other fault
+domains.
+
+To get a list of fault domains, use the ListFaultDomains operation in
+the Identity and Access Management Service API.
+
+Example:
+
+   FAULT-DOMAIN-1
+
+--force
+
+Perform update without prompting for confirmation.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+Example:
+
+   {"Department": "Finance"}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource.  The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--launch-options [complex type]
+
+Options for tuning the compatibility and performance of VM shapes.
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--metadata [complex type]
+
+Custom metadata key/value string pairs that you provide. Any set of
+key/value pairs provided here will completely replace the current set
+of key/value pairs in the *metadata* field on the instance.
+
+The "user_data" field and the "ssh_authorized_keys" field cannot be
+changed after an instance has launched. Any request that updates,
+removes, or adds either of these fields will be rejected. You must
+provide the same values for "user_data" and "ssh_authorized_keys" that
+already exist on the instance.
+
+The combined size of the *metadata* and *extendedMetadata* objects can
+be a maximum of 32,000 bytes. This is a complex type whose value must
+be valid JSON. The value can be provided as a string on the command
+line or passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--shape [text]
+
+The shape of the instance. The shape determines the number of CPUs and
+the amount of memory allocated to the instance. For more information
+about how to change shapes, and a list of shapes that are supported,
+see Editing an Instance.
+
+For details about the CPUs, memory, and other properties of each
+shape, see Compute Shapes.
+
+The new shape must be compatible with the image that was used to
+launch the instance. You can enumerate all available shapes and
+determine image compatibility by calling ListShapes.
+
+If the instance is running when you change the shape, the instance is
+rebooted.
+
+Example:
+
+   VM.Standard2.1
+
+--shape-config [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   CREATING_IMAGE, MOVING, PROVISIONING, RUNNING, STARTING, STOPPED, STOPPING, TERMINATED, TERMINATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

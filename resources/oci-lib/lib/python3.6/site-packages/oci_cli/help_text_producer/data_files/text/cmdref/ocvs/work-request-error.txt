@@ -1,0 +1,15 @@
+work-request-error
+******************
+
+
+Description
+===========
+
+An error encountered while executing an operation that is tracked by a
+work request.
+
+
+Available Commands
+==================
+
+* list

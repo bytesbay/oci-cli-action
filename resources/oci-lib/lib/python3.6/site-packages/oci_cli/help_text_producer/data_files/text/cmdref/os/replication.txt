@@ -1,0 +1,22 @@
+replication
+***********
+
+
+Description
+===========
+
+
+Available Commands
+==================
+
+* create-replication-policy
+
+* delete-replication-policy
+
+* get-replication-policy
+
+* list-replication-policies
+
+* list-replication-sources
+
+* make-bucket-writable

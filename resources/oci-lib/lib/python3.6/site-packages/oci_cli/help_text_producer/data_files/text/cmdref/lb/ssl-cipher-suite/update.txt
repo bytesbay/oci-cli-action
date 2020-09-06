@@ -1,0 +1,169 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates an existing SSL cipher suite for the specified load balancer.
+
+
+Usage
+=====
+
+   oci lb ssl-cipher-suite update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--ciphers [complex type]
+
+A list of SSL ciphers the load balancer must support for HTTPS or SSL
+connections.
+
+The following ciphers are valid values for this property:
+
+* __TLSv1.2 >>ciphers__<<
+
+     "AES128-GCM-SHA256"         "AES128-SHA256"         "AES256-GCM-
+     SHA384"         "AES256-SHA256"         "DH-DSS-AES128-GCM-
+     SHA256"         "DH-DSS-AES128-SHA256"         "DH-DSS-AES256
+     -GCM-SHA384"         "DH-DSS-AES256-SHA256"         "DH-RSA-
+     AES128-GCM-SHA256"         "DH-RSA-AES128-SHA256"         "DH-
+     RSA-AES256-GCM-SHA384"         "DH-RSA-AES256-SHA256"
+     "DHE-DSS-AES128-GCM-SHA256"         "DHE-DSS-AES128-SHA256"
+     "DHE-DSS-AES256-GCM-SHA384"         "DHE-DSS-AES256-SHA256"
+     "DHE-RSA-AES128-GCM-SHA256"         "DHE-RSA-AES128-SHA256"
+     "DHE-RSA-AES256-GCM-SHA384"         "DHE-RSA-AES256-SHA256"
+     "ECDH-ECDSA-AES128-GCM-SHA256"         "ECDH-ECDSA-AES128-SHA256"
+     "ECDH-ECDSA-AES256-GCM-SHA384"         "ECDH-ECDSA-AES256-SHA384"
+     "ECDH-RSA-AES128-GCM-SHA256"         "ECDH-RSA-AES128-SHA256"
+     "ECDH-RSA-AES256-GCM-SHA384"         "ECDH-RSA-AES256-SHA384"
+     "ECDHE-ECDSA-AES128-GCM-SHA256"         "ECDHE-ECDSA-
+     AES128-SHA256"         "ECDHE-ECDSA-AES256-GCM-SHA384"
+     "ECDHE-ECDSA-AES256-SHA384"         "ECDHE-RSA-AES128-GCM-SHA256"
+     "ECDHE-RSA-AES128-SHA256"         "ECDHE-RSA-AES256-GCM-SHA384"
+     "ECDHE-RSA-AES256-SHA384"
+
+* __TLSv1 ciphers also supported by >>TLSv1.2__<<
+
+     "AES128-SHA"         "AES256-SHA"         "CAMELLIA128-SHA"
+     "CAMELLIA256-SHA"         "DES-CBC3-SHA"         "DH-DSS-
+     AES128-SHA"         "DH-DSS-AES256-SHA"         "DH-DSS-
+     CAMELLIA128-SHA"         "DH-DSS-CAMELLIA256-SHA"         "DH-
+     DSS-DES-CBC3-SHAv"         "DH-DSS-SEED-SHA"         "DH-RSA-
+     AES128-SHA"         "DH-RSA-AES256-SHA"         "DH-RSA-
+     CAMELLIA128-SHA"         "DH-RSA-CAMELLIA256-SHA"         "DH-
+     RSA-DES-CBC3-SHA"         "DH-RSA-SEED-SHA"         "DHE-DSS-
+     AES128-SHA"         "DHE-DSS-AES256-SHA"         "DHE-DSS-
+     CAMELLIA128-SHA"         "DHE-DSS-CAMELLIA256-SHA"         "DHE-
+     DSS-DES-CBC3-SHA"         "DHE-DSS-SEED-SHA"         "DHE-RSA-
+     AES128-SHA"         "DHE-RSA-AES256-SHA"         "DHE-RSA-
+     CAMELLIA128-SHA"         "DHE-RSA-CAMELLIA256-SHA"         "DHE-
+     RSA-DES-CBC3-SHA"         "DHE-RSA-SEED-SHA"         "ECDH-ECDSA-
+     AES128-SHA"         "ECDH-ECDSA-AES256-SHA"         "ECDH-ECDSA-
+     DES-CBC3-SHA"         "ECDH-ECDSA-RC4-SHA"         "ECDH-RSA-
+     AES128-SHA"         "ECDH-RSA-AES256-SHA"         "ECDH-RSA-DES-
+     CBC3-SHA"         "ECDH-RSA-RC4-SHA"         "ECDHE-ECDSA-
+     AES128-SHA"         "ECDHE-ECDSA-AES256-SHA"         "ECDHE-
+     ECDSA-DES-CBC3-SHA"         "ECDHE-ECDSA-RC4-SHA"         "ECDHE-
+     RSA-AES128-SHA"         "ECDHE-RSA-AES256-SHA"         "ECDHE-
+     RSA-DES-CBC3-SHA"         "ECDHE-RSA-RC4-SHA"         "IDEA-CBC-
+     SHA"         "KRB5-DES-CBC3-MD5"         "KRB5-DES-CBC3-SHA"
+     "KRB5-IDEA-CBC-MD5"         "KRB5-IDEA-CBC-SHA"
+     "KRB5-RC4-MD5"         "KRB5-RC4-SHA"         "PSK-3DES-EDE-CBC-
+     SHA"         "PSK-AES128-CBC-SHA"         "PSK-AES256-CBC-SHA"
+     "PSK-RC4-SHA"         "RC4-MD5"         "RC4-SHA"         "SEED-
+     SHA"
+
+example: *["ECDHE-RSA-AES256-GCM-SHA384","ECDHE-ECDSA-AES256-GCM-
+SHA384","ECDHE-RSA-AES128-GCM-SHA256"]* This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--load-balancer-id [text]
+
+The OCID of the associated load balancer.
+
+--name [text]
+
+The name of the SSL cipher suite to update.
+
+example: *example_cipher_suite*
+
+
+Optional Parameters
+===================
+
+--force
+
+Perform update without prompting for confirmation.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

@@ -1,0 +1,118 @@
+"list"
+******
+
+
+Description
+===========
+
+Lists all databases in a given DB System.
+
+
+Usage
+=====
+
+   oci db database list [OPTIONS]
+
+
+Required Parameters
+===================
+
+--compartment-id, -c [text]
+
+The compartment OCID.
+
+
+Optional Parameters
+===================
+
+--backup-id [text]
+
+The OCID of the backup. Specify a backupId to list only the DB systems
+or DB homes that support creating a database using this backup in this
+compartment.
+
+--db-system-id [text]
+
+The OCID of the db system to list within.
+
+--display-name [text]
+
+A filter to return only resources that match the entire display name
+given. The match is not case sensitive.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--lifecycle-state [text]
+
+A filter to return only resources that match the given lifecycle state
+exactly.
+
+Accepted values are:
+
+   AVAILABLE, FAILED, PROVISIONING, TERMINATED, TERMINATING, UPDATING
+
+--limit [integer]
+
+The maximum number of items to return per page.
+
+--sort-by [text]
+
+The field to sort by.  You can provide one sort order (*sortOrder*).
+Default order for TIMECREATED is descending.  Default order for
+DISPLAYNAME is ascending. The DISPLAYNAME sort order is case
+sensitive.
+
+Accepted values are:
+
+   DISPLAYNAME, TIMECREATED
+
+--sort-order [text]
+
+The sort order to use, either ascending (*ASC*) or descending
+(*DESC*).
+
+Accepted values are:
+
+   ASC, DESC
+
+--vm-cluster-id [text]
+
+The OCID of the VM cluster.
+
+--vm-cluster-id [text]
+
+The OCID of the vm cluster to list within.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

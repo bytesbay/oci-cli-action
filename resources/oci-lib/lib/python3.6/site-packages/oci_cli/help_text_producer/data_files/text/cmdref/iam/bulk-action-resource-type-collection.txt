@@ -1,0 +1,14 @@
+bulk-action-resource-type-collection
+************************************
+
+
+Description
+===========
+
+Collection of resource-types supported by a compartment bulk action.
+
+
+Available Commands
+==================
+
+* list

@@ -1,0 +1,34 @@
+job
+***
+
+
+Description
+===========
+
+Transfer disk or appliance job operations
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* close
+
+* create
+
+* delete
+
+* detach-devices-details
+
+  * change-compartment
+
+* list
+
+* setup-notifications
+
+* show
+
+* update
+
+* verify-upload-user-credentials

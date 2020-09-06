@@ -1,0 +1,26 @@
+custom-protection-rule
+**********************
+
+
+Description
+===========
+
+The details of a custom protection rule.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update
+
+* update-setting

@@ -1,0 +1,14 @@
+message
+*******
+
+
+Description
+===========
+
+A message for a topic.
+
+
+Available Commands
+==================
+
+* publish

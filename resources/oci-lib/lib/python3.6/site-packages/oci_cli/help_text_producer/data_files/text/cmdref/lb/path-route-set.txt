@@ -1,0 +1,26 @@
+path-route-set
+**************
+
+
+Description
+===========
+
+A named set of path route rules. For more information, see Managing
+Request Routing.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

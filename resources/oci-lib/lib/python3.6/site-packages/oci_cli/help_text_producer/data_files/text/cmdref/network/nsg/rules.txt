@@ -1,0 +1,23 @@
+rules
+*****
+
+
+Description
+===========
+
+A security rule is one of the items in a NetworkSecurityGroup. It is a
+virtual firewall rule for the VNICs in the network security group. A
+rule can be for either inbound (>>`<<direction`= INGRESS) or outbound
+(>>`<<direction`= EGRESS) IP packets.
+
+
+Available Commands
+==================
+
+* add
+
+* list
+
+* remove
+
+* update

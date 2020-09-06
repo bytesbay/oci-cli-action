@@ -1,0 +1,278 @@
+"create"
+********
+
+
+Description
+===========
+
+Creates a new subnet in the specified VCN. You can't change the size
+of the subnet after creation, so it's important to think about the
+size of subnets you need before creating them. For more information,
+see VCNs and Subnets. For information on the number of subnets you can
+have in a VCN, see Service Limits.
+
+For the purposes of access control, you must provide the OCID of the
+compartment where you want the subnet to reside. Notice that the
+subnet doesn't have to be in the same compartment as the VCN, route
+tables, or other Networking Service components. If you're not sure
+which compartment to use, put the subnet in the same compartment as
+the VCN. For more information about compartments and access control,
+see Overview of the IAM Service. For information about OCIDs, see
+Resource Identifiers.
+
+You may optionally associate a route table with the subnet. If you
+don't, the subnet will use the VCN's default route table. For more
+information about route tables, see Route Tables.
+
+You may optionally associate a security list with the subnet. If you
+don't, the subnet will use the VCN's default security list. For more
+information about security lists, see Security Lists.
+
+You may optionally associate a set of DHCP options with the subnet. If
+you don't, the subnet will use the VCN's default set. For more
+information about DHCP options, see DHCP Options.
+
+You may optionally specify a *display name* for the subnet, otherwise
+a default is provided. It does not have to be unique, and you can
+change it. Avoid entering confidential information.
+
+You can also add a DNS label for the subnet, which is required if you
+want the Internet and VCN Resolver to resolve hostnames for instances
+in the subnet. For more information, see DNS in Your Virtual Cloud
+Network.
+
+
+Usage
+=====
+
+   oci network subnet create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--cidr-block [text]
+
+The CIDR IP address range of the subnet. The CIDR must maintain the
+following rules -
+
+1. The CIDR block is valid and correctly formatted. b. The new
+   range is within one of the parent VCN ranges.
+
+Example:
+
+   10.0.1.0/24
+
+--compartment-id, -c [text]
+
+The OCID of the compartment to contain the subnet.
+
+--vcn-id [text]
+
+The OCID of the VCN to contain the subnet.
+
+
+Optional Parameters
+===================
+
+--availability-domain [text]
+
+Controls whether the subnet is regional or specific to an availability
+domain. Oracle recommends creating regional subnets because they're
+more flexible and make it easier to implement failover across
+availability domains. Originally, AD-specific subnets were the only
+kind available to use.
+
+To create a regional subnet, omit this attribute. Then any resources
+later created in this subnet (such as a Compute instance) can be
+created in any availability domain in the region.
+
+To instead create an AD-specific subnet, set this attribute to the
+availability domain you want this subnet to be in. Then any resources
+later created in this subnet can only be created in that availability
+domain.
+
+Example:
+
+   Uocm:PHX-AD-1
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags.
+
+Example:
+
+   {"Operations": {"CostCenter": "42"}}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--dhcp-options-id [text]
+
+The OCID of the set of DHCP options the subnet will use. If you don't
+provide a value, the subnet uses the VCN's default set of DHCP
+options.
+
+--display-name [text]
+
+A user-friendly name. Does not have to be unique, and it's changeable.
+Avoid entering confidential information.
+
+--dns-label [text]
+
+A DNS label for the subnet, used in conjunction with the VNIC's
+hostname and VCN's DNS label to form a fully qualified domain name
+(FQDN) for each VNIC within this subnet (for example,
+*bminstance-1.subnet123.vcn1.oraclevcn.com*). Must be an alphanumeric
+string that begins with a letter and is unique within the VCN. The
+value cannot be changed.
+
+This value must be set if you want to use the Internet and VCN
+Resolver to resolve the hostnames of instances in the subnet. It can
+only be set if the VCN itself was created with a DNS label.
+
+For more information, see DNS in Your Virtual Cloud Network.
+
+Example:
+
+   subnet123
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+Example:
+
+   {"Department": "Finance"}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--ipv6-cidr-block [text]
+
+Use this to enable IPv6 addressing for this subnet. The VCN must be
+enabled for IPv6. You can't change this subnet characteristic later.
+All subnets are /64 in size. The subnet portion of the IPv6 address is
+the fourth hextet from the left (1111 in the following example).
+
+For important details about IPv6 addressing in a VCN, see IPv6
+Addresses.
+
+Example:
+
+   2001:0db8:0123:1111::/64
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--prohibit-public-ip-on-vnic [boolean]
+
+Whether VNICs within this subnet can have public IP addresses.
+Defaults to false, which means VNICs created in this subnet will
+automatically be assigned public IP addresses unless specified
+otherwise during instance launch (with the *--assign-public-ip* flag).
+If *--prohibit-public-ip-on-vnic* is set to true, VNICs created in
+this subnet cannot have public IP addresses (i.e., it's a private
+subnet).
+
+Example:
+
+   true
+
+--route-table-id [text]
+
+The OCID of the route table the subnet will use. If you don't provide
+a value, the subnet uses the VCN's default route table.
+
+--security-list-ids [complex type]
+
+The OCIDs of the security list or lists the subnet will use. If you
+don't provide a value, the subnet uses the VCN's default security
+list. Remember that security lists are associated *with the subnet*,
+but the rules are applied to the individual VNICs in the subnet. This
+is a complex type whose value must be valid JSON. The value can be
+provided as a string on the command line or passed in as a file using
+the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+Example:
+
+   '["ocid1.securitylist.oc1.phx.aaaaaaaadyndu2n3hcmdsjfiljwyq7vpxsvv7ynp4ori7aealcvhzicnzhyq"]'
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   AVAILABLE, PROVISIONING, TERMINATED, TERMINATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

@@ -1,0 +1,26 @@
+configuration
+*************
+
+
+Description
+===========
+
+An autoscaling configuration allows you to dynamically scale the
+resources in a Compute instance pool. For more information, see
+Autoscaling.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

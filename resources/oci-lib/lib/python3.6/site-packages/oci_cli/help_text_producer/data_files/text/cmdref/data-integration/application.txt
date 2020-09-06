@@ -1,0 +1,39 @@
+application
+***********
+
+
+Description
+===========
+
+The application type contains the audit summary information and the
+definition of the application.
+
+
+Available Commands
+==================
+
+* create
+
+* create-patch
+
+* delete
+
+* delete-patch
+
+* get
+
+* get-dependent-object
+
+* get-patch
+
+* get-published-object
+
+* list
+
+* list-dependent-objects
+
+* list-patches
+
+* list-published-objects
+
+* update

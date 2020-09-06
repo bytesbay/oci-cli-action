@@ -1,0 +1,82 @@
+compute-management
+******************
+
+
+Description
+===========
+
+Compute Management Service CLI
+
+
+Available Commands
+==================
+
+* cluster-network
+
+  * change-compartment
+
+  * create
+
+  * get
+
+  * list
+
+  * list-instances
+
+  * terminate
+
+  * update
+
+* instance-configuration
+
+  * change-compartment
+
+  * create
+
+  * create-from-instance
+
+  * delete
+
+  * get
+
+  * launch-compute-instance
+
+  * list
+
+  * update
+
+* instance-pool
+
+  * attach-lb
+
+  * change-compartment
+
+  * create
+
+  * detach-lb
+
+  * get
+
+  * lb-attachment
+
+    * attach
+
+    * detach
+
+    * get
+
+  * list
+
+  * list-instances
+
+  * reset
+
+  * softreset
+
+  * start
+
+  * stop
+
+  * terminate
+
+  * update

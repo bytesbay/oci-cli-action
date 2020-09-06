@@ -1,0 +1,22 @@
+data-asset
+**********
+
+
+Description
+===========
+
+The data asset type.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

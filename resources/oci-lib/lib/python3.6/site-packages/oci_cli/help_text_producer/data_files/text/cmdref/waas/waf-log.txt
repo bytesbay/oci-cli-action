@@ -1,0 +1,18 @@
+waf-log
+*******
+
+
+Description
+===========
+
+A list of Web Application Firewall log entries. Each entry is a JSON
+object, including a timestamp property and other fields varying based
+on log type. Logs record what rules and countermeasures are triggered
+by requests and are used as a basis to move request handling into
+block mode. For more information about WAF logs, see Logs.
+
+
+Available Commands
+==================
+
+* list

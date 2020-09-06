@@ -1,0 +1,133 @@
+os-management
+*************
+
+
+Description
+===========
+
+CLI for the OS Management service. Use these CLI operations for
+working with Managed instances and Managed instance groups.
+
+
+Available Commands
+==================
+
+* erratum
+
+  * get
+
+* managed-instance
+
+  * attach-child
+
+  * attach-parent
+
+  * detach-child
+
+  * detach-parent
+
+  * get
+
+  * install-all-updates
+
+  * install-all-windows-updates
+
+  * install-package
+
+  * install-update
+
+  * install-windows-update
+
+  * list
+
+  * list-available-packages
+
+  * list-available-software-sources
+
+  * list-available-updates
+
+  * list-available-windows-updates
+
+  * list-installed-packages
+
+  * list-installed-windows-updates
+
+  * remove-package
+
+* managed-instance-group
+
+  * attach
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * detach
+
+  * get
+
+  * list
+
+  * update
+
+* scheduled-job
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * list-upcoming
+
+  * run-now
+
+  * skip-next-execution
+
+  * update
+
+* software-source
+
+  * add-packages
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * get-package
+
+  * list
+
+  * list-packages
+
+  * remove-packages
+
+  * search-packages
+
+  * update
+
+* windows-update
+
+  * get
+
+  * list
+
+* work-request
+
+  * get
+
+  * list
+
+  * list-errors
+
+  * list-logs

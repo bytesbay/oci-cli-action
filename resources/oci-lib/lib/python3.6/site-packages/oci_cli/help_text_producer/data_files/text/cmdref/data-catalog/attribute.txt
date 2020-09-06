@@ -1,0 +1,24 @@
+attribute
+*********
+
+
+Description
+===========
+
+Details of an entity attribute. An attribute of a data entity
+describing an item of data, with a name and data type. Synonymous with
+'column' in a database.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

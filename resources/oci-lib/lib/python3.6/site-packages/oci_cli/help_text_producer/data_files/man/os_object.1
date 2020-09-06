@@ -1,0 +1,2219 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "OS_OBJECT" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+os_object \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.SH AVAILABLE COMMANDS
+.INDENT 0.0
+.IP \(bu 2
+bulk\-delete
+.IP \(bu 2
+bulk\-delete\-versions
+.IP \(bu 2
+bulk\-download
+.IP \(bu 2
+bulk\-upload
+.IP \(bu 2
+copy
+.IP \(bu 2
+delete
+.IP \(bu 2
+get
+.IP \(bu 2
+head
+.IP \(bu 2
+list
+.IP \(bu 2
+list\-object\-versions
+.IP \(bu 2
+put
+.IP \(bu 2
+reencrypt
+.IP \(bu 2
+rename
+.IP \(bu 2
+restore
+.IP \(bu 2
+restore\-status
+.IP \(bu 2
+resume\-put
+.UNINDENT
+.SS \fBbulk\-delete\fP
+.SS Description
+.sp
+Deletes all objects in a bucket which match the provided criteria.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-delete [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-delimiter [text]
+.UNINDENT
+.sp
+When this parameter is set, only objects whose names do not contain the delimiter character (after an optionally specified prefix) are deleted. Scanned objects whose names contain the delimiter have part of their name up to the last occurrence of the delimiter (after the optional prefix) returned as a set of prefixes. Note: Only \(aq/\(aq is a supported delimiter character at this time.
+.INDENT 0.0
+.TP
+.B \-\-dry\-run
+.UNINDENT
+.sp
+Displays a list of objects which would be deleted by this command, if it were run without \-\-dry\-run. If \-\-dry\-run is passed, no objects will actually be deleted.
+.INDENT 0.0
+.TP
+.B \-\-exclude [text]
+.UNINDENT
+.sp
+Only download objects which do not match the provided pattern. Patterns are taken relative to the bucket root. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+Do not ask for confirmation prior to performing the bulk delete.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-include [text]
+.UNINDENT
+.sp
+Only delete objects which match the provided pattern. Patterns are taken relative to the bucket root. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-parallel\-operations\-count [integer]
+.UNINDENT
+.sp
+The number of parallel operations to perform. Decreasing this value will make bulk deletes less resource intensive but they may take longer. Increasing this value may improve bulk delete times, but the upload process will consume more system resources and network bandwidth. [default: 10]
+.INDENT 0.0
+.TP
+.B \-\-prefix [text]
+.UNINDENT
+.sp
+Delete all objects with the given prefix. Omit this parameter to delete all objects in the bucket.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Examples
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
+.sp
+.ce
+----
+
+.ce 0
+.sp
+.SS Deleting all objects in the bucket
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Delete all objects that match a given prefix
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-prefix myprefix
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+You can delete all objects that match a given prefix by specifying the \-\-prefix flag. In the above example, "\-\-prefix myprefix" would match object names such as myprefix_textfile1.txt, myprefix_myImage.png etc.
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, then you can delete objects at a given level (and all sub levels) by specifying a prefix:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This will delete all objects of the form level1/level2/<object name>, level1/level2/leve3/<object name>, level1/level2/leve3/level4/<object name> etc.
+.SS Limiting deleted objects using a prefix and delimiter
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-delimiter /
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, and you only want to delete objects at a given level of the hierarchy, e.g. example everything of the form level1/level2/<object name> but not level1/level2/leve3/<object name> or any other sub\-levels, you can specify a prefix and delimiter. Currently the only supported delimiter is /
+.SS Previewing what would be deleted
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-dry\-run
+
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-dry\-run
+
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-delimiter / \-\-dry\-run
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+For any bulk\-delete command you can get a list of all objects which would be deleted, but without actually deleting them, by using the \-\-dry\-run flag
+.SS Do not prompt for delete
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-force
+
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-force
+
+ oci os object bulk\-delete \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-delimiter / \-\-force
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+By default, the bulk\-delete command will prompt you prior to deleting objects. To suppress this prompt, pass the \-\-force option.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBbulk\-delete\-versions\fP
+.SS Description
+.sp
+Deletes all object versions in a bucket which match the provided criteria.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-delete\-versions [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-delimiter [text]
+.UNINDENT
+.sp
+When this parameter is set, only objects whose names do not contain the delimiter character (after an optionally specified prefix) are deleted. Scanned objects whose names contain the delimiter have part of their name up to the last occurrence of the delimiter (after the optional prefix) returned as a set of prefixes. Note: Only \(aq/\(aq is a supported delimiter character at this time.
+.INDENT 0.0
+.TP
+.B \-\-dry\-run
+.UNINDENT
+.sp
+Displays a list of objects which would be deleted by this command, if it were run without \-\-dry\-run. If \-\-dry\-run is passed, no objects will actually be deleted.
+.INDENT 0.0
+.TP
+.B \-\-exclude [text]
+.UNINDENT
+.sp
+Only delete objects which do not match the provided pattern. Patterns are taken relative to the bucket root. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+Do not ask for confirmation prior to performing the bulk delete.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-include [text]
+.UNINDENT
+.sp
+Only delete objects which match the provided pattern. Patterns are taken relative to the bucket root. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-object\-name [text]
+.UNINDENT
+.sp
+Delete all versions of the given objectName. Only one of prefix or objectName can be given as input. Omit this parameter to delete all objects in the bucket.
+.INDENT 0.0
+.TP
+.B \-\-parallel\-operations\-count [integer]
+.UNINDENT
+.sp
+The number of parallel operations to perform. Decreasing this value will make bulk deletes less resource intensive but they may take longer. Increasing this value may improve bulk delete times, but the upload process will consume more system resources and network bandwidth. [default: 10]
+.INDENT 0.0
+.TP
+.B \-\-prefix [text]
+.UNINDENT
+.sp
+Delete all object versions with the given prefix. Only one of prefix or objectName can be given as input. Omit this parameter to delete all objects in the bucket.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Examples
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
+.sp
+.ce
+----
+
+.ce 0
+.sp
+.SS Deleting all object versions in the bucket
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Delete all object versions that match a given prefix
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-prefix myprefix
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+You can delete all object versions that match a given prefix by specifying the \-\-prefix flag. In the above example, "\-\-prefix myprefix" would match object names such as myprefix_textfile1.txt, myprefix_myImage.png etc.
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, then you can delete objects at a given level (and all sub levels) by specifying a prefix:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This will delete all object versions of the form level1/level2/<object name>, level1/level2/leve3/<object name>, level1/level2/leve3/level4/<object name> etc.
+.SS Limiting deleted objects using a prefix and delimiter
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-delimiter /
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, and you only want to delete objects at a given level of the hierarchy, e.g. example everything of the form level1/level2/<object name> but not level1/level2/leve3/<object name> or any other sub\-levels, you can specify a prefix and delimiter. Currently the only supported delimiter is /
+.SS Deleting all object versions using object name
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-object\-name <object name>
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+You can delete all object versions that match a given object name by specifying the \-\-object\-name flag. Both \-object\-name and \-prefix cannot be given in the same command
+.SS Previewing what would be deleted
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-dry\-run
+
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-dry\-run
+
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-delimiter / \-\-dry\-run
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+For any bulk\-delete\-versions command you can get a list of all object versions which would be deleted, but without actually deleting them, by using the \-\-dry\-run flag
+.SS Do not prompt for delete
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-force
+
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-force
+
+ oci os object bulk\-delete\-versions \-ns mynamespace \-bn mybucket \-\-prefix level1/level2/ \-\-delimiter / \-\-force
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+By default, the bulk\-delete\-versions command will prompt you prior to deleting objects. To suppress this prompt, pass the \-\-force option.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBbulk\-download\fP
+.SS Description
+.sp
+Downloads all objects which match the given prefix to a given directory.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-download [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-download\-dir [text]
+.UNINDENT
+.sp
+The directory where retrieved objects will be placed as files. This directory will be created if it does not exist.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-delimiter [text]
+.UNINDENT
+.sp
+When this parameter is set, only objects whose names do not contain the delimiter character (after an optionally specified prefix) are returned. Scanned objects whose names contain the delimiter have part of their name up to the last occurrence of the delimiter (after the optional prefix) returned as a set of prefixes. Note: Only \(aq/\(aq is a supported delimiter character at this time.
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-exclude [text]
+.UNINDENT
+.sp
+Only download objects which do not match the provided pattern. Patterns are taken relative to the DOWNLOAD directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-include [text]
+.UNINDENT
+.sp
+Only download objects which match the provided pattern. Patterns are taken relative to the DOWNLOAD directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-multipart\-download\-threshold [integer range]
+.UNINDENT
+.sp
+Objects larger than this size (in MiB) will be downloaded in multiple parts. The minimum allowable threshold is 128 MiB.
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-no\-overwrite
+.UNINDENT
+.sp
+If a file with the same name as an object already exists in the download directory, do not overwite it. If neither this flag nor \-\-overwrite is specified, you will be prompted each time a file would be overwritten
+.INDENT 0.0
+.TP
+.B \-\-overwrite
+.UNINDENT
+.sp
+If a file with the same name as an object already exists in the download directory, overwrite it. If neither this flag nor \-\-no\-overwrite is specified, you will be prompted each time a file would be overwritten.
+.INDENT 0.0
+.TP
+.B \-\-parallel\-operations\-count [integer]
+.UNINDENT
+.sp
+The number of parallel operations to perform. Decreasing this value will make bulk downloads less resource intensive but they may take longer. Increasing this value may improve bulk download times, but the upload process will consume more system resources and network bandwidth. [default: 10]
+.INDENT 0.0
+.TP
+.B \-\-part\-size [integer range]
+.UNINDENT
+.sp
+Part size (in MiB) to use when downloading an object in multiple parts. The minimum allowable size is 128 MiB.
+.INDENT 0.0
+.TP
+.B \-\-prefix [text]
+.UNINDENT
+.sp
+Retrieve all objects with the given prefix. Omit this parameter to get all objects in the bucket
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Examples
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
+.sp
+.ce
+----
+
+.ce 0
+.sp
+.SS Download all objects in the bucket
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Download all objects that match a given prefix
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-prefix myprefix
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+You can download all objects that match a given prefix by specifying the \-\-prefix flag. In the above example, "\-\-prefix myprefix" would match object names such as myPrefix_textfile1.txt, myPrefix_myImage.png etc.
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, then you can download objects at a given level (and all sub levels) by specifying a prefix:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-prefix level1/level2/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This will download all objects of the form level1/level2/<object name>, level1/level2/leve3/<object name>, level1/level2/leve3/level4/<object name> etc.
+.SS Limiting downloaded objects using a prefix and delimiter
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-prefix level1/level2/ \-\-delimiter /
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, and you only want to download objects at a given level of the hierarchy, e.g. example everything of the form level1/level2/<object name> but not level1/level2/leve3/<object name> or any other sub\-levels, you can specify a prefix and delimiter. Currently the only supported delimiter is /
+.SS Overwriting or skipping files
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-overwrite
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-no\-overwrite
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If files with the same name as the objects being downloaded already exist in the download directory, you can opt to overwrite them with the \-\-overwrite option, or preserve them with the \-\-no\-overwrite option.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBbulk\-upload\fP
+.SS Description
+.sp
+Uploads all files in a given directory and all subdirectories.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-src\-dir [text]
+.UNINDENT
+.sp
+The directory which contains files to upload. Files in the directory and all subdirectories will be uploaded.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-content\-encoding [text]
+.UNINDENT
+.sp
+The content encoding to apply to all files being uploaded.
+.INDENT 0.0
+.TP
+.B \-\-content\-language [text]
+.UNINDENT
+.sp
+The content language to apply to all files being uploaded.
+.INDENT 0.0
+.TP
+.B \-\-content\-type [text]
+.UNINDENT
+.sp
+The content type to apply to all files being uploaded. If content type is set to auto, then the CLI will guess the content type of the file.
+.INDENT 0.0
+.TP
+.B \-\-disable\-parallel\-uploads
+.UNINDENT
+.sp
+[DEPRECATED] This option is no longer used. If a file in the directory will be uploaded in multiple parts, this option disables those parts from being uploaded in parallel. This applies to all files being uploaded in multiple parts
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-exclude [text]
+.UNINDENT
+.sp
+Only upload files which do not match the provided pattern. Patterns are taken relative to the CURRENT directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-include [text]
+.UNINDENT
+.sp
+Only upload files which match the provided pattern. Patterns are taken relative to the CURRENT directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-metadata [text]
+.UNINDENT
+.sp
+Arbitrary string keys and values for user\-defined metadata. This will be applied to all files being uploaded. Must be in JSON format. Example: \(aq{"key1":"value1","key2":"value2"}\(aq
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+Object Storage namespace. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-no\-multipart
+.UNINDENT
+.sp
+Do not use multipart uploads to upload the file in parts. By default, files above 128 MiB will be uploaded in multiple parts, then combined server\-side. This applies to all files being uploaded
+.INDENT 0.0
+.TP
+.B \-\-no\-overwrite
+.UNINDENT
+.sp
+If a file being uploaded already exists in Object Storage with the same name, do not overwite the object. If neither this flag nor \-\-overwrite is specified, you will be prompted each time an object with the same name would be overwritten.
+.INDENT 0.0
+.TP
+.B \-\-object\-prefix [text]
+.UNINDENT
+.sp
+A prefix to apply to the names of all files being uploaded
+.INDENT 0.0
+.TP
+.B \-\-overwrite
+.UNINDENT
+.sp
+If a file being uploaded already exists in Object Storage with the same name, overwrite the existing object in Object Storage without a confirmation prompt. If neither this flag nor \-\-no\-overwrite is specified, you will be prompted each time an object with the same name would be overwritten.
+.sp
+Specifying this flag will also allow for faster uploads as the CLI will not initially check whether or not the files with the same name already exist in Object Storage.
+.INDENT 0.0
+.TP
+.B \-\-parallel\-upload\-count [integer range]
+.UNINDENT
+.sp
+The number of parallel operations to perform. Decreasing this value will make bulk uploads less resource intensive but they may take longer. Increasing this value may improve bulk upload times, but the upload process will consume more system resources and network bandwidth. The maximum is 1000. [default: 10]
+.INDENT 0.0
+.TP
+.B \-\-part\-size [integer]
+.UNINDENT
+.sp
+Part size (in MiB) to use if uploading via multipart upload operations. This applies to all files which will be uploaded in multiple parts. Part size must be greater than 10 MiB
+.INDENT 0.0
+.TP
+.B \-\-verify\-checksum
+.UNINDENT
+.sp
+Verify the checksum of the uploaded object with the local file.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Examples
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
+.sp
+.ce
+----
+
+.ce 0
+.sp
+.SS Upload all files from a given directory
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Forcing object overwrite to resolve object name collision
+.sp
+If a file being uploaded already exists in Object Storage, it can be overwritten without a prompt by using the \fB\-\-overwrite\fP flag.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-overwrite
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Prevent object overwrite to resolve object name collision
+.sp
+If a file being uploaded already exists in Object Storage, it can be preserved (not overwritten) without a prompt by using the \fB\-\-no\-overwrite\fP flag.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-no\-overwrite
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Applying metadata
+.sp
+Metadata can be applied when the files are put into Object Storage by specifying the \fB\-\-metadata\fP flag and passing metadata either via a file or as a string on the command line.
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+The same metadata will be applied to \fBall\fP uploaded files.
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-metadata \(aq{"key1":"value1","key2":"value2"}\(aq
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-metadata file://path/to/my/metadata.json
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBcopy\fP
+.SS Description
+.sp
+Creates a request to copy an object within a region or to another region.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object copy [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-bucket\-name, \-bn [text]
+.UNINDENT
+.sp
+The name of the bucket. Avoid entering confidential information. Example: \fImy\-new\-bucket1\fP
+.INDENT 0.0
+.TP
+.B \-\-destination\-bucket [text]
+.UNINDENT
+.sp
+The destination bucket the object will be copied to.
+.INDENT 0.0
+.TP
+.B \-\-source\-object\-name [text]
+.UNINDENT
+.sp
+The name of the object to be copied.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-destination\-namespace [text]
+.UNINDENT
+.sp
+The destination namespace object will be copied to.
+.INDENT 0.0
+.TP
+.B \-\-destination\-object\-if\-match\-e\-tag [text]
+.UNINDENT
+.sp
+The entity tag (ETag) to match against that of the destination object (an object intended to be overwritten). Used to confirm that the destination object stored under a given name is the version of that object storing a specified entity tag.
+.INDENT 0.0
+.TP
+.B \-\-destination\-object\-if\-none\-match\-e\-tag [text]
+.UNINDENT
+.sp
+The entity tag (ETag) to avoid matching. The only valid value is \(aq*\(aq, which indicates that the request should fail if the object already exists in the destination bucket.
+.INDENT 0.0
+.TP
+.B \-\-destination\-object\-metadata [complex type]
+.UNINDENT
+.sp
+Arbitrary string keys and values for the user\-defined metadata for the object. Keys must be in "opc\-meta\-
+.nf
+*
+.fi
+" format. Avoid entering confidential information. Metadata key\-value pairs entered in this field are assigned to the destination object. If you enter no metadata values, the destination object will inherit any existing metadata values associated with the source object.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-destination\-object\-name [text]
+.UNINDENT
+.sp
+The destination name for the copy object.
+.INDENT 0.0
+.TP
+.B \-\-destination\-region [text]
+.UNINDENT
+.sp
+The destination region object will be copied to.
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the work request to reach the state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-namespace\-name, \-\-namespace, \-ns [text]
+.UNINDENT
+.sp
+The Object Storage namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-source\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the source object.
+.INDENT 0.0
+.TP
+.B \-\-source\-object\-if\-match\-e\-tag [text]
+.UNINDENT
+.sp
+The entity tag (ETag) to match against that of the source object. Used to confirm that the source object with a given name is the version of that object storing a specified ETag.
+.INDENT 0.0
+.TP
+.B \-\-source\-version\-id [text]
+.UNINDENT
+.sp
+VersionId of the object to copy. If not provided then current version is copied by default.
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation asynchronously creates, modifies or deletes a resource and uses a work request to track the progress of the operation. Specify this option to perform the action and then wait until the work request reaches a certain state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACCEPTED, CANCELED, CANCELING, COMPLETED, FAILED, IN_PROGRESS
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the work request to see if it has reached the state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBdelete\fP
+.SS Description
+.sp
+Deletes an object.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object delete [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-bucket\-name, \-bn [text]
+.UNINDENT
+.sp
+The name of the bucket. Avoid entering confidential information. Example: \fImy\-new\-bucket1\fP
+.INDENT 0.0
+.TP
+.B \-\-object\-name, \-\-name [text]
+.UNINDENT
+.sp
+The name of the object. Avoid entering confidential information. Example: \fItest/object1.log\fP
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+Perform deletion without prompting for confirmation.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+The entity tag (ETag) to match. For creating and committing a multipart upload to an object, this is the entity tag of the target object. For uploading a part, this is the entity tag of the target part.
+.INDENT 0.0
+.TP
+.B \-\-namespace\-name, \-\-namespace, \-ns [text]
+.UNINDENT
+.sp
+The Object Storage namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-version\-id [text]
+.UNINDENT
+.sp
+VersionId used to identify a particular version of the object
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBget\fP
+.SS Description
+.sp
+Gets the metadata and body of an object.
+.INDENT 0.0
+.TP
+.B Example:
+oci os object get \-ns mynamespace \-bn mybucket \-\-name myfile.txt \-\-file /Users/me/myfile.txt
+.UNINDENT
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object get [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-file [filename]
+.UNINDENT
+.sp
+The name of the file that will receive the object content, or \(aq\-\(aq to write to STDOUT.
+.INDENT 0.0
+.TP
+.B \-\-name [text]
+.UNINDENT
+.sp
+The name of the object.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+The entity tag to match.
+.INDENT 0.0
+.TP
+.B \-\-if\-none\-match [text]
+.UNINDENT
+.sp
+The entity tag to avoid matching.
+.INDENT 0.0
+.TP
+.B \-\-multipart\-download\-threshold [integer range]
+.UNINDENT
+.sp
+Objects larger than this size (in MiB) will be downloaded in multiple parts. The minimum allowable threshold is 128 MiB.
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-parallel\-download\-count [integer]
+.UNINDENT
+.sp
+The number of parallel operations to perform when downloading an object in multiple parts. Decreasing this value will make multipart downloads less resource intensive but they may take longer. Increasing this value may improve download times, but the download process will consume more system resources and network bandwidth. [default: 10]
+.INDENT 0.0
+.TP
+.B \-\-part\-size [integer range]
+.UNINDENT
+.sp
+Part size (in MiB) to use when downloading an object in multiple parts. The minimum allowable size is 128 MiB.
+.INDENT 0.0
+.TP
+.B \-\-range [text]
+.UNINDENT
+.sp
+Byte range to fetch. Follows \fI\%https://tools.ietf.org/html/rfc7233#section\-2.1\fP\&. Example: bytes=2\-10
+.INDENT 0.0
+.TP
+.B \-\-version\-id [text]
+.UNINDENT
+.sp
+VersionId used to identify a particular version of the object
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBhead\fP
+.SS Description
+.sp
+Gets the user\-defined metadata and entity tag for an object.
+.INDENT 0.0
+.TP
+.B Example:
+oci os object head \-ns mynamespace \-bn mybucket \-\-name myfile.txt
+.UNINDENT
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object head [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-name [text]
+.UNINDENT
+.sp
+The name of the object.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+The entity tag to match.
+.INDENT 0.0
+.TP
+.B \-\-if\-none\-match [text]
+.UNINDENT
+.sp
+The entity tag to avoid matching.
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-version\-id [text]
+.UNINDENT
+.sp
+VersionId used to identify a particular version of the object
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBlist\fP
+.SS Description
+.sp
+Lists the objects in a bucket.
+.INDENT 0.0
+.TP
+.B Example:
+oci os object list \-ns mynamespace \-bn mybucket \-\-fields name,size,timeCreated
+.UNINDENT
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object list [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-all
+.UNINDENT
+.sp
+Fetches all pages of results. If you provide this option, then you cannot provide the \fB\-\-limit\fP option.
+.INDENT 0.0
+.TP
+.B \-\-delimiter [text]
+.UNINDENT
+.sp
+When this parameter is set, only objects whose names do not contain the delimiter character (after an optionally specified prefix) are returned. Scanned objects whose names contain the delimiter have part of their name up to the last occurrence of the delimiter (after the optional prefix) returned as a set of prefixes. Note: Only \(aq/\(aq is a supported delimiter character at this time.
+.INDENT 0.0
+.TP
+.B \-\-end [text]
+.UNINDENT
+.sp
+Only object names less than this parameter will be returned.
+.INDENT 0.0
+.TP
+.B \-\-fields [text]
+.UNINDENT
+.sp
+Object summary in list of objects includes the \(aqname\(aq field. This parameter may also include \(aqsize\(aq (object size in bytes), \(aqmd5\(aq, and \(aqtimeCreated\(aq (object creation date and time) fields. Value of this parameter should be a comma separated, case\-insensitive list of those field names. [default: name,size,timeCreated,md5]
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-limit [integer]
+.UNINDENT
+.sp
+The maximum number of items to return. [default: 100]
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-page\-size [integer]
+.UNINDENT
+.sp
+When fetching results, the number of results to fetch per call. Only valid when used with \fB\-\-all\fP or \fB\-\-limit\fP, and ignored otherwise.
+.INDENT 0.0
+.TP
+.B \-\-prefix [text]
+.UNINDENT
+.sp
+Only object names that begin with this prefix will be returned.
+.INDENT 0.0
+.TP
+.B \-\-start [text]
+.UNINDENT
+.sp
+Only object names greater or equal to this parameter will be returned.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS Examples
+.SS Description
+.sp
+List objects in a bucket
+.SS Command
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object list \-\-bucket\-name CLITest
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Output
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{
+ "data": [
+      {
+           "md5": "55sYrq31fJ1VgHfEGIh2hg==",
+           "name": "test/FileOne.json",
+           "size": 1785862,
+           "time\-created": "2019\-08\-13T23:31:02.981000+00:00"
+      },
+      {
+           "md5": "uzobT/eOYWpieAdIu1lc2w==",
+           "name": "test/FileTwo.json",
+           "size": 466,
+           "time\-created": "2019\-08\-13T20:09:54.148000+00:00"
+      },
+      {
+           "md5": "uzobT/eOYWpieAdIu1lc2w==",
+           "name": "FileThree.json",
+           "size": 468,
+           "time\-created": "2019\-08\-13T22:09:54.148000+00:00"
+      }
+ ],
+ "prefixes": []
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Description
+.sp
+List objects in a bucket with common prefix
+.SS Command
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object list \-\-bucket\-name CLITest \-\-prefix test
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Output
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{
+ "data": [
+      {
+           "md5": "55sYrq31fJ1VgHfEGIh2hg==",
+           "name": "test/FileOne.json",
+           "size": 1785862,
+           "time\-created": "2019\-08\-13T23:31:02.981000+00:00"
+      },
+      {
+           "md5": "uzobT/eOYWpieAdIu1lc2w==",
+           "name": "test/FileTwo.json",
+           "size": 466,
+           "time\-created": "2019\-08\-13T20:09:54.148000+00:00"
+      }
+ ],
+ "prefixes": []
+}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS \fBlist\-object\-versions\fP
+.SS Description
+.sp
+Lists the object versions in a bucket.
+.sp
+To use this and other API operations, you must be authorized in an IAM policy. If you are not authorized, talk to an administrator. If you are an administrator who needs to write policies to give users access, see \fI\%Getting Started with Policies\fP <\fBhttps://docs.cloud.oracle.com/Content/Identity/Concepts/policygetstarted.htm\fP>\&.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object list\-object\-versions [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-bucket, \-\-bucket\-name, \-bn [text]
+.UNINDENT
+.sp
+The name of the bucket. Avoid entering confidential information. Example: \fImy\-new\-bucket1\fP
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-all
+.UNINDENT
+.sp
+Fetches all pages of results. If you provide this option, then you cannot provide the \fB\-\-limit\fP option.
+.INDENT 0.0
+.TP
+.B \-\-delimiter [text]
+.UNINDENT
+.sp
+When this parameter is set, only objects whose names do not contain the delimiter character (after an optionally specified prefix) are returned in the objects key of the response body. Scanned objects whose names contain the delimiter have the part of their name up to the first occurrence of the delimiter (including the optional prefix) returned as a set of prefixes. Note that only \(aq/\(aq is a supported delimiter character at this time.
+.INDENT 0.0
+.TP
+.B \-\-end [text]
+.UNINDENT
+.sp
+Object names returned by a list query must be strictly less than this parameter.
+.INDENT 0.0
+.TP
+.B \-\-fields [text]
+.UNINDENT
+.sp
+Object summary in list of objects includes the \(aqname\(aq field. This parameter can also include \(aqsize\(aq (object size in bytes), \(aqetag\(aq, \(aqmd5\(aq, \(aqtimeCreated\(aq (object creation date and time) and \(aqtimeModified\(aq (object modification date and time). Value of this parameter should be a comma\-separated, case\-insensitive list of those field names. For example \(aqname,etag,timeCreated,md5,timeModified\(aq Allowed values are: name, size, etag, timeCreated, md5, timeModified [default: name,size,timeCreated,md5]
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-limit [integer]
+.UNINDENT
+.sp
+The maximum number of items to return.
+.INDENT 0.0
+.TP
+.B \-\-namespace, \-\-namespace\-name, \-ns [text]
+.UNINDENT
+.sp
+The Object Storage namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-page [text]
+.UNINDENT
+.sp
+The page at which to start retrieving results.
+.INDENT 0.0
+.TP
+.B \-\-page\-size [integer]
+.UNINDENT
+.sp
+When fetching results, the number of results to fetch per call. Only valid when used with \fB\-\-all\fP or \fB\-\-limit\fP, and ignored otherwise.
+.INDENT 0.0
+.TP
+.B \-\-prefix [text]
+.UNINDENT
+.sp
+The string to use for matching against the start of object names in a list query.
+.INDENT 0.0
+.TP
+.B \-\-start [text]
+.UNINDENT
+.sp
+Object names returned by a list query must be greater or equal to this parameter.
+.INDENT 0.0
+.TP
+.B \-\-start\-after [text]
+.UNINDENT
+.sp
+Object names returned by a list query must be greater than this parameter.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBput\fP
+.SS Description
+.sp
+Creates a new object or overwrites an existing one.
+.sp
+The object can be uploaded as a single part or as multiple parts. Below are the rules for whether an object will be uploaded via single or multipart upload (listed in order of precedence):
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.IP \(bu 2
+If the object is being uploaded from STDIN, it will be uploaded as a multipart upload (if the object content is smaller than \-\-part\-size, default for STDIN is 10 MiB, the multipart upload may contain only one part, but it will still use the MultipartUpload API)
+.IP \(bu 2
+If the \-\-no\-multipart flag is specified, the object will be uploaded as a single part regardless of size (specifying \-\-no\-multipart when uploading from STDIN will result in an error)
+.IP \(bu 2
+If the object is larger than \-\-part\-size, it will be uploaded as multiple parts
+.IP \(bu 2
+If the object is empty it will be uploaded as a single part
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B Example:
+oci os object put \-ns mynamespace \-bn mybucket \-\-name myfile.txt \-\-file /Users/me/myfile.txt \-\-metadata \(aq{"key1":"value1","key2":"value2"}\(aq
+.UNINDENT
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object put [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-file [filename]
+.UNINDENT
+.sp
+The file to load as the content of the object, or \(aq\-\(aq to read from STDIN.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-cache\-control [text]
+.UNINDENT
+.sp
+The optional Cache\-Control header that defines the caching behavior value to be returned in GetObject and HeadObject responses. Specifying values for this header has no effect on Object Storage behavior. Programs that read the object determine what to do based on the value provided. For example, you could use this header to identify objects that require caching restrictions.
+.INDENT 0.0
+.TP
+.B \-\-content\-disposition [text]
+.UNINDENT
+.sp
+The optional Content\-Disposition header that defines presentational information for the object to be returned in GetObject and HeadObject responses. Specifying values for this header has no effect on Object Storage behavior. Programs that read the object determine what to do based on the value provided. For example, you could use this header to let users download objects with custom filenames in a browser.
+.INDENT 0.0
+.TP
+.B \-\-content\-encoding [text]
+.UNINDENT
+.sp
+The optional Content\-Encoding header that defines the content encodings that were applied to the object to upload. Specifying values for this header has no effect on Object Storage behavior. Programs that read the object determine what to do based on the value provided. For example, you could use this header to determine what decoding mechanisms need to be applied to obtain the media\-type specified by the Content\-Type header of the object.
+.INDENT 0.0
+.TP
+.B \-\-content\-language [text]
+.UNINDENT
+.sp
+The optional Content\-Language header that defines the content language of the object to upload. Specifying values for this header has no effect on Object Storage behavior. Programs that read the object determine what to do based on the value provided. For example, you could use this header to identify and differentiate objects based on a particular language.
+.INDENT 0.0
+.TP
+.B \-\-content\-md5 [text]
+.UNINDENT
+.sp
+The optional base\-64 header that defines the encoded MD5 hash of the body. If the optional Content\-MD5 header is present, Object Storage performs an integrity check on the body of the HTTP request by computing the MD5 hash for the body and comparing it to the MD5 hash supplied in the header. If the two hashes do not match, the object is rejected and an HTTP\-400 Unmatched Content MD5 error is returned with the message:
+"The computed MD5 of the request body (ACTUAL_MD5) does not match the Content\-MD5 header (HEADER_MD5)"
+.INDENT 0.0
+.TP
+.B \-\-content\-type [text]
+.UNINDENT
+.sp
+The optional Content\-Type header that defines the standard MIME type format of the object. Content type defaults to \(aqapplication/octet\-stream\(aq if not specified in the PutObject call. Specifying values for this header has no effect on Object Storage behavior. Programs that read the object determine what to do based on the value provided. For example, you could use this header to identify and perform special operations on text only objects.
+.INDENT 0.0
+.TP
+.B \-\-disable\-parallel\-uploads
+.UNINDENT
+.sp
+If the object will be uploaded in multiple parts, this option disables those parts from being uploaded in parallel.
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+If the object name already exists, overwrite the existing object without a confirmation prompt.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+The entity tag to match.
+.INDENT 0.0
+.TP
+.B \-\-metadata [text]
+.UNINDENT
+.sp
+Arbitrary string keys and values for user\-defined metadata. Must be in JSON format. Example: \(aq{"key1":"value1","key2":"value2"}\(aq
+.INDENT 0.0
+.TP
+.B \-\-name [text]
+.UNINDENT
+.sp
+The name of the object. Default value is the filename excluding the path. Required if reading object from STDIN.
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-no\-multipart
+.UNINDENT
+.sp
+Do not use multipart uploads to upload the file in parts. By default files above 128 MiB will be uploaded in multiple parts, then combined server\-side.
+.INDENT 0.0
+.TP
+.B \-\-no\-overwrite
+.UNINDENT
+.sp
+If the object name already exists, do not overwrite the existing object.
+.INDENT 0.0
+.TP
+.B \-\-parallel\-upload\-count [integer range]
+.UNINDENT
+.sp
+If the object will be uploaded in multiple parts, this option allows you to specify the maximum number of parts that can be uploaded in parallel. This option cannot be used with \-\-disable\-parallel\-uploads or \-\-no\-multipart. Defaults to 3 and the maximum is 1000.
+.INDENT 0.0
+.TP
+.B \-\-part\-size [integer]
+.UNINDENT
+.sp
+Part size (in MiB) to use when uploading objects using multipart upload operations. The default part size is 128 MiB.
+.INDENT 0.0
+.TP
+.B \-\-verify\-checksum
+.UNINDENT
+.sp
+Verify the checksum of the uploaded object with the local file.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBreencrypt\fP
+.SS Description
+.sp
+Re\-encrypts the data encryption keys that encrypt the object and its chunks. By default, when you create a bucket, the Object Storage service manages the master encryption key used to encrypt each object\(aqs data encryption keys. The encryption mechanism that you specify for the bucket applies to the objects it contains.
+.sp
+You can alternatively employ one of these encryption strategies for an object:
+.INDENT 0.0
+.IP \(bu 2
+You can assign a key that you created and control through the Oracle Cloud Infrastructure Vault service.
+.IP \(bu 2
+You can encrypt an object using your own encryption key. The key you supply is known as a customer\-provided encryption key (SSE\-C).
+.UNINDENT
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object reencrypt [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-bucket\-name, \-bn [text]
+.UNINDENT
+.sp
+The name of the bucket. Avoid entering confidential information. Example: \fImy\-new\-bucket1\fP
+.INDENT 0.0
+.TP
+.B \-\-object\-name, \-on, \-\-name [text]
+.UNINDENT
+.sp
+The name of the object. Avoid entering confidential information. Example: \fItest/object1.log\fP
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-kms\-key\-id [text]
+.UNINDENT
+.sp
+The \fI\%OCID\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP> of the master encryption key used to call the Vault service to re\-encrypt the data encryption keys associated with the object and its chunks. If the kmsKeyId value is empty, whether null or an empty string, the API will perform re\-encryption by using the kmsKeyId associated with the bucket or the master encryption key managed by Oracle, depending on the bucket encryption mechanism.
+.INDENT 0.0
+.TP
+.B \-\-namespace\-name, \-\-namespace, \-ns [text]
+.UNINDENT
+.sp
+The Object Storage namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-source\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the source object.
+.INDENT 0.0
+.TP
+.B \-\-version\-id [text]
+.UNINDENT
+.sp
+VersionId used to identify a particular version of the object
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBrename\fP
+.SS Description
+.sp
+Rename an object in the given Object Storage namespace.
+.sp
+See \fI\%Object Names\fP <\fBhttps://docs.cloud.oracle.com/Content/Object/Tasks/managingobjects.htm#namerequirements\fP> for object naming requirements.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object rename [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-\-bucket\-name, \-\-bucket, \-bn [text]
+.UNINDENT
+.sp
+The name of the bucket. Avoid entering confidential information. Example: \fImy\-new\-bucket1\fP
+.INDENT 0.0
+.TP
+.B \-\-new\-name [text]
+.UNINDENT
+.sp
+The new name of the source object.
+.INDENT 0.0
+.TP
+.B \-\-source\-name, \-\-name [text]
+.UNINDENT
+.sp
+The name of the source object to be renamed.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-namespace\-name, \-\-namespace, \-ns [text]
+.UNINDENT
+.sp
+The Object Storage namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-new\-obj\-if\-match\-e\-tag, \-\-new\-if\-match [text]
+.UNINDENT
+.sp
+The if\-match entity tag (ETag) of the new object.
+.INDENT 0.0
+.TP
+.B \-\-new\-obj\-if\-none\-match\-e\-tag, \-\-new\-if\-none\-match [text]
+.UNINDENT
+.sp
+The if\-none\-match entity tag (ETag) of the new object.
+.INDENT 0.0
+.TP
+.B \-\-src\-obj\-if\-match\-e\-tag, \-\-src\-if\-match [text]
+.UNINDENT
+.sp
+The if\-match entity tag (ETag) of the source object.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBrestore\fP
+.SS Description
+.sp
+Restores one or more objects specified by the objectName parameter. By default objects will be restored for 24 hours. Duration can be configured using the hours parameter.
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object restore [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket. Avoid entering confidential information. Example: \fImy\-new\-bucket1\fP
+.INDENT 0.0
+.TP
+.B \-\-name [text]
+.UNINDENT
+.sp
+A object which was in an archived state and need to be restored.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-hours [integer]
+.UNINDENT
+.sp
+The number of hours for which this object will be restored. By default objects will be restored for 24 hours. You can instead configure the duration using the hours parameter.
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-version\-id [text]
+.UNINDENT
+.sp
+The versionId of the object to restore. Current object version is used by default.
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBrestore\-status\fP
+.SS Description
+.sp
+Gets the restore status for an object.
+.INDENT 0.0
+.TP
+.B Example:
+oci os object restore\-status \-ns mynamespace \-bn mybucket \-\-name myfile.txt
+.UNINDENT
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object restore\-status [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-name [text]
+.UNINDENT
+.sp
+The name of the object.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SS \fBresume\-put\fP
+.SS Description
+.sp
+Resume a previous multipart put.
+.INDENT 0.0
+.TP
+.B Example:
+oci os object resume\-put \-ns mynamespace \-bn mybucket \-\-name myfile.txt \-\-file /Users/me/myfile.txt \-\-upload\-id my\-upload\-id
+.UNINDENT
+.SS Usage
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object resume\-put [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Required Parameters
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-file [filename]
+.UNINDENT
+.sp
+The file to load as the content of the object.
+.INDENT 0.0
+.TP
+.B \-\-upload\-id [text]
+.UNINDENT
+.sp
+Upload ID to resume.
+.SS Optional Parameters
+.INDENT 0.0
+.TP
+.B \-\-disable\-parallel\-uploads
+.UNINDENT
+.sp
+If the object will be uploaded in multiple parts, this option disables those parts from being uploaded in parallel.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-name [text]
+.UNINDENT
+.sp
+The name of the object. Default value is the filename excluding the path.
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-parallel\-upload\-count [integer range]
+.UNINDENT
+.sp
+This option allows you to specify the maximum number of parts that can be uploaded in parallel. This option cannot be used with \-\-disable\-parallel\-uploads. Defaults to 3 and the maximum is 1000.
+.INDENT 0.0
+.TP
+.B \-\-part\-size [integer]
+.UNINDENT
+.sp
+Part size in MiB
+.SS Global Parameters
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

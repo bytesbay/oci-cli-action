@@ -1,0 +1,14 @@
+edge-subnet
+***********
+
+
+Description
+===========
+
+The details about an edge node subnet.
+
+
+Available Commands
+==================
+
+* list

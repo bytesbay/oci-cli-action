@@ -1,0 +1,15 @@
+metric
+******
+
+
+Description
+===========
+
+The properties that define a metric. For information about metrics,
+see Metrics Overview.
+
+
+Available Commands
+==================
+
+* list

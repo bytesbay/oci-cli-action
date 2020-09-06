@@ -1,0 +1,55 @@
+export
+******
+
+
+Description
+===========
+
+A file system and the path that you can use to mount it. Each export
+resource belongs to exactly one export set.
+
+The export's path attribute is not a path in the referenced file
+system, but the value used by clients for the path component of the
+remotetarget argument when mounting the file system.
+
+The path must start with a slash (/) followed by a sequence of zero or
+more slash-separated path elements. For any two export resources
+associated with the same export set, except those in a 'DELETED'
+state, the path element sequence for the first export resource can't
+contain the complete path element sequence of the second export
+resource.
+
+   For example, the following are acceptable:
+
+      * /example and /path   * /example1 and /example2   * /example
+        and /example1
+
+The following examples are not acceptable:   * /example and
+/example/path   * / and /example
+
+Paths may not end in a slash (/). No path element can be a period (.)
+or two periods in sequence (..). All path elements must be 255 bytes
+or less.
+
+No two non-'DELETED' export resources in the same export set can
+reference the same file system.
+
+Use *exportOptions* to control access to an export. For more
+information, see Export Options.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

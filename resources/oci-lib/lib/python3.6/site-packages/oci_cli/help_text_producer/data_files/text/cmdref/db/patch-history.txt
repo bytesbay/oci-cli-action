@@ -1,0 +1,32 @@
+patch-history
+*************
+
+
+Description
+===========
+
+The record of a patch action on a specified target.
+
+
+Available Commands
+==================
+
+* get
+
+  * by-database
+
+  * by-db-system
+
+* get-db-home
+
+* get-vm-cluster
+
+* list
+
+  * by-database
+
+  * by-db-system
+
+* list-db-home
+
+* list-vm-cluster

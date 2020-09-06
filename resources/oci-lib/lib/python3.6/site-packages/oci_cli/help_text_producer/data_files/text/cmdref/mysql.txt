@@ -1,0 +1,80 @@
+mysql
+*****
+
+
+Description
+===========
+
+The CLI for the MySQL Database Service
+
+
+Available Commands
+==================
+
+* backup
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* configuration
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* db-system
+
+  * clone
+
+  * create
+
+  * delete
+
+  * get
+
+  * import
+
+  * list
+
+  * restart
+
+  * start
+
+  * stop
+
+  * update
+
+* shape
+
+  * list
+
+* version
+
+  * list
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

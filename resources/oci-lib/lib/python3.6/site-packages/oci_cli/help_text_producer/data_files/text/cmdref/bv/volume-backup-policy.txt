@@ -1,0 +1,27 @@
+volume-backup-policy
+********************
+
+
+Description
+===========
+
+A policy for automatically creating volume backups according to a
+recurring schedule. Has a set of one or more schedules that control
+when and how backups are created.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

@@ -1,0 +1,23 @@
+certificate
+***********
+
+
+Description
+===========
+
+The configuration details of a certificate bundle. For more
+information on SSL certficate configuration, see Managing SSL
+Certificates.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* list

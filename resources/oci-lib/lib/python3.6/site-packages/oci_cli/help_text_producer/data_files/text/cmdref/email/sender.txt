@@ -1,0 +1,24 @@
+sender
+******
+
+
+Description
+===========
+
+The full information representing an approved sender.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

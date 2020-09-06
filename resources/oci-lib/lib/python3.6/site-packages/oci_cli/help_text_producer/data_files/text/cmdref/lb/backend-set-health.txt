@@ -1,0 +1,18 @@
+backend-set-health
+******************
+
+
+Description
+===========
+
+The health status details for a backend set.
+
+This object does not explicitly enumerate backend servers with a
+status of *OK*. However, they are included in the *totalBackendCount*
+sum.
+
+
+Available Commands
+==================
+
+* get

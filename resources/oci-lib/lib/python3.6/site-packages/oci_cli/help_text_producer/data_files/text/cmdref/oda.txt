@@ -1,0 +1,44 @@
+oda
+***
+
+
+Description
+===========
+
+CLI to create and maintain Oracle Digital Assistant service instances.
+
+
+Available Commands
+==================
+
+* instance
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * start
+
+  * stop
+
+  * update
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

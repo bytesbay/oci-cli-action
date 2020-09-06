@@ -1,0 +1,15 @@
+work-request-error
+******************
+
+
+Description
+===========
+
+Description of the unexpected error that prevented completion of the
+request.
+
+
+Available Commands
+==================
+
+* list

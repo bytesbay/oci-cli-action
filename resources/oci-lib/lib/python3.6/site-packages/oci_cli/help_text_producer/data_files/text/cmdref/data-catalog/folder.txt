@@ -1,0 +1,27 @@
+folder
+******
+
+
+Description
+===========
+
+A generic term used in the data catalog for an external organization
+concept used for a collection of data entities or processes within a
+data asset. This term is an internal term which models multiple
+external types of folder, such as file directories, database schemas,
+and so on. Some data assets, such as Object Store containers, may
+contain many levels of folders.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

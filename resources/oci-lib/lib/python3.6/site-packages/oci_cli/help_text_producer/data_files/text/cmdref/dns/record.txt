@@ -1,0 +1,40 @@
+record
+******
+
+
+Description
+===========
+
+A DNS record.
+
+
+Available Commands
+==================
+
+* domain
+
+  * delete
+
+  * get
+
+  * patch
+
+  * update
+
+* rrset
+
+  * delete
+
+  * get
+
+  * patch
+
+  * update
+
+* zone
+
+  * get
+
+  * patch
+
+  * update

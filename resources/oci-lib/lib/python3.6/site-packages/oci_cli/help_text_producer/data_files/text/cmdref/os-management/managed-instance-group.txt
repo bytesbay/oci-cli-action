@@ -1,0 +1,28 @@
+managed-instance-group
+**********************
+
+
+Description
+===========
+
+Detail information for a managed instance group
+
+
+Available Commands
+==================
+
+* attach
+
+* change-compartment
+
+* create
+
+* delete
+
+* detach
+
+* get
+
+* list
+
+* update

@@ -1,0 +1,22 @@
+alert-rule
+**********
+
+
+Description
+===========
+
+The alert rule.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

@@ -1,0 +1,15 @@
+waf-request
+***********
+
+
+Description
+===========
+
+A time series of request counts handled by the Web Application
+Firewall, including blocked requests.
+
+
+Available Commands
+==================
+
+* list

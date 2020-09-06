@@ -1,0 +1,48 @@
+data-safe
+*********
+
+
+Description
+===========
+
+CLI for using Oracle Data Safe.
+
+
+Available Commands
+==================
+
+* configuration
+
+  * get
+
+* private-endpoint
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* service
+
+  * enable
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

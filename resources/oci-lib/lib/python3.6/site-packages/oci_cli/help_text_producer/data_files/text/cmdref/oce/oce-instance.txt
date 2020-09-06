@@ -1,0 +1,24 @@
+oce-instance
+************
+
+
+Description
+===========
+
+Details of OceInstance.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

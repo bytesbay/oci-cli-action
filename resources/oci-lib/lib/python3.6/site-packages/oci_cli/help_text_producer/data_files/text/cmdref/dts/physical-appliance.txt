@@ -1,0 +1,26 @@
+physical-appliance
+******************
+
+
+Description
+===========
+
+Physical Appliance Operations
+
+
+Available Commands
+==================
+
+* configure-encryption
+
+* finalize
+
+* initialize-authentication
+
+* list
+
+* show
+
+* unlock
+
+* unregister

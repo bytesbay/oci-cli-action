@@ -1,0 +1,16 @@
+windows-update
+**************
+
+
+Description
+===========
+
+An update available for a Windows managed instance.
+
+
+Available Commands
+==================
+
+* get
+
+* list

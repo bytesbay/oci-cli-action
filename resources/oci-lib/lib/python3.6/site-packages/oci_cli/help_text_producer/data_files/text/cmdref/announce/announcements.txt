@@ -1,0 +1,16 @@
+announcements
+*************
+
+
+Description
+===========
+
+An announcement represents a message targetted to a specific tenant.
+
+
+Available Commands
+==================
+
+* get
+
+* list

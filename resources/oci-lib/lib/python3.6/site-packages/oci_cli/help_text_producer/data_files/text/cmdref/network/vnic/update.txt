@@ -1,0 +1,188 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates the specified VNIC.
+
+
+Usage
+=====
+
+   oci network vnic update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--vnic-id [text]
+
+The OCID of the VNIC.
+
+
+Optional Parameters
+===================
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags.
+
+Example:
+
+   {"Operations": {"CostCenter": "42"}}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--display-name [text]
+
+A user-friendly name. Does not have to be unique, and it's changeable.
+Avoid entering confidential information.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+Example:
+
+   {"Department": "Finance"}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--hostname-label [text]
+
+The hostname for the VNIC's primary private IP. Used for DNS. The
+value is the hostname portion of the primary private IP's fully
+qualified domain name (FQDN) (for example, *bminstance-1* in FQDN
+*bminstance-1.subnet123.vcn1.oraclevcn.com*). Must be unique across
+all VNICs in the subnet and comply with RFC 952 and RFC 1123. The
+value appears in the Vnic object and also the PrivateIp object
+returned by ListPrivateIps and GetPrivateIp.
+
+For more information, see DNS in Your Virtual Cloud Network.
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource.  The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--nsg-ids [complex type]
+
+A list of the OCIDs of the network security groups (NSGs) to add the
+VNIC to. Setting this as an empty array removes the VNIC from all
+network security groups.
+
+If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware
+Solution (instead of belonging to a subnet), the value of the *nsgIds*
+attribute is ignored. Instead, the VNIC belongs to the NSGs that are
+associated with the VLAN itself. See Vlan.
+
+For more information about NSGs, see NetworkSecurityGroup. This is a
+complex type whose value must be valid JSON. The value can be provided
+as a string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--skip-source-dest-check [boolean]
+
+Whether the source/destination check is disabled on the VNIC. Defaults
+to *false*, which means the check is performed. For information about
+why you would skip the source/destination check, see Using a Private
+IP as a Route Target.
+
+If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware
+Solution (instead of belonging to a subnet), the value of the
+*skipSourceDestCheck* attribute is ignored. This is because the
+source/destination check is always disabled for VNICs in a VLAN.
+Example: *true*
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   AVAILABLE, PROVISIONING, TERMINATED, TERMINATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

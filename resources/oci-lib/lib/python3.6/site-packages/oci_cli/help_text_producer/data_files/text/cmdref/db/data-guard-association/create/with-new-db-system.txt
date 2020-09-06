@@ -1,0 +1,160 @@
+"with-new-db-system"
+********************
+
+
+Description
+===========
+
+Creates a new Data Guard association with a new DB System.  A Data
+Guard association represents the replication relationship between the
+specified database and a peer database. For more information, see
+Using Oracle Data Guard.
+
+All Oracle Cloud Infrastructue resources, including Data Guard
+associations, get an Oracle-assigned, unique ID called an Oracle Cloud
+Identifier (OCID). When you create a resource, you can find its OCID
+in the response. You can also retrieve a resource's OCID by using a
+List API operation on that resource type, or by viewing the resource
+in the Console. Fore more information, see Resource Identifiers.
+
+
+Usage
+=====
+
+   oci db data-guard-association create with-new-db-system [OPTIONS]
+
+
+Required Parameters
+===================
+
+--availability-domain [text]
+
+The name of the Availability Domain that the standby database DB
+System will be located in.
+
+--creation-type [text]
+
+Specifies whether to create the peer database in an existing DB system
+or in a new DB system.
+
+--database-admin-password [text]
+
+A strong password for the *SYS*, *SYSTEM*, and *PDB Admin* users to
+apply during standby creation.
+
+The password must contain no fewer than nine characters and include:
+
+* At least two uppercase characters.
+
+* At least two lowercase characters.
+
+* At least two numeric characters.
+
+* At least two special characters. Valid special characters include
+  "_", "#", and "-" only.
+
+**The password MUST be the same as the primary admin password.**
+
+--database-id [text]
+
+The database OCID.
+
+--display-name [text]
+
+The user-friendly name for the DB System to create the standby
+database on. It does not have to be unique.
+
+--hostname [text]
+
+The host name for the DB Node.
+
+--protection-mode [text]
+
+The protection mode to set up between the primary and standby
+databases. For more information, see Oracle Data Guard Protection
+Modes in the Oracle Data Guard documentation.
+
+**IMPORTANT** - The only protection mode currently supported by the
+Database service is MAXIMUM_PERFORMANCE.
+
+Accepted values are:
+
+   MAXIMUM_AVAILABILITY, MAXIMUM_PERFORMANCE, MAXIMUM_PROTECTION
+
+--subnet-id [text]
+
+The OCID of the subnet the DB System is associated with. **Subnet
+Restrictions:** - For 1- and 2-node RAC DB Systems, do not use a
+subnet that overlaps with 192.168.16.16/28
+
+These subnets are used by the Oracle Clusterware private interconnect
+on the database instance. Specifying an overlapping subnet will cause
+the private interconnect to malfunction. This restriction applies to
+both the client subnet and backup subnet.
+
+--transport-type [text]
+
+The redo transport type to use for this Data Guard association.  Valid
+values depend on the specified *protectionMode*:
+
+* MAXIMUM_AVAILABILITY - SYNC or FASTSYNC * MAXIMUM_PERFORMANCE -
+  ASYNC * MAXIMUM_PROTECTION - SYNC
+
+For more information, see Redo Transport Services in the Oracle Data
+Guard documentation.
+
+**IMPORTANT** - The only transport type currently supported by the
+Database service is ASYNC.
+
+Accepted values are:
+
+   ASYNC, FASTSYNC, SYNC
+
+
+Optional Parameters
+===================
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--shape [text]
+
+The shape of the DB system to launch to set up the Data Guard
+association. The shape determines the number of CPU cores and the
+amount of memory available for the DB system. Only virtual machine
+shapes are valid shapes. If you do not supply this parameter, the
+default shape is the shape of the primary DB system. To get a list of
+all shapes, use the ListDbSystemShapes operation.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

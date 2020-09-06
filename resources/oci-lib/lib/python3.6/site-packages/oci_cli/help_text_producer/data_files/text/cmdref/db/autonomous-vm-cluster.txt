@@ -1,0 +1,24 @@
+autonomous-vm-cluster
+*********************
+
+
+Description
+===========
+
+Details of the Autonomous VM cluster.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

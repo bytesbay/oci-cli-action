@@ -1,0 +1,20 @@
+suppression
+***********
+
+
+Description
+===========
+
+The full information representing an email suppression.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list

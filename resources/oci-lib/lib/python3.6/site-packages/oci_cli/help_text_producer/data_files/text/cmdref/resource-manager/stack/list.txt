@@ -1,0 +1,121 @@
+"list"
+******
+
+
+Description
+===========
+
+Returns a list of stacks. - If called using the compartment ID,
+returns all stacks in the specified compartment. - If called using the
+stack ID, returns the specified stack.
+
+
+Usage
+=====
+
+   oci resource-manager stack list [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--all
+
+Fetches all pages of results. If you provide this option, then you
+cannot provide the "--limit" option.
+
+--compartment-id, -c [text]
+
+A filter to return only resources that exist in the compartment,
+identified by OCID.
+
+--display-name [text]
+
+A filter to return only resources that match the specified display
+name.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--id [text]
+
+The OCID on which to query for a stack.
+
+--lifecycle-state [text]
+
+A filter that returns only those resources that match the specified
+lifecycle state. The state value is case-insensitive. For more
+information about stack lifecycle states, see Key Concepts.
+
+Allowable values: - CREATING - ACTIVE - DELETING - DELETED - FAILED
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING, FAILED
+
+--limit [integer]
+
+The number of items returned in a paginated *List* call. For
+information about pagination, see List Pagination.
+
+--page [text]
+
+The value of the *opc-next-page* response header from the preceding
+*List* call. For information about pagination, see List Pagination.
+
+--page-size [integer]
+
+When fetching results, the number of results to fetch per call. Only
+valid when used with "--all" or "--limit", and ignored otherwise.
+
+--sort-by [text]
+
+The field to use when sorting returned resources. By default,
+*TIMECREATED* is ordered descending. By default, *DISPLAYNAME* is
+ordered ascending. Note that you can sort only on one field.
+
+Accepted values are:
+
+   DISPLAYNAME, TIMECREATED
+
+--sort-order [text]
+
+The sort order to use when sorting returned resources. Ascending
+(*ASC*) or descending (*DESC*).
+
+Accepted values are:
+
+   ASC, DESC
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

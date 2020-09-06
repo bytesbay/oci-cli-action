@@ -1,0 +1,15 @@
+cpe-device-shape-detail
+***********************
+
+
+Description
+===========
+
+The detailed information about a particular CPE device type. Compare
+with CpeDeviceShapeSummary.
+
+
+Available Commands
+==================
+
+* get-cpe-device-shape

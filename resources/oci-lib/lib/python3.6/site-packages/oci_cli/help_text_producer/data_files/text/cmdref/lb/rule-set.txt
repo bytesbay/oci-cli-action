@@ -1,0 +1,25 @@
+rule-set
+********
+
+
+Description
+===========
+
+A named set of rules associated with a load balancer. Rules are
+objects that represent actions to apply to a listener, such as adding,
+altering, or removing HTTP headers. For more information, see Managing
+Rule Sets.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

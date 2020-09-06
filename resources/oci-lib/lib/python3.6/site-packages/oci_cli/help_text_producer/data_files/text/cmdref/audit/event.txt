@@ -1,0 +1,15 @@
+event
+*****
+
+
+Description
+===========
+
+All the attributes of an audit event. For more information, see
+Viewing Audit Log Events.
+
+
+Available Commands
+==================
+
+* list

@@ -1,0 +1,19 @@
+autonomous-data-warehouse-backup
+********************************
+
+
+Description
+===========
+
+**Deprecated.** See AutonomousDatabaseBackup Reference for reference
+information about Autonomous Data Warehouse backups.
+
+
+Available Commands
+==================
+
+* create
+
+* get
+
+* list

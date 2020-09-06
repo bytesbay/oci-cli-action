@@ -1,0 +1,33 @@
+bucket
+******
+
+
+Description
+===========
+
+A bucket is a container for storing objects in a compartment within a
+namespace. A bucket is associated with a single compartment. The
+compartment has policies that indicate what actions a user can perform
+on a bucket and all the objects in the bucket. For more information,
+see Managing Buckets.
+
+To use any of the API operations, you must be authorized in an IAM
+policy. If you are not authorized, talk to an administrator. If you
+are an administrator who needs to write policies to give users access,
+see Getting Started with Policies.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* reencrypt
+
+* update

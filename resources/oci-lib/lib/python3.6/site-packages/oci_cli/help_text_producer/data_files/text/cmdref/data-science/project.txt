@@ -1,0 +1,24 @@
+project
+*******
+
+
+Description
+===========
+
+Projects enable users to organize their data science work.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

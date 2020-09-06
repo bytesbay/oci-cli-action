@@ -1,0 +1,21 @@
+work-request
+************
+
+
+Description
+===========
+
+Many of the API requests you use to create and configure load
+balancing do not take effect immediately. In these cases, the request
+spawns an asynchronous work flow to fulfill the request. WorkRequest
+objects provide visibility for in-progress work flows. For more
+information about work requests, see Viewing the State of a Work
+Request.
+
+
+Available Commands
+==================
+
+* get
+
+* list

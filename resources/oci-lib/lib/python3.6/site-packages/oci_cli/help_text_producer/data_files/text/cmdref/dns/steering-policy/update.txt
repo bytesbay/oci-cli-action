@@ -1,0 +1,252 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates the configuration of the specified steering policy.
+
+
+Usage
+=====
+
+   oci dns steering-policy update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--steering-policy-id [text]
+
+The OCID of the target steering policy.
+
+
+Optional Parameters
+===================
+
+--answers [complex type]
+
+The set of all answers that can potentially issue from the steering
+policy.
+
+This option is a JSON list with items of type SteeringPolicyAnswer.
+For documentation on SteeringPolicyAnswer please see our API
+reference: https://docs.cloud.oracle.com/api/#/en/dns/20180115/dataty
+pes/SteeringPolicyAnswer. This is a complex type whose value must be
+valid JSON. The value can be provided as a string on the command line
+or passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags.
+
+   **Example:** *{"Operations": {"CostCenter": "42"}}*
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--display-name [text]
+
+A user-friendly name for the steering policy. Does not have to be
+unique and can be changed. Avoid entering confidential information.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+   **Example:** *{"Department": "Finance"}*
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--health-check-monitor-id [text]
+
+The OCID of the health check monitor providing health data about the
+answers of the steering policy. A steering policy answer with *rdata*
+matching a monitored endpoint will use the health data of that
+endpoint. A steering policy answer with *rdata* not matching any
+monitored endpoint will be assumed healthy.
+
+**Note:** To use the Health Check monitoring feature in a steering
+policy, a monitor must be created using the Health Checks service
+first. For more information on how to create a monitor, please see
+Managing Health Checks.
+
+--if-match [text]
+
+The *If-Match* header field makes the request method conditional on
+the existence of at least one current representation of the target
+resource, when the field-value is ***, or having a current
+representation of the target resource that has an entity-tag matching
+a member of the list of entity-tags provided in the field-value.
+
+--if-unmodified-since [text]
+
+The *If-Unmodified-Since* header field makes the request method
+conditional on the selected representation's last modification date
+being earlier than or equal to the date provided in the field-value.
+This field accomplishes the same purpose as If-Match for cases where
+the user agent does not have an entity-tag for the representation.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--rules [complex type]
+
+The series of rules that will be processed in sequence to reduce the
+pool of answers to a response for any given request.
+
+   The first rule receives a shuffled list of all answers, and every
+   other rule receives the list of answers emitted by the one
+   preceding it. The last rule populates the response.
+
+This option is a JSON list with items of type SteeringPolicyRule.  For
+documentation on SteeringPolicyRule please see our API reference: htt
+ps://docs.cloud.oracle.com/api/#/en/dns/20180115/datatypes/SteeringPo
+licyRule. This is a complex type whose value must be valid JSON. The
+value can be provided as a string on the command line or passed in as
+a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--template [text]
+
+A set of predefined rules based on the desired purpose of the steering
+policy. Each template utilizes Traffic Management's rules in a
+different order to produce the desired results when answering DNS
+queries.
+
+   **Example:** The *FAILOVER* template determines answers by
+   filtering the policy's answers using the *FILTER* rule first, then
+   the following rules in succession: *HEALTH*, *PRIORITY*, and
+   *LIMIT*. This gives the domain dynamic failover capability.
+
+   It is **strongly recommended** to use a template other than
+   *CUSTOM* when creating a steering policy.
+
+   All templates require the rule order to begin with an unconditional
+   *FILTER* rule that keeps answers contingent upon *answer.isDisabled
+   != true*, except for *CUSTOM*. A defined *HEALTH* rule must follow
+   the *FILTER* rule if the policy references a
+   *healthCheckMonitorId*. The last rule of a template must must be a
+   *LIMIT* rule. For more information about templates and code
+   examples, see Traffic Management API Guide.
+
+**Template Types**
+
+* *FAILOVER* - Uses health check information on your endpoints to
+  determine which DNS answers to serve. If an endpoint fails a health
+  check, the answer for that endpoint will be removed from the list of
+  available answers until the endpoint is detected as healthy.
+
+   * *LOAD_BALANCE* - Distributes web traffic to specified endpoints
+     based on defined weights.
+
+   * *ROUTE_BY_GEO* - Answers DNS queries based on the query's
+     geographic location. For a list of geographic locations to route
+     by, see Traffic Management Geographic Locations.
+
+   * *ROUTE_BY_ASN* - Answers DNS queries based on the query's
+     originating ASN.
+
+   * *ROUTE_BY_IP* - Answers DNS queries based on the query's IP
+     address.
+
+   * *CUSTOM* - Allows a customized configuration of rules.
+
+Accepted values are:
+
+   CUSTOM, FAILOVER, LOAD_BALANCE, ROUTE_BY_ASN, ROUTE_BY_GEO, ROUTE_BY_IP
+
+--ttl [integer]
+
+The Time To Live (TTL) for responses from the steering policy, in
+seconds. If not specified during creation, a value of 30 seconds will
+be used.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

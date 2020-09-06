@@ -1,0 +1,15 @@
+fast-connect-provider-service-key
+*********************************
+
+
+Description
+===========
+
+A provider service key and its details. A provider service key is an
+identifier for a provider's virtual circuit.
+
+
+Available Commands
+==================
+
+* get

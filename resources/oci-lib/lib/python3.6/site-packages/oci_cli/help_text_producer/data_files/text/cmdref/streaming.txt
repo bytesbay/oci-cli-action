@@ -1,0 +1,80 @@
+streaming
+*********
+
+
+Description
+===========
+
+The CLI for the Streaming Service.
+
+
+Available Commands
+==================
+
+* admin
+
+  * connect-harness
+
+    * change-compartment
+
+    * create
+
+    * delete
+
+    * get
+
+    * list
+
+    * update
+
+  * stream
+
+    * change-compartment
+
+    * create
+
+    * delete
+
+    * get
+
+    * list
+
+    * update
+
+  * stream-pool
+
+    * change-compartment
+
+    * create
+
+    * delete
+
+    * get
+
+    * list
+
+    * update
+
+* stream
+
+  * cursor
+
+    * create-cursor
+
+    * create-group-cursor
+
+  * group
+
+    * commit
+
+    * get
+
+    * heartbeat
+
+    * update
+
+  * message
+
+    * get
+
+    * put

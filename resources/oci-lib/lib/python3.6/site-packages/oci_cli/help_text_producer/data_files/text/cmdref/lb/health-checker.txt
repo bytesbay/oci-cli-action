@@ -1,0 +1,17 @@
+health-checker
+**************
+
+
+Description
+===========
+
+The health check policy configuration. For more information, see
+Editing Health Check Policies.
+
+
+Available Commands
+==================
+
+* get
+
+* update

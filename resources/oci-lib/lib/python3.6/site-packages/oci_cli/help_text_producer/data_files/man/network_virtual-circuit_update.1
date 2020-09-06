@@ -1,0 +1,260 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "NETWORK_VIRTUAL-CIRCUIT_UPDATE" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+network_virtual-circuit_update \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Updates the specified virtual circuit. This can be called by either the customer who owns the virtual circuit, or the provider (when provisioning or de\-provisioning the virtual circuit from their end). The documentation for \fI\%UpdateVirtualCircuitDetails\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/iaas/20160918/requests/UpdateVirtualCircuitDetails\fP> indicates who can update each property of the virtual circuit.
+.sp
+\fBImportant:\fP If the virtual circuit is working and in the PROVISIONED state, updating any of the network\-related properties (such as the DRG being used, the BGP ASN, and so on) will cause the virtual circuit\(aqs state to switch to PROVISIONING and the related BGP session to go down. After Oracle re\-provisions the virtual circuit, its state will return to PROVISIONED. Make sure you confirm that the associated BGP session is back up. For more information about the various states and how to test connectivity, see \fI\%FastConnect Overview\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Concepts/fastconnect.htm\fP>\&.
+.sp
+To change the list of public IP prefixes for a public virtual circuit, use \fI\%BulkAddVirtualCircuitPublicPrefixes\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/BulkAddVirtualCircuitPublicPrefixes\fP> and \fI\%BulkDeleteVirtualCircuitPublicPrefixes\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/BulkDeleteVirtualCircuitPublicPrefixes\fP>\&. Updating the list of prefixes does NOT cause the BGP session to go down. However, Oracle must verify the customer\(aqs ownership of each added prefix before traffic for that prefix will flow across the virtual circuit.
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci network virtual\-circuit update [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-virtual\-circuit\-id [text]
+.UNINDENT
+.sp
+The OCID of the virtual circuit.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-bandwidth\-shape\-name [text]
+.UNINDENT
+.sp
+The provisioned data rate of the connection. To get a list of the available bandwidth levels (that is, shapes), see \fI\%ListFastConnectProviderVirtualCircuitBandwidthShapes\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/iaas/20160918/FastConnectProviderService/ListFastConnectProviderVirtualCircuitBandwidthShapes\fP>\&. To be updated only by the customer who owns the virtual circuit.
+.INDENT 0.0
+.TP
+.B \-\-cross\-connect\-mappings [complex type]
+.UNINDENT
+.sp
+An array of mappings, each containing properties for a cross\-connect or cross\-connect group associated with this virtual circuit.
+.sp
+The customer and provider can update different properties in the mapping depending on the situation. See the description of the \fI\%CrossConnectMapping\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/iaas/20160918/CrossConnectMapping/\fP>\&.
+.sp
+This option is a JSON list with items of type CrossConnectMapping.  For documentation on CrossConnectMapping please see our API reference: \fI\%https://docs.cloud.oracle.com/api/#/en/iaas/20160918/datatypes/CrossConnectMapping\fP\&.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-customer\-asn [integer]
+.UNINDENT
+.sp
+The BGP ASN of the network at the other end of the BGP session from Oracle.
+.sp
+If the BGP session is from the customer\(aqs edge router to Oracle, the required value is the customer\(aqs ASN, and it can be updated only by the customer.
+.sp
+If the BGP session is from the provider\(aqs edge router to Oracle, the required value is the provider\(aqs ASN, and it can be updated only by the provider.
+.sp
+Can be a 2\-byte or 4\-byte ASN. Uses "asplain" format.
+.INDENT 0.0
+.TP
+.B \-\-customer\-bgp\-asn [integer]
+.UNINDENT
+.sp
+Deprecated. Instead use \fIcustomerAsn\fP\&. If you specify values for both, the request will be rejected.
+.INDENT 0.0
+.TP
+.B \-\-defined\-tags [complex type]
+.UNINDENT
+.sp
+Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{"Operations": {"CostCenter": "42"}}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-display\-name [text]
+.UNINDENT
+.sp
+A user\-friendly name. Does not have to be unique. Avoid entering confidential information.
+.sp
+To be updated only by the customer who owns the virtual circuit.
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+Perform update without prompting for confirmation.
+.INDENT 0.0
+.TP
+.B \-\-freeform\-tags [complex type]
+.UNINDENT
+.sp
+Free\-form tags for this resource. Each tag is a simple key\-value pair with no predefined name, type, or namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{"Department": "Finance"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-gateway\-id [text]
+.UNINDENT
+.sp
+The OCID of the \fI\%dynamic routing gateway (DRG)\fP <\fBhttps://docs.cloud.oracle.com/api/#/en/iaas/20160918/Drg\fP> that this private virtual circuit uses.
+.sp
+To be updated only by the customer who owns the virtual circuit.
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the PUT or DELETE call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous GET or POST response for that resource.  The resource will be updated or deleted only if the etag you provide matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-provider\-service\-key\-name [text]
+.UNINDENT
+.sp
+The service key name offered by the provider (if the customer is connecting via a provider).
+.INDENT 0.0
+.TP
+.B \-\-provider\-state [text]
+.UNINDENT
+.sp
+The provider\(aqs state in relation to this virtual circuit. Relevant only if the customer is using FastConnect via a provider.  ACTIVE means the provider has provisioned the virtual circuit from their end. INACTIVE means the provider has not yet provisioned the virtual circuit, or has de\-provisioned it.
+.sp
+To be updated only by the provider.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACTIVE, INACTIVE
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-reference\-comment [text]
+.UNINDENT
+.sp
+Provider\-supplied reference information about this virtual circuit. Relevant only if the customer is using FastConnect via a provider.
+.sp
+To be updated only by the provider.
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+FAILED, INACTIVE, PENDING_PROVIDER, PROVISIONED, PROVISIONING, TERMINATED, TERMINATING, VERIFYING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

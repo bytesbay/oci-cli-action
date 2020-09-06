@@ -1,0 +1,22 @@
+accepted-agreement
+******************
+
+
+Description
+===========
+
+The model for an accepted terms of use agreement.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

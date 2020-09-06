@@ -1,0 +1,90 @@
+"upload"
+********
+
+
+Description
+===========
+
+Uploads an API signing key for the specified user.
+
+Every user has permission to use this operation to upload a key for
+*their own user ID*. An administrator in your organization does not
+need to write a policy to give users this ability. To compare,
+administrators who have permission to the tenancy can use this
+operation to upload a key for any user, including themselves.
+
+**Important:** Even though you have permission to upload an API key,
+you might not yet have permission to do much else. If you try calling
+an operation unrelated to your own credential management (e.g.,
+*ListUsers*, *LaunchInstance*) and receive an "unauthorized" error,
+check with an administrator to confirm which IAM Service group(s)
+you're in and what access you have. Also confirm you're working in the
+correct compartment.
+
+After you send your request, the new object's *lifecycleState* will
+temporarily be CREATING. Before using the object, first make sure its
+*lifecycleState* has changed to ACTIVE.
+
+
+Usage
+=====
+
+   oci iam user api-key upload [OPTIONS]
+
+
+Required Parameters
+===================
+
+--user-id [text]
+
+The OCID of the user.
+
+
+Optional Parameters
+===================
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--key [text]
+
+The public key.  Must be an RSA key in PEM format. Either this option
+or --key-file must be specified
+
+--key-file [filename]
+
+A file containing the public key.  Must be an RSA key in PEM format.
+Either this option or --key must be specified
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

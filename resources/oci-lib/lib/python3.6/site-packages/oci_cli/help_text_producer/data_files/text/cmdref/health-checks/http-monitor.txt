@@ -1,0 +1,25 @@
+http-monitor
+************
+
+
+Description
+===========
+
+This model contains all of the mutable and immutable properties for an
+HTTP monitor.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

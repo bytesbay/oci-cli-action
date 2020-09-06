@@ -1,0 +1,14 @@
+service
+*******
+
+
+Description
+===========
+
+A specific OCI service supported by resource limits.
+
+
+Available Commands
+==================
+
+* list

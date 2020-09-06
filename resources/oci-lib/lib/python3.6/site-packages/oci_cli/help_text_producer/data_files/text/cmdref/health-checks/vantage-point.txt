@@ -1,0 +1,14 @@
+vantage-point
+*************
+
+
+Description
+===========
+
+Information about a vantage point.
+
+
+Available Commands
+==================
+
+* list

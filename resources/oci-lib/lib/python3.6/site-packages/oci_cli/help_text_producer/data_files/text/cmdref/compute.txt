@@ -1,0 +1,214 @@
+compute
+*******
+
+
+Description
+===========
+
+Compute Service CLI
+
+
+Available Commands
+==================
+
+* boot-volume-attachment
+
+  * attach
+
+  * detach
+
+  * get
+
+  * list
+
+* console-history
+
+  * capture
+
+  * delete
+
+  * get
+
+  * get-content
+
+  * list
+
+  * update
+
+* dedicated-vm-host
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * host-shape
+
+    * list
+
+  * instance-shape
+
+    * list
+
+  * list
+
+  * update
+
+* dedicated-vm-host-instance
+
+  * list
+
+* device
+
+  * list-instance
+
+* global-image-capability-schema
+
+  * get
+
+  * list
+
+* global-image-capability-schema-version
+
+  * get
+
+  * list
+
+* image
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * export
+
+    * to-object
+
+    * to-object-uri
+
+  * get
+
+  * import
+
+    * from-object
+
+    * from-object-uri
+
+  * list
+
+  * update
+
+* image-capability-schema
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* image-shape-compatibility-entry
+
+  * add
+
+  * get
+
+  * list
+
+  * remove
+
+* instance
+
+  * action
+
+  * attach-vnic
+
+  * change-compartment
+
+  * detach-vnic
+
+  * get
+
+  * get-windows-initial-creds
+
+  * launch
+
+  * list
+
+  * list-vnics
+
+  * terminate
+
+  * update
+
+* instance-console-connection
+
+  * create
+
+  * delete
+
+  * get
+
+  * get-plink-connection-string
+
+  * list
+
+* pic
+
+  * agreements
+
+    * get
+
+  * listing
+
+    * get
+
+    * list
+
+  * subscription
+
+    * create
+
+    * delete
+
+    * list
+
+  * version
+
+    * get
+
+    * list
+
+* shape
+
+  * list
+
+* vnic-attachment
+
+  * get
+
+  * list
+
+* volume-attachment
+
+  * attach
+
+  * attach-iscsi-volume
+
+  * attach-paravirtualized-volume
+
+  * detach
+
+  * get
+
+  * list

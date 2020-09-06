@@ -1,0 +1,36 @@
+"validate"
+**********
+
+
+Description
+===========
+
+Tests whether a CLI session is still valid
+
+
+Usage
+=====
+
+   oci session validate [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--local
+
+Only perform local validation of session by checking expiry time.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

@@ -1,0 +1,28 @@
+instance
+********
+
+
+Description
+===========
+
+Description of *OdaServiceInstance* object.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* start
+
+* stop
+
+* update

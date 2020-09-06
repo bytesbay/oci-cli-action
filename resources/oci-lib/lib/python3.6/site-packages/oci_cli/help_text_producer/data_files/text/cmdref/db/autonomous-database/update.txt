@@ -1,0 +1,291 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates one or more attributes of the specified Autonomous Database.
+See the UpdateAutonomousDatabaseDetails resource for a full list of
+attributes that can be updated.
+
+
+Usage
+=====
+
+   oci db autonomous-database update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--autonomous-database-id [text]
+
+The database OCID.
+
+
+Optional Parameters
+===================
+
+--admin-password [text]
+
+The password must be between 12 and 30 characters long, and must
+contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It
+cannot contain the double quote symbol (") or the username "admin",
+regardless of casing. It must be different from the last four
+passwords and it must not be a password used within the last 24 hours.
+
+--cpu-core-count [integer]
+
+The number of CPU cores to be made available to the database.
+
+--data-storage-size-in-tbs [integer]
+
+The size, in terabytes, of the data volume that will be attached to
+the database.
+
+--db-name [text]
+
+New name for this Autonomous Database. For databases using dedicated
+Exadata infrastructure, the name must begin with an alphabetic
+character, and can contain a maximum of eight alphanumeric characters.
+Special characters are not permitted. For databases using shared
+Exadata infrastructure, the name must begin with an alphabetic
+character, and can contain a maximum of 14 alphanumeric characters.
+Special characters are not permitted. The database name must be unique
+in the tenancy.
+
+--db-version [text]
+
+A valid Oracle Database version for Autonomous Database.
+
+--db-workload [text]
+
+The Autonomous Database workload type. The following values are valid:
+
+* OLTP - indicates an Autonomous Transaction Processing database -
+  DW - indicates an Autonomous Data Warehouse database - AJD -
+  indicates an Autonomous JSON Database
+
+Accepted values are:
+
+   AJD, DW, OLTP
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags. This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--display-name [text]
+
+The user-friendly name for the Autonomous Database. The name does not
+have to be unique. Can only be updated for Autonomous Databases using
+dedicated Exadata infrastructure.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+Example:
+
+   {"Department": "Finance"}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource.  The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--is-auto-scaling-enabled [boolean]
+
+Indicates whether to enable or disable auto scaling for the Autonomous
+Database OCPU core count. Setting to *true* enables auto scaling.
+Setting to *false* disables auto scaling. The default value is true.
+Auto scaling is available for databases on shared Exadata
+infrastructure only.
+
+--is-data-guard-enabled [boolean]
+
+Indicates whether the Autonomous Database has Data Guard enabled.
+
+--is-free-tier [boolean]
+
+Indicates if this is an Always Free resource. The default value is
+false. Note that Always Free Autonomous Databases have 1 CPU and 20GB
+of memory. For Always Free databases, memory and CPU cannot be scaled.
+
+--is-refreshable-clone [boolean]
+
+Indicates whether the Autonomous Database is a refreshable clone.
+
+--license-model [text]
+
+The Oracle license model that applies to the Oracle Autonomous
+Database. Note that when provisioning an Autonomous Database on
+dedicated Exadata infrastructure, this attribute must be null because
+the attribute is already set at the Autonomous Exadata Infrastructure
+level. When using shared Exadata infrastructure, if a value is not
+specified, the system will supply the value of
+*BRING_YOUR_OWN_LICENSE*.
+
+Accepted values are:
+
+   BRING_YOUR_OWN_LICENSE, LICENSE_INCLUDED
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--nsg-ids [complex type]
+
+A list of the OCIDs of the network security groups (NSGs) that this
+resource belongs to. Setting this to an empty array after the list is
+created removes the resource from all NSGs. For more information about
+NSGs, see Security Rules. **NsgIds restrictions:** - Autonomous
+Databases with private access require at least 1 Network Security
+Group (NSG). The nsgIds array cannot be empty. This is a complex type
+whose value must be valid JSON. The value can be provided as a string
+on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--private-endpoint-label [text]
+
+The private endpoint label for the resource. Setting this to an empty
+string, after the private endpoint database gets created, will change
+the same private endpoint database to the public endpoint database.
+
+--refreshable-mode [text]
+
+The refresh mode of the clone. AUTOMATIC indicates that the clone is
+automatically being refreshed with data from the source Autonomous
+Database.
+
+Accepted values are:
+
+   AUTOMATIC, MANUAL
+
+--subnet-id [text]
+
+The OCID of the subnet the resource is associated with.
+
+**Subnet Restrictions:** - For bare metal DB systems and for single
+node virtual machine DB systems, do not use a subnet that overlaps
+with 192.168.16.16/28. - For Exadata and virtual machine 2-node RAC DB
+systems, do not use a subnet that overlaps with 192.168.128.0/20. -
+For Autonomous Database, setting this will disable public secure
+access to the database.
+
+These subnets are used by the Oracle Clusterware private interconnect
+on the database instance. Specifying an overlapping subnet will cause
+the private interconnect to malfunction. This restriction applies to
+both the client subnet and the backup subnet.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   AVAILABLE, AVAILABLE_NEEDS_ATTENTION, BACKUP_IN_PROGRESS, MAINTENANCE_IN_PROGRESS, PROVISIONING, RECREATING, RESTARTING, RESTORE_FAILED, RESTORE_IN_PROGRESS, ROLE_CHANGE_IN_PROGRESS, SCALE_IN_PROGRESS, STARTING, STOPPED, STOPPING, TERMINATED, TERMINATING, UNAVAILABLE, UPDATING, UPGRADING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+--whitelisted-ips [complex type]
+
+The client IP access control list (ACL). This feature is available for
+databases on shared Exadata infrastructure only. Only clients
+connecting from an IP address included in the ACL may access the
+Autonomous Database instance. This is an array of CIDR (Classless
+Inter-Domain Routing) notations for a subnet or VCN OCID. To delete
+all the existing white listed IP’s, use an array with a single empty
+string entry. To add the whitelist VCN specific subnet or IP, use a
+semicoln ';' as a deliminator to add the VCN specific subnets or IPs.
+Example: *["1.1.1.1","1.1.1.0/24","ocid1.vcn.oc1.sea.aaaaaaaard2hfx2n
+n3e5xeo6j6o62jga44xjizkw","ocid1.vcn.oc1.sea.aaaaaaaard2hfx2nn3e5xeo6
+j6o62jga44xjizkw;1.1.1.1","ocid1.vcn.oc1.sea.aaaaaaaard2hfx2nn3e5xeo6
+j6o62jga44xjizkw"]* This is a complex type whose value must be valid
+JSON. The value can be provided as a string on the command line or
+passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

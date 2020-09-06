@@ -1,0 +1,34 @@
+instance
+********
+
+
+Description
+===========
+
+Description of the BDS instance
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* change-shape
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* remove
+
+* restart-node
+
+* update
+
+* worker-nodes
+
+  * add

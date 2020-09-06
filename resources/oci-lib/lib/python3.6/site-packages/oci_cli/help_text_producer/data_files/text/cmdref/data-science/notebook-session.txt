@@ -1,0 +1,29 @@
+notebook-session
+****************
+
+
+Description
+===========
+
+Notebook sessions are interactive coding environments for data
+scientists.
+
+
+Available Commands
+==================
+
+* activate
+
+* change-compartment
+
+* create
+
+* deactivate
+
+* delete
+
+* get
+
+* list
+
+* update

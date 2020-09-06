@@ -1,0 +1,33 @@
+dedicated-vm-host
+*****************
+
+
+Description
+===========
+
+A dedicated virtual machine host that enables you to host multiple VM
+instances on a dedicated host that is not shared with other tenancies.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* host-shape
+
+  * list
+
+* instance-shape
+
+  * list
+
+* list
+
+* update

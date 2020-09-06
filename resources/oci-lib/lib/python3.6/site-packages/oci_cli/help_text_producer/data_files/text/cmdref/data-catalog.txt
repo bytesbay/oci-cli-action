@@ -1,0 +1,274 @@
+data-catalog
+************
+
+
+Description
+===========
+
+Use the Data Catalog CLI to collect, organize, find, access,
+understand, enrich, and activate technical, business, and operational
+metadata.
+
+
+Available Commands
+==================
+
+* attribute
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* attribute-tag
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* catalog
+
+  * attach
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * detach
+
+  * get
+
+  * list
+
+  * object-stats
+
+  * update
+
+  * users
+
+* catalog-private-endpoint
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* connection
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * test
+
+  * update
+
+  * upload-credentials
+
+* data-asset
+
+  * create
+
+  * delete
+
+  * get
+
+  * import-connection
+
+  * list
+
+  * parse-connection
+
+  * update
+
+  * validate-connection
+
+* data-asset-tag
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* entity
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* entity-tag
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* folder
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* folder-tag
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* glossary
+
+  * create
+
+  * delete
+
+  * expand-tree-for
+
+  * export
+
+  * get
+
+  * import
+
+  * list
+
+  * update
+
+* job
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* job-definition
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* job-execution
+
+  * create
+
+  * get
+
+  * list
+
+* job-log
+
+  * get
+
+  * list
+
+* job-metric
+
+  * get
+
+  * list
+
+* search
+
+  * query
+
+* tag
+
+  * list
+
+* term
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* term-relationship
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* type
+
+  * get
+
+  * list
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log
+
+  * list

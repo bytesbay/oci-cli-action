@@ -1,0 +1,25 @@
+entity
+******
+
+
+Description
+===========
+
+Data entity details. A representation of data with a set of
+attributes, normally representing a single business entity. Synonymous
+with 'table' or 'view' in a database, or a single logical file
+structure that one or many files may match.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

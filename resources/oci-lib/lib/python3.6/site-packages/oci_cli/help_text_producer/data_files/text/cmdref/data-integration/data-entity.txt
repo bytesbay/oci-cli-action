@@ -1,0 +1,18 @@
+data-entity
+***********
+
+
+Description
+===========
+
+The data entity object.
+
+
+Available Commands
+==================
+
+* create-entity-shape-from-file
+
+* get
+
+* list

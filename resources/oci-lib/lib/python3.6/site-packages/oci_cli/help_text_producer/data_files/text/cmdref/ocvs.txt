@@ -1,0 +1,54 @@
+ocvs
+****
+
+
+Description
+===========
+
+Use this CLI to manage the Oracle Cloud VMware Solution.
+
+
+Available Commands
+==================
+
+* esxi-host
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* sddc
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+  * vmware-versions
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log
+
+  * list

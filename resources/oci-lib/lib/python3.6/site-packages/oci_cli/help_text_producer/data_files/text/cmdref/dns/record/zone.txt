@@ -1,0 +1,18 @@
+zone
+****
+
+
+Description
+===========
+
+A collection of DNS records for the same zone.
+
+
+Available Commands
+==================
+
+* get
+
+* patch
+
+* update

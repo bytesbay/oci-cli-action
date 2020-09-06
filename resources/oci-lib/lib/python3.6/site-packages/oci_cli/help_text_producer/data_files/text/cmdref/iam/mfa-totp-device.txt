@@ -1,0 +1,32 @@
+mfa-totp-device
+***************
+
+
+Description
+===========
+
+Users can enable multi-factor authentication (MFA) for their own user
+accounts. After MFA is enabled, the user is prompted for a time-based
+one-time password (TOTP) to authenticate before they can sign in to
+the Console. To enable multi-factor authentication, the user must
+register a mobile device with a TOTP authenticator app installed. The
+registration process creates the *MfaTotpDevice* object. The
+registration process requires interaction with the Console and cannot
+be completed programmatically. For more information, see Managing
+Multi-Factor Authentication.
+
+
+Available Commands
+==================
+
+* activate
+
+* create
+
+* delete
+
+* generate-totp-seed
+
+* get
+
+* list

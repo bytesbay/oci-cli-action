@@ -1,0 +1,25 @@
+source
+******
+
+
+Description
+===========
+
+The Source object. Sources represent external locations from which
+applications may be imported into an OCI tenancy.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

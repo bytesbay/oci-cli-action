@@ -1,0 +1,33 @@
+work-requests
+*************
+
+
+Description
+===========
+
+Many of the CLI operations that you use to create and configure
+Compute resources do not take effect immediately. In these cases, the
+operation spawns an asynchronous workflow to fulfill the request. Work
+requests provide visibility into the status of these in-progress,
+long-running workflows.
+
+For more information about work requests and the operations that spawn
+work requests, see Viewing the State of a Compute Work Request.
+
+
+Available Commands
+==================
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

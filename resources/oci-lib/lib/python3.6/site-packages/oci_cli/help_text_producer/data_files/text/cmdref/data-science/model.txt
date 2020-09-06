@@ -1,0 +1,42 @@
+model
+*****
+
+
+Description
+===========
+
+Models are mathematical representations of the relationships between
+data. Models are represented by their associated metadata and
+artifacts.
+
+
+Available Commands
+==================
+
+* activate
+
+* change-compartment
+
+* create
+
+* create-model-artifact
+
+* create-model-provenance
+
+* deactivate
+
+* delete
+
+* get
+
+* get-artifact-content
+
+* get-model-provenance
+
+* head-model-artifact
+
+* list
+
+* update
+
+* update-model-provenance

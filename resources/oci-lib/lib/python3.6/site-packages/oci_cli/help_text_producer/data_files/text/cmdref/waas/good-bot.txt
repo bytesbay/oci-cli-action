@@ -1,0 +1,17 @@
+good-bot
+********
+
+
+Description
+===========
+
+The good bot settings. Good bots provides a list of bots which are
+managed by known providers.
+
+
+Available Commands
+==================
+
+* list
+
+* update

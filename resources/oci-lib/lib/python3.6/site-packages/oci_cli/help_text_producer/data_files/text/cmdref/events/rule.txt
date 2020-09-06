@@ -1,0 +1,25 @@
+rule
+****
+
+
+Description
+===========
+
+The configuration details of an Events rule. For more information, see
+Managing Rules for Events.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

@@ -1,0 +1,16 @@
+get
+***
+
+
+Description
+===========
+
+Gets the patch history details for the specified patchHistoryEntryId
+
+
+Available Commands
+==================
+
+* by-database
+
+* by-db-system

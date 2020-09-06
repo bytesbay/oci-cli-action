@@ -1,0 +1,162 @@
+lb
+**
+
+
+Description
+===========
+
+CLI for the Load Balancing service. Use this CLI to manage load
+balancers, backend sets, and related items. For more information, see
+Overview of Load Balancing.
+
+
+Available Commands
+==================
+
+* backend
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* backend-health
+
+  * get
+
+* backend-set
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* backend-set-health
+
+  * get
+
+* certificate
+
+  * create
+
+  * delete
+
+  * list
+
+* health-checker
+
+  * get
+
+  * update
+
+* hostname
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* listener
+
+  * create
+
+  * delete
+
+  * update
+
+* listener-rule
+
+  * list
+
+* load-balancer
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* load-balancer-health
+
+  * get
+
+  * list
+
+* nsg
+
+  * update
+
+* path-route-set
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* policy
+
+  * list
+
+* protocol
+
+  * list
+
+* rule-set
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* shape
+
+  * list
+
+* ssl-cipher-suite
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* work-request
+
+  * get
+
+  * list

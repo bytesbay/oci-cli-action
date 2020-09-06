@@ -1,0 +1,21 @@
+group
+*****
+
+
+Description
+===========
+
+Represents the current state of a consumer group, including partition
+reservations and committed offsets.
+
+
+Available Commands
+==================
+
+* commit
+
+* get
+
+* heartbeat
+
+* update

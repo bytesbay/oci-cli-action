@@ -1,0 +1,16 @@
+schema
+******
+
+
+Description
+===========
+
+The schema object.
+
+
+Available Commands
+==================
+
+* get
+
+* list

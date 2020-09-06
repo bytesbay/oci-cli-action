@@ -1,0 +1,24 @@
+image-capability-schema
+***********************
+
+
+Description
+===========
+
+Image Capability Schema
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

@@ -1,0 +1,120 @@
+"get"
+*****
+
+
+Description
+===========
+
+Gets the metadata and body of an object.
+
+Example:
+   oci os object get -ns mynamespace -bn mybucket --name myfile.txt
+   --file /Users/me/myfile.txt
+
+
+Usage
+=====
+
+   oci os object get [OPTIONS]
+
+
+Required Parameters
+===================
+
+-bn, --bucket-name [text]
+
+The name of the bucket.
+
+--file [filename]
+
+The name of the file that will receive the object content, or '-' to
+write to STDOUT.
+
+--name [text]
+
+The name of the object.
+
+
+Optional Parameters
+===================
+
+--encryption-key-file [filename]
+
+A file containing the base64-encoded string of the AES-256 encryption
+key associated with the object.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+The entity tag to match.
+
+--if-none-match [text]
+
+The entity tag to avoid matching.
+
+--multipart-download-threshold [integer range]
+
+Objects larger than this size (in MiB) will be downloaded in multiple
+parts. The minimum allowable threshold is 128 MiB.
+
+-ns, --namespace, --namespace-name [text]
+
+The top-level namespace used for the request. If not provided, this
+parameter will be obtained internally using a call to 'oci os ns get'
+
+--parallel-download-count [integer]
+
+The number of parallel operations to perform when downloading an
+object in multiple parts. Decreasing this value will make multipart
+downloads less resource intensive but they may take longer. Increasing
+this value may improve download times, but the download process will
+consume more system resources and network bandwidth. [default: 10]
+
+--part-size [integer range]
+
+Part size (in MiB) to use when downloading an object in multiple
+parts. The minimum allowable size is 128 MiB.
+
+--range [text]
+
+Byte range to fetch. Follows
+https://tools.ietf.org/html/rfc7233#section-2.1. Example: bytes=2-10
+
+--version-id [text]
+
+VersionId used to identify a particular version of the object
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

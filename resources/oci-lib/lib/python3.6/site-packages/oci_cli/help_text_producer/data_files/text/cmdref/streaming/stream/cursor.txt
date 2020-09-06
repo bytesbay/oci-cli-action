@@ -1,0 +1,18 @@
+cursor
+******
+
+
+Description
+===========
+
+A cursor that indicates the position in the stream from which you want
+to begin consuming messages and which is required by the GetMessages
+operation.
+
+
+Available Commands
+==================
+
+* create-cursor
+
+* create-group-cursor

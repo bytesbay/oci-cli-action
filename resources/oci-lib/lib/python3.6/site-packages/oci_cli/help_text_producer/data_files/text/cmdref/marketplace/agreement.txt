@@ -1,0 +1,16 @@
+agreement
+*********
+
+
+Description
+===========
+
+The model for an end user license agreement.
+
+
+Available Commands
+==================
+
+* get
+
+* list

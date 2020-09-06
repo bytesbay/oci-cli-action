@@ -1,0 +1,16 @@
+user-status
+***********
+
+
+Description
+===========
+
+User specific status of the announcements.
+
+
+Available Commands
+==================
+
+* get
+
+* update

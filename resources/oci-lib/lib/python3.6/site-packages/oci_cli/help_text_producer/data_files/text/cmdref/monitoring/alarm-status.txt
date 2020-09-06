@@ -1,0 +1,24 @@
+alarm-status
+************
+
+
+Description
+===========
+
+A summary of properties for the specified alarm and its current
+evaluation status. For information about alarms, see Alarms Overview.
+
+To use any of the API operations, you must be authorized in an IAM
+policy. If you're not authorized, talk to an administrator. If you're
+an administrator who needs to write policies to give users access, see
+Getting Started with Policies.
+
+For information about endpoints and signing API requests, see About
+the API. For information about available SDKs and tools, see SDKS and
+Other Tools.
+
+
+Available Commands
+==================
+
+* list-alarms-status

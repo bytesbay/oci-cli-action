@@ -1,0 +1,23 @@
+configuration
+*************
+
+
+Description
+===========
+
+The set of MySQL variables to be used when deploying a MySQL Database
+Service DB System.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

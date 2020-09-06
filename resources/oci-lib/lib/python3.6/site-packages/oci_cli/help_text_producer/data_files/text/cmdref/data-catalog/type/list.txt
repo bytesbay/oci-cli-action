@@ -1,0 +1,143 @@
+"list"
+******
+
+
+Description
+===========
+
+Returns a list of all types within a data catalog.
+
+
+Usage
+=====
+
+   oci data-catalog type list [OPTIONS]
+
+
+Required Parameters
+===================
+
+--catalog-id [text]
+
+Unique catalog identifier.
+
+
+Optional Parameters
+===================
+
+--all
+
+Fetches all pages of results. If you provide this option, then you
+cannot provide the "--limit" option.
+
+--external-type-name [text]
+
+Data type as defined in an external system.
+
+--fields [text]
+
+Specifies the fields to return in a type summary response.
+
+Accepted values are:
+
+   catalogId, description, key, lifecycleState, name, typeCategory, uri
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--is-approved [text]
+
+Indicates whether the type is approved for use as a classifying
+object.
+
+--is-internal [text]
+
+Indicates whether the type is internal, making it unavailable for use
+by metadata elements.
+
+--is-tag [text]
+
+Indicates whether the type can be used for tagging metadata elements.
+
+--lifecycle-state [text]
+
+A filter to return only resources that match the specified lifecycle
+state. The value is case insensitive.
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING, FAILED, INACTIVE, MOVING, UPDATING
+
+--limit [integer]
+
+The maximum number of items to return.
+
+--name [text]
+
+Immutable resource name.
+
+--page [text]
+
+The page token representing the page at which to start retrieving
+results. This is usually retrieved from a previous list call.
+
+--page-size [integer]
+
+When fetching results, the number of results to fetch per call. Only
+valid when used with "--all" or "--limit", and ignored otherwise.
+
+--sort-by [text]
+
+The field to sort by. Only one sort order may be provided. Default
+order for TIMECREATED is descending. Default order for DISPLAYNAME is
+ascending. If no value is specified TIMECREATED is default.
+
+Accepted values are:
+
+   DISPLAYNAME, TIMECREATED
+
+--sort-order [text]
+
+The sort order to use, either 'asc' or 'desc'.
+
+Accepted values are:
+
+   ASC, DESC
+
+--type-category [text]
+
+Indicates the category of this type . For example, data assets or
+connections.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

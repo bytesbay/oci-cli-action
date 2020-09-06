@@ -1,0 +1,212 @@
+waas
+****
+
+
+Description
+===========
+
+OCI Web Application Acceleration and Security Services
+
+
+Available Commands
+==================
+
+* access-rule
+
+  * list
+
+  * update
+
+* address-list
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* address-rate-limiting
+
+  * get-waf
+
+  * update-waf
+
+* caching-rule
+
+  * list
+
+  * update
+
+* captcha
+
+  * list
+
+  * update
+
+* certificate
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+  * update-address-list
+
+* custom-protection-rule
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+  * update-setting
+
+* device-fingerprint-challenge
+
+  * get
+
+  * update
+
+* edge-subnet
+
+  * list
+
+* good-bot
+
+  * list
+
+  * update
+
+* http-redirect
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* human-interaction-challenge
+
+  * get
+
+  * update
+
+* js-challenge
+
+  * get
+
+  * update
+
+* policy-config
+
+  * get
+
+  * update
+
+* protection-rule
+
+  * get
+
+  * list
+
+  * update
+
+* protection-settings
+
+  * get
+
+  * update
+
+* purge-cache
+
+* recommendation
+
+  * accept
+
+  * list
+
+* threat-feed
+
+  * list
+
+  * update
+
+* waas-policy
+
+  * change-compartment
+
+  * create
+
+  * custom-protection-rule
+
+    * list
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* waf-blocked-request
+
+  * list
+
+* waf-config
+
+  * get
+
+  * update
+
+* waf-log
+
+  * list
+
+* waf-request
+
+  * list
+
+* waf-traffic-datum
+
+  * list-waf-traffic
+
+* whitelist
+
+  * list
+
+  * update
+
+* work-request
+
+  * cancel
+
+  * get
+
+  * list

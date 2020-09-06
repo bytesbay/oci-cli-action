@@ -1,0 +1,32 @@
+auth-token
+**********
+
+
+Description
+===========
+
+An *AuthToken* is an Oracle-generated token string that you can use to
+authenticate with third-party APIs that do not support Oracle Cloud
+Infrastructure's signature-based authentication. For example, use an
+*AuthToken* to authenticate with a Swift client with the Object
+Storage Service.
+
+The auth token is associated with the user's Console login. Auth
+tokens never expire. A user can have up to two auth tokens at a time.
+
+**Note:** The token is always an Oracle-generated string; you can't
+change it to a string of your choice.
+
+For more information, see Managing User Credentials.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* list
+
+* update

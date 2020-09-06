@@ -1,0 +1,23 @@
+node-pool
+*********
+
+
+Description
+===========
+
+A pool of compute nodes attached to a cluster. Avoid entering
+confidential information.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

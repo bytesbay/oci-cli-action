@@ -1,0 +1,64 @@
+application-migration
+*********************
+
+
+Description
+===========
+
+CLI for the Application Migration service. Use this CLI to migrate
+applications from Oracle Cloud Infrastructure - Classic to Oracle
+Cloud Infrastructure.
+
+
+Available Commands
+==================
+
+* migration
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * migrate-application
+
+  * update
+
+* source
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* source-application
+
+  * list
+
+* work-request
+
+  * cancel
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list-work-request-logs

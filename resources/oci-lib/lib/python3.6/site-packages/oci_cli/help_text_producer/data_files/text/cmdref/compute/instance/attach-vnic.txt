@@ -1,0 +1,165 @@
+"attach-vnic"
+*************
+
+
+Description
+===========
+
+Creates a secondary VNIC and attaches it to the specified instance.
+You can specify either --subnet-id or --vlan-id for this create
+request, but not both. For more information about secondary VNICs, see
+Virtual Network Interface Cards (VNICs).
+
+
+Usage
+=====
+
+   oci compute instance attach-vnic [OPTIONS]
+
+
+Required Parameters
+===================
+
+--instance-id [text]
+
+The OCID of the instance.
+
+
+Optional Parameters
+===================
+
+--assign-public-ip [boolean]
+
+Whether the VNIC should be assigned a public IP address. Defaults to
+whether the subnet is public or private. If not set and the VNIC is
+being created in a private subnet (i.e., where
+prohibitPublicIpOnVnic=true in the Subnet), then no public IP address
+is assigned. If not set and the subnet is public
+(prohibitPublicIpOnVnic=false), then a public IP address is assigned.
+If set to true and prohibitPublicIpOnVnic=true, an error is returned.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags. Example:
+*{"Operations": {"CostCenter": "42"}}* This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags. Example: *{"Department": "Finance"}* This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--hostname-label [text]
+
+The hostname for the VNIC. Used for DNS. The value is the hostname
+portion of the VNIC's fully qualified domain name (FQDN) (e.g.,
+*bminstance-1* in FQDN *bminstance-1.subnet123.vcn1.oraclevcn.com*).
+Must be unique across all VNICs in the subnet and comply with RFC 952
+(https://tools.ietf.org/html/rfc952) and RFC 1123
+(https://tools.ietf.org/html/rfc1123). The value can be retrieved from
+the Vnic (#/en/iaas/20160918/Vnic/).
+
+--nic-index [integer]
+
+Which physical network interface card (NIC) the VNIC will use.
+Defaults to 0. Certain bare metal instance shapes have two active
+physical NICs (0 and 1). If you add a secondary VNIC to one of these
+instances, you can specify which NIC the VNIC will use.
+
+--nsg-ids [complex type]
+
+A list of the [OCIDs] of the network security groups (NSGs) to add the
+VNIC to.. This is a complex type whose value must be valid JSON. The
+value can be provided as a string on the command line or passed in as
+a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--private-ip [text]
+
+A private IP address of your choice to assign to the VNIC. Must be an
+available IP address within the subnet's CIDR. If no value is
+specified, a private IP address from the subnet will be automatically
+assigned.
+
+--skip-source-dest-check [boolean]
+
+Indicates whether Source/Destination check is disabled on the VNIC.
+Defaults to *false*, in which case we enable Source/Destination check
+on the VNIC.
+
+--subnet-id [text]
+
+The OCID of the subnet to create the VNIC in. You can specify either
+this parameter or --vlan-id, but not both.
+
+--vlan-id [text]
+
+The OCID of the VLAN to create the VNIC in. You can specify either
+this parameter or --subnet-id, but not both.
+
+--vnic-display-name [text]
+
+A user-friendly name for the VNIC. Does not have to be unique.
+
+--wait
+
+If set, then wait for the attachment to complete and return the newly
+attached VNIC. If not set, then the command will not wait and will
+return nothing on success.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

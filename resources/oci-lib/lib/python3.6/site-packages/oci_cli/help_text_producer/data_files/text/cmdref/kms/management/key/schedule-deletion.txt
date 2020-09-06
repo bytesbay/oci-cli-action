@@ -1,0 +1,185 @@
+"schedule-deletion"
+*******************
+
+
+Description
+===========
+
+Schedules the deletion of the specified key. This sets the lifecycle
+state of the key to *PENDING_DELETION* and then deletes it after the
+specified retention period ends.
+
+As a provisioning operation, this call is subject to a Key Management
+limit that applies to the total number of requests across all
+provisioning write operations. Key Management might throttle this call
+to reject an otherwise valid request when the total rate of
+provisioning write operations exceeds 10 requests per second for a
+given tenancy.
+
+The top level --endpoint parameter must be supplied for this
+operation.
+
+
+Usage
+=====
+
+   oci kms management key schedule-deletion [OPTIONS]
+
+
+Required Parameters
+===================
+
+--key-id [text]
+
+The OCID of the key.
+
+
+Optional Parameters
+===================
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource. The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--time-of-deletion [datetime]
+
+An optional property to indicate when to delete the vault, expressed
+in RFC 3339 timestamp format. The specified time must be between 7 and
+30 days from when the request is received. If this property is
+missing, it will be set to 30 days from the time of the request by
+default.
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   BACKUP_IN_PROGRESS, CANCELLING_DELETION, CREATING, DELETED, DELETING, DISABLED, DISABLING, ENABLED, ENABLING, PENDING_DELETION, RESTORING, SCHEDULING_DELETION, UPDATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

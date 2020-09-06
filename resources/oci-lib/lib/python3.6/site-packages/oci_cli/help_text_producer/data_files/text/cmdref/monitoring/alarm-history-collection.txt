@@ -1,0 +1,14 @@
+alarm-history-collection
+************************
+
+
+Description
+===========
+
+The configuration details for retrieving alarm history.
+
+
+Available Commands
+==================
+
+* get-alarm-history

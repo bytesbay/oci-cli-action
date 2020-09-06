@@ -1,0 +1,66 @@
+ce
+**
+
+
+Description
+===========
+
+CLI for the Container Engine for Kubernetes service. Use this CLI to
+build, deploy, and manage cloud-native applications. For more
+information, see Overview of Container Engine for Kubernetes.
+
+
+Available Commands
+==================
+
+* cluster
+
+  * create
+
+  * create-kubeconfig
+
+  * delete
+
+  * generate-token
+
+  * get
+
+  * list
+
+  * update
+
+* cluster-options
+
+  * get
+
+* node-pool
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* node-pool-options
+
+  * get
+
+* work-request
+
+  * delete
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

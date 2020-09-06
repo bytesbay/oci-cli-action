@@ -1,0 +1,14 @@
+cross-connect-status
+********************
+
+
+Description
+===========
+
+The status of the cross-connect.
+
+
+Available Commands
+==================
+
+* get

@@ -1,0 +1,49 @@
+instance-pool
+*************
+
+
+Description
+===========
+
+An instance pool is a group of instances within the same region that
+are created based off of the same instance configuration. For more
+information about instance pools and instance configurations, see
+Managing Compute Instances.
+
+
+Available Commands
+==================
+
+* attach-lb
+
+* change-compartment
+
+* create
+
+* detach-lb
+
+* get
+
+* lb-attachment
+
+  * attach
+
+  * detach
+
+  * get
+
+* list
+
+* list-instances
+
+* reset
+
+* softreset
+
+* start
+
+* stop
+
+* terminate
+
+* update

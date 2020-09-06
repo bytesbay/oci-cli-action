@@ -1,0 +1,34 @@
+vlan
+****
+
+
+Description
+===========
+
+A resource to be used only with the Oracle Cloud VMware Solution.
+
+Conceptually, a virtual LAN (VLAN) is a broadcast domain that is
+created by partitioning and isolating a network at the data link layer
+(a *layer 2 network*). VLANs work by using IEEE 802.1Q VLAN tags.
+Layer 2 traffic is forwarded within the VLAN based on MAC learning.
+
+In the Networking service, a VLAN is an object within a VCN. You use
+VLANs to partition the VCN at the data link layer (layer 2). A VLAN is
+analagous to a subnet, which is an object for partitioning the VCN at
+the IP layer (layer 3).
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

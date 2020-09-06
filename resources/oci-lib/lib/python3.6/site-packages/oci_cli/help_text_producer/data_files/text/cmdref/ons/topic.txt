@@ -1,0 +1,25 @@
+topic
+*****
+
+
+Description
+===========
+
+The properties that define a topic. For general information about
+topics, see Notifications Overview.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

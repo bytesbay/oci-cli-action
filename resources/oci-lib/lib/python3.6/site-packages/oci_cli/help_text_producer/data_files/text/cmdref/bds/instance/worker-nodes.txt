@@ -1,0 +1,16 @@
+worker-nodes
+************
+
+
+Description
+===========
+
+Add worker nodes to an existing cluster. The worker nodes added will
+be based on an identical shape and have the same amount of attached
+block storage as other worker nodes in the cluster.
+
+
+Available Commands
+==================
+
+* add

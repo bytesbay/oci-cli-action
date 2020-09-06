@@ -1,0 +1,14 @@
+custom-protection-rule
+**********************
+
+
+Description
+===========
+
+Summary information about a Custom Protection rule.
+
+
+Available Commands
+==================
+
+* list

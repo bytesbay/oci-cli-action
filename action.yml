@@ -1,0 +1,58 @@
+name: 'oci-cli'
+description: 'Installing oci-cli (Oracle Cloud Infrastructure CLI)'
+author: 'Miroslaw Shpak @bytesbay'
+inputs:
+  user:
+    description: 'oci user'
+    required: true
+  fingerprint:
+    description: 'oci fingerprint (not always required)'
+  tenancy:
+    description: 'oci tenancy'
+    required: true
+  region:
+    description: 'oci region'
+    required: true
+  api_key:
+    description: 'oci API key'
+    required: true
+  verbose:
+    description: 'Debuggin mode'
+    default: false
+
+runs:
+  using: 'node12'
+  main: 'index.js'
+  pre-if: 'runner.os == linux'
+
+branding:
+  icon: 'terminal'
+  color: 'gray-dark'
+
+
+# - name: Cache oci-cli
+#   id: cache-oci-cli
+#   uses: actions/cache@v2
+#   with:
+#     path: |
+#       ~/.oci
+#       /usr/local/bin/oci
+#       ~/bin/oci-cli-scripts
+#       ~/lib/oracle-cli
+#     key: ${{ runner.os }}-oci-1
+
+# - name: Install oci-cli
+#   if: steps.cache-oci-cli.outputs.cache-hit != 'true'
+#   run: |
+#     wget https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh
+#     sudo bash install.sh --accept-all-defaults --exec-dir /usr/local/bin
+#     mkdir -p ~/.oci
+#     echo [DEFAULT] >> ~/.oci/config
+#     echo user="${{ secrets.OCI_USER }}" >> ~/.oci/config
+#     echo fingerprint="${{ secrets.OCI_FINGERPRINT }}" >> ~/.oci/config
+#     echo key_file=~/.oci/oci_api_key.pem >> ~/.oci/config
+#     echo tenancy="${{ secrets.OCI_TENANCY }}" >> ~/.oci/config
+#     echo region="${{ secrets.OCI_REGION }}" >> ~/.oci/config
+#     echo "${{ secrets.OCI_API_KEY }}" >> ~/.oci/oci_api_key.pem
+#     oci setup repair-file-permissions --file ~/.oci/config
+#     oci setup repair-file-permissions --file ~/.oci/oci_api_key.pem

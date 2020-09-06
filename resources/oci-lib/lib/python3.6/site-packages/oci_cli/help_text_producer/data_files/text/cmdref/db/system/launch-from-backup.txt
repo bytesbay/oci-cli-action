@@ -1,0 +1,396 @@
+"launch-from-backup"
+********************
+
+
+Description
+===========
+
+Creates a new DB system in the specified compartment and availability
+domain. The Oracle Database edition that you specify applies to all
+the databases on that DB system. The selected edition cannot be
+changed.
+
+An initial database is created on the DB system based on the request
+parameters you provide and some default options. For detailed
+information about default options, see the following:
+
+* Bare metal and virtual machine DB system default options - Exadata
+  DB system default options
+
+
+Usage
+=====
+
+   oci db system launch-from-backup [OPTIONS]
+
+
+Required Parameters
+===================
+
+--admin-password [text]
+
+A strong password for SYS, SYSTEM, and PDB Admin. The password must be
+at least nine characters and contain at least two uppercase, two
+lowercase, two numbers, and two special characters. The special
+characters must be _, #, or -.
+
+--availability-domain [text]
+
+The availability domain where the DB system is located.
+
+--backup-id [text]
+
+The backup OCID.
+
+--backup-tde-password [text]
+
+The password to open the TDE wallet.
+
+--compartment-id, -c [text]
+
+The OCID of the compartment the DB system  belongs in.
+
+--cpu-core-count [integer]
+
+The number of CPU cores to enable for a bare metal or Exadata DB
+system. The valid values depend on the specified shape:
+
+* BM.DenseIO1.36 - Specify a multiple of 2, from 2 to 36. -
+  BM.DenseIO2.52 - Specify a multiple of 2, from 2 to 52. -
+  Exadata.Base.48 - Specify a multiple of 2, from 0 to 48. -
+  Exadata.Quarter1.84 - Specify a multiple of 2, from 22 to 84. -
+  Exadata.Half1.168 - Specify a multiple of 4, from 44 to 168. -
+  Exadata.Full1.336 - Specify a multiple of 8, from 88 to 336. -
+  Exadata.Quarter2.92 - Specify a multiple of 2, from 0 to 92. -
+  Exadata.Half2.184 - Specify a multiple of 4, from 0 to 184. -
+  Exadata.Full2.368 - Specify a multiple of 8, from 0 to 368.
+
+This parameter is not used for virtual machine DB systems because
+virtual machine DB systems have a set number of cores for each shape.
+For information about the number of cores for a virtual machine DB
+system shape, see Virtual Machine DB Systems
+
+--database-edition [text]
+
+The Oracle Database Edition that applies to all the databases on the
+DB system. Exadata DB systems and 2-node RAC DB systems require
+ENTERPRISE_EDITION_EXTREME_PERFORMANCE.
+
+Accepted values are:
+
+   ENTERPRISE_EDITION, ENTERPRISE_EDITION_EXTREME_PERFORMANCE, ENTERPRISE_EDITION_HIGH_PERFORMANCE, STANDARD_EDITION
+
+--hostname [text]
+
+The hostname for the DB system. The hostname must begin with an
+alphabetic character, and can contain alphanumeric characters and
+hyphens (-). The maximum length of the hostname is 16 characters for
+bare metal and virtual machine DB systems, and 12 characters for
+Exadata DB systems.
+
+The maximum length of the combined hostname and domain is 63
+characters.
+
+**Note:** The hostname must be unique within the subnet. If it is not
+unique, the DB system will fail to provision.
+
+--shape [text]
+
+The shape of the DB system. The shape determines resources allocated
+to the DB system. - For virtual machine shapes, the number of CPU
+cores and memory - For bare metal and Exadata shapes, the number of
+CPU cores, memory, and storage
+
+To get a list of shapes, use the ListDbSystemShapes operation.
+
+--ssh-authorized-keys-file [filename]
+
+A file containing one or more public SSH keys to use for SSH access to
+the DB System. Use a newline character to separate multiple keys. The
+length of the combined keys cannot exceed 10,000 characters.
+
+--subnet-id [text]
+
+The OCID of the subnet the DB system is associated with.
+
+**Subnet Restrictions:** - For bare metal DB systems and for single
+node virtual machine DB systems, do not use a subnet that overlaps
+with 192.168.16.16/28. - For Exadata and virtual machine 2-node RAC DB
+systems, do not use a subnet that overlaps with 192.168.128.0/20.
+
+These subnets are used by the Oracle Clusterware private interconnect
+on the database instance. Specifying an overlapping subnet will cause
+the private interconnect to malfunction. This restriction applies to
+both the client subnet and the backup subnet.
+
+
+Optional Parameters
+===================
+
+--backup-network-nsg-ids [complex type]
+
+A list of the OCIDs of the network security groups (NSGs) that the
+backup network of this DB system belongs to. Setting this to an empty
+array after the list is created removes the resource from all NSGs.
+For more information about NSGs, see Security Rules. Applicable only
+to Exadata DB systems. This is a complex type whose value must be
+valid JSON. The value can be provided as a string on the command line
+or passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--backup-subnet-id [text]
+
+The OCID of the backup network subnet the DB system is associated
+with. Applicable only to Exadata DB systems.
+
+**Subnet Restrictions:** See the subnet restrictions information for
+**subnetId**.
+
+--cluster-name [text]
+
+The cluster name for Exadata and 2-node RAC virtual machine DB
+systems. The cluster name must begin with an an alphabetic character,
+and may contain hyphens (-). Underscores (_) are not permitted. The
+cluster name can be no longer than 11 characters and is not case
+sensitive.
+
+--data-storage-percentage [integer]
+
+The percentage assigned to DATA storage (user data and database
+files). The remaining percentage is assigned to RECO storage (database
+redo logs, archive logs, and recovery manager backups). Specify 80 or
+40. The default is 80 percent assigned to DATA storage. Not applicable
+for virtual machine DB systems.
+
+--db-name [text]
+
+The display name of the database to be created from the backup. It
+must begin with an alphabetic character and can contain a maximum of
+eight alphanumeric characters. Special characters are not permitted.
+
+--db-unique-name [text]
+
+The database unique name. It must be greater than 3 characters, but at
+most 30 characters, begin with a letter, and contain only letters,
+numbers, and underscores. The first eight characters must also be
+unique within a Database Domain and within a Database System or VM
+Cluster. In addition, if it is not on a VM Cluster it might either be
+identical to the database name or prefixed by the datbase name and
+followed by an underscore.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags. This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--disk-redundancy [text]
+
+The type of redundancy configured for the DB system. NORMAL 2-way
+redundancy, recommended for test and development systems. HIGH is
+3-way redundancy, recommended for production systems.
+
+Accepted values are:
+
+   HIGH, NORMAL
+
+--display-name [text]
+
+The user-friendly name for the DB system. The name does not have to be
+unique.
+
+--domain [text]
+
+A domain name used for the DB system. If the Oracle-provided Internet
+and VCN Resolver is enabled for the specified subnet, the domain name
+for the subnet is used (do not provide one). Otherwise, provide a
+valid DNS domain name. Hyphens (-) are not permitted.
+
+--fault-domains [complex type]
+
+A Fault Domain is a grouping of hardware and infrastructure within an
+availability domain. Fault Domains let you distribute your instances
+so that they are not on the same physical hardware within a single
+availability domain. A hardware failure or maintenance that affects
+one Fault Domain does not affect DB systems in other Fault Domains.
+
+If you do not specify the Fault Domain, the system selects one for
+you. To change the Fault Domain for a DB system, terminate it and
+launch a new DB system in the preferred Fault Domain.
+
+If the node count is greater than 1, you can specify which Fault
+Domains these nodes will be distributed into. The system assigns your
+nodes automatically to the Fault Domains you specify so that no Fault
+Domain contains more than one node.
+
+To get a list of Fault Domains, use the ListFaultDomains operation in
+the Identity and Access Management Service API.
+
+Example:
+
+   FAULT-DOMAIN-1
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+Example:
+
+   {"Department": "Finance"}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--initial-data-storage-size-in-gb [integer]
+
+Size (in GB) of the initial data volume that will be created and
+attached to a virtual machine DB system. You can scale up storage
+after provisioning, as needed. Note that the total storage size
+attached will be more than the amount you specify to allow for
+REDO/RECO space and software volume.
+
+--license-model [text]
+
+The Oracle license model that applies to all the databases on the DB
+system. The default is LICENSE_INCLUDED.
+
+Accepted values are:
+
+   BRING_YOUR_OWN_LICENSE, LICENSE_INCLUDED
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--node-count [integer]
+
+The number of nodes to launch for a 2-node RAC virtual machine DB
+system. Specify either 1 or 2.
+
+--nsg-ids [complex type]
+
+A list of the OCIDs of the network security groups (NSGs) that this
+resource belongs to. Setting this to an empty array after the list is
+created removes the resource from all NSGs. For more information about
+NSGs, see Security Rules. **NsgIds restrictions:** - Autonomous
+Databases with private access require at least 1 Network Security
+Group (NSG). The nsgIds array cannot be empty. This is a complex type
+whose value must be valid JSON. The value can be provided as a string
+on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--private-ip [text]
+
+A private IP address of your choice. Must be an available IP address
+within the subnet's CIDR. If you don't specify a value, Oracle
+automatically assigns a private IP address from the subnet.
+
+--sparse-diskgroup [boolean]
+
+If true, Sparse Diskgroup is configured for Exadata dbsystem. If
+False, Sparse diskgroup is not configured.
+
+--storage-management [text]
+
+Option for storage management for the database system. Allowed values
+are: LVM, ASM.
+
+Accepted values are:
+
+   ASM, LVM
+
+--time-zone [text]
+
+The time zone to use for the DB system. For details, see DB System
+Time Zones.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   AVAILABLE, FAILED, MAINTENANCE_IN_PROGRESS, PROVISIONING, TERMINATED, TERMINATING, UPDATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

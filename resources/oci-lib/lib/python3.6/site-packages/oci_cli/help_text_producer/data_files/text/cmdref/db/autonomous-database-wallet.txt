@@ -1,0 +1,20 @@
+autonomous-database-wallet
+**************************
+
+
+Description
+===========
+
+The Autonomous Database wallet details.
+
+
+Available Commands
+==================
+
+* get-metadata
+
+* get-regional-wallet-metadata
+
+* rotate
+
+* rotate-regional-wallet

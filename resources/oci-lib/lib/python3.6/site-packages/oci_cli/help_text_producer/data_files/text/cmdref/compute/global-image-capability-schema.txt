@@ -1,0 +1,16 @@
+global-image-capability-schema
+******************************
+
+
+Description
+===========
+
+Global Image Capability Schema
+
+
+Available Commands
+==================
+
+* get
+
+* list

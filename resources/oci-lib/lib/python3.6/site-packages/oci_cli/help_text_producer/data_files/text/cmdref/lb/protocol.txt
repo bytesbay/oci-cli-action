@@ -1,0 +1,14 @@
+protocol
+********
+
+
+Description
+===========
+
+A protocol that defines the type of traffic accepted by a listener.
+
+
+Available Commands
+==================
+
+* list

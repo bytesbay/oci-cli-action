@@ -1,0 +1,16 @@
+autonomous-db-preview-version
+*****************************
+
+
+Description
+===========
+
+The Autonomous Database preview version. Note that preview version
+software is only available for databases on shared Exadata
+infrastructure.
+
+
+Available Commands
+==================
+
+* list

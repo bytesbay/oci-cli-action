@@ -1,0 +1,24 @@
+session
+*******
+
+
+Description
+===========
+
+Session commands for CLI
+
+
+Available Commands
+==================
+
+* authenticate
+
+* export
+
+* import
+
+* refresh
+
+* terminate
+
+* validate

@@ -1,0 +1,34 @@
+software-source
+***************
+
+
+Description
+===========
+
+A software source contains a collection of packages
+
+
+Available Commands
+==================
+
+* add-packages
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* get-package
+
+* list
+
+* list-packages
+
+* remove-packages
+
+* search-packages
+
+* update

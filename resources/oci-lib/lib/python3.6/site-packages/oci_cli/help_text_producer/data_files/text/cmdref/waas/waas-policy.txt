@@ -1,0 +1,33 @@
+waas-policy
+***********
+
+
+Description
+===========
+
+The details of a Web Application Acceleration and Security (WAAS)
+policy. A policy describes how the WAAS service should operate for the
+configured web application.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* custom-protection-rule
+
+  * list
+
+* delete
+
+* get
+
+* list
+
+* update

@@ -1,0 +1,26 @@
+term
+****
+
+
+Description
+===========
+
+Full term definition. A defined business term in a business glossary.
+As well as a term definition, simple format rules for attributes
+mapping to the term (for example, the expected data type and length
+restrictions) may be stated at the term level. Nesting of terms to
+support a hierarchy is supported by default.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

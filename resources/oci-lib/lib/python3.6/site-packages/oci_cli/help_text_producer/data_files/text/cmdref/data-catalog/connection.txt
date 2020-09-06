@@ -1,0 +1,27 @@
+connection
+**********
+
+
+Description
+===========
+
+Detailed representation of a connection to a data asset, minus any
+sensitive properties.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* test
+
+* update
+
+* upload-credentials

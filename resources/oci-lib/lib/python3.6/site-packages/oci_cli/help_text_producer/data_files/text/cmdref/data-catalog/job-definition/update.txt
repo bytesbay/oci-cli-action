@@ -1,0 +1,153 @@
+"update"
+********
+
+
+Description
+===========
+
+Update a specific job definition identified by the given key.
+
+
+Usage
+=====
+
+   oci data-catalog job-definition update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--catalog-id [text]
+
+Unique catalog identifier.
+
+--job-definition-key [text]
+
+Unique job definition key.
+
+
+Optional Parameters
+===================
+
+--connection-key [text]
+
+The key of the connection resource to be used for harvest, sampling,
+profiling jobs.
+
+--data-asset-key [text]
+
+The key of the data asset for which the job is defined.
+
+--description [text]
+
+Detailed description of the job definition.
+
+--display-name [text]
+
+A user-friendly display name. Does not have to be unique, and it's
+changeable. Avoid entering confidential information.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource. The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--is-incremental [boolean]
+
+Specifies if the job definition is incremental or full.
+
+--is-sample-data-extracted [boolean]
+
+Specify if sample data to be extracted as part of this harvest.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--properties [complex type]
+
+A map of maps that contains the properties which are specific to the
+job type. Each job type definition may define it's set of required and
+optional properties. The map keys are category names and the values
+are maps of property name to property value. Every property is
+contained inside of a category. Most job definitions have required
+properties within the "default" category. Example: *{"properties": {
+"default": { "host": "host1", "port": "1521", "database": "orcl"}}}*
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--sample-data-size-in-mbs [integer]
+
+Specify the sample data size in MB, specified as number of rows, for
+this metadata harvest.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING, FAILED, INACTIVE, MOVING, UPDATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

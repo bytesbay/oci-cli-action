@@ -1,0 +1,84 @@
+management
+**********
+
+
+Description
+===========
+
+Operations for managing keys and vaults.
+
+
+Available Commands
+==================
+
+* key
+
+  * backup
+
+  * cancel-deletion
+
+  * change-compartment
+
+  * create
+
+  * disable
+
+  * enable
+
+  * get
+
+  * import
+
+  * list
+
+  * restore
+
+  * restore-from-file
+
+  * schedule-deletion
+
+  * update
+
+* key-version
+
+  * cancel-deletion
+
+  * create
+
+  * get
+
+  * import
+
+  * list
+
+  * schedule-deletion
+
+* vault
+
+  * backup
+
+  * cancel-deletion
+
+  * change-compartment
+
+  * create
+
+  * get
+
+  * list
+
+  * restore
+
+  * restore-from-file
+
+  * schedule-deletion
+
+  * update
+
+  * usage
+
+    * get
+
+* wrapping-key
+
+  * get

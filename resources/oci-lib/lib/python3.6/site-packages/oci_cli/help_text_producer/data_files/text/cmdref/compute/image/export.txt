@@ -1,0 +1,28 @@
+export
+******
+
+
+Description
+===========
+
+Exports an image to the Oracle Cloud Infrastructure Object Storage
+Service. You can use the Object Storage Service URL, or the namespace,
+bucket name, and object name when specifying the location to export
+to.
+
+For more information about exporting images, see Image Import/Export.
+
+To perform an image export, you need write access to the Object
+Storage Service bucket for the image, see Let Users Write Objects to
+Object Storage Buckets.
+
+See Object Storage URLs and [pre-authenticated requests] for
+constructing URLs for image import/export.
+
+
+Available Commands
+==================
+
+* to-object
+
+* to-object-uri

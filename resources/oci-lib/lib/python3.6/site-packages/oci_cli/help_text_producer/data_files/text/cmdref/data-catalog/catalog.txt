@@ -1,0 +1,34 @@
+catalog
+*******
+
+
+Description
+===========
+
+A data catalog enables you to collect, organize, find, access,
+understand, enrich, and activate technical, business, and operational
+metadata.
+
+
+Available Commands
+==================
+
+* attach
+
+* change-compartment
+
+* create
+
+* delete
+
+* detach
+
+* get
+
+* list
+
+* object-stats
+
+* update
+
+* users

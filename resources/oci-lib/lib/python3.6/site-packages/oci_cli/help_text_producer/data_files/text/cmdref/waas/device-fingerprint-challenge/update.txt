@@ -1,0 +1,165 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates the Device Fingerprint Challenge (DFC) settings in the Web
+Application Firewall configuration for a policy. The DFC generates a
+hashed signature of both virtual and real browsers based on 50+
+attributes. These proprietary signatures are then leveraged for real-
+time correlation to identify and block malicious bots.
+
+The signature is based on a library of attributes detected via
+JavaScript listeners; the attributes include OS, screen resolution,
+fonts, UserAgent, IP address, etc. We are constantly making
+improvements and considering new libraries to include in our DFC
+build. We can also exclude attributes from the signature as needed.
+
+DFC collects attributes to generate a hashed signature about a client
+- if a fingerprint is not possible, then it will result in a block or
+alert action. Actions can be enforced across multiple devices if they
+share they have the same fingerprint.
+
+
+Usage
+=====
+
+   oci waas device-fingerprint-challenge update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--is-enabled [boolean]
+
+Enables or disables the device fingerprint challenge Web Application
+Firewall feature.
+
+--waas-policy-id [text]
+
+The OCID of the WAAS policy.
+
+
+Optional Parameters
+===================
+
+--action [text]
+
+The action to take on requests from detected bots. If unspecified,
+defaults to *DETECT*.
+
+Accepted values are:
+
+   BLOCK, DETECT
+
+--action-expiration-in-seconds [integer]
+
+The number of seconds between challenges for the same IP address. If
+unspecified, defaults to *60*.
+
+--challenge-settings [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--failure-threshold [integer]
+
+The number of failed requests allowed before taking action. If
+unspecified, defaults to *10*.
+
+--failure-threshold-expiration-in-seconds [integer]
+
+The number of seconds before the failure threshold resets. If
+unspecified, defaults to *60*.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the *PUT* or *DELETE* call for
+a resource, set the *if-match* parameter to the value of the etag from
+a previous *GET* or *POST* response for that resource. The resource
+will be updated or deleted only if the etag provided matches the
+resource's current etag value.
+
+--max-address-count [integer]
+
+The maximum number of IP addresses permitted with the same device
+fingerprint. If unspecified, defaults to *20*.
+
+--max-address-count-expiration-in-seconds [integer]
+
+The number of seconds before the maximum addresses count resets. If
+unspecified, defaults to *60*.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, CANCELED, CANCELING, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

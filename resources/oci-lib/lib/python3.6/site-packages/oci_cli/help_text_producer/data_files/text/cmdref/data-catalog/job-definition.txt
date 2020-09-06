@@ -1,0 +1,26 @@
+job-definition
+**************
+
+
+Description
+===========
+
+Representation of a job definition resource. Job definitions define
+the harvest scope and includes the list of objects to be harvested
+along with a schedule. The list of objects is usually specified
+through a combination of object type, regular expressions, or specific
+names of objects and a sample size for the data harvested.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

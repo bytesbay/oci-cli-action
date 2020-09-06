@@ -1,0 +1,22 @@
+service
+*******
+
+
+Description
+===========
+
+An object that represents one or multiple Oracle services that you can
+enable for a ServiceGateway. In the User Guide topic Access to Oracle
+Services: Service Gateway, the term *service CIDR label* is used to
+refer to the string that represents the regional public IP address
+ranges of the Oracle service or services covered by a given *Service*
+object. That unique string is the value of the *Service* object's
+*cidrBlock* attribute.
+
+
+Available Commands
+==================
+
+* get
+
+* list

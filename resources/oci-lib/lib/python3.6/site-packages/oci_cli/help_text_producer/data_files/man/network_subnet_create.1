@@ -1,0 +1,318 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "NETWORK_SUBNET_CREATE" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+network_subnet_create \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Creates a new subnet in the specified VCN. You can\(aqt change the size of the subnet after creation, so it\(aqs important to think about the size of subnets you need before creating them. For more information, see \fI\%VCNs and Subnets\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Tasks/managingVCNs.htm\fP>\&. For information on the number of subnets you can have in a VCN, see \fI\%Service Limits\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/servicelimits.htm\fP>\&.
+.sp
+For the purposes of access control, you must provide the OCID of the compartment where you want the subnet to reside. Notice that the subnet doesn\(aqt have to be in the same compartment as the VCN, route tables, or other Networking Service components. If you\(aqre not sure which compartment to use, put the subnet in the same compartment as the VCN. For more information about compartments and access control, see \fI\%Overview of the IAM Service\fP <\fBhttps://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm\fP>\&. For information about OCIDs, see \fI\%Resource Identifiers\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm\fP>\&.
+.sp
+You may optionally associate a route table with the subnet. If you don\(aqt, the subnet will use the VCN\(aqs default route table. For more information about route tables, see \fI\%Route Tables\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Tasks/managingroutetables.htm\fP>\&.
+.sp
+You may optionally associate a security list with the subnet. If you don\(aqt, the subnet will use the VCN\(aqs default security list. For more information about security lists, see \fI\%Security Lists\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Concepts/securitylists.htm\fP>\&.
+.sp
+You may optionally associate a set of DHCP options with the subnet. If you don\(aqt, the subnet will use the VCN\(aqs default set. For more information about DHCP options, see \fI\%DHCP Options\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Tasks/managingDHCP.htm\fP>\&.
+.sp
+You may optionally specify a \fIdisplay name\fP for the subnet, otherwise a default is provided. It does not have to be unique, and you can change it. Avoid entering confidential information.
+.sp
+You can also add a DNS label for the subnet, which is required if you want the Internet and VCN Resolver to resolve hostnames for instances in the subnet. For more information, see \fI\%DNS in Your Virtual Cloud Network\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm\fP>\&.
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci network subnet create [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-cidr\-block [text]
+.UNINDENT
+.sp
+The CIDR IP address range of the subnet. The CIDR must maintain the following rules \-
+.INDENT 0.0
+.IP a. 3
+The CIDR block is valid and correctly formatted. b. The new range is within one of the parent VCN ranges.
+.UNINDENT
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+10.0.1.0/24
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-compartment\-id, \-c [text]
+.UNINDENT
+.sp
+The OCID of the compartment to contain the subnet.
+.INDENT 0.0
+.TP
+.B \-\-vcn\-id [text]
+.UNINDENT
+.sp
+The OCID of the VCN to contain the subnet.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-availability\-domain [text]
+.UNINDENT
+.sp
+Controls whether the subnet is regional or specific to an availability domain. Oracle recommends creating regional subnets because they\(aqre more flexible and make it easier to implement failover across availability domains. Originally, AD\-specific subnets were the only kind available to use.
+.sp
+To create a regional subnet, omit this attribute. Then any resources later created in this subnet (such as a Compute instance) can be created in any availability domain in the region.
+.sp
+To instead create an AD\-specific subnet, set this attribute to the availability domain you want this subnet to be in. Then any resources later created in this subnet can only be created in that availability domain.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Uocm:PHX\-AD\-1
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-defined\-tags [complex type]
+.UNINDENT
+.sp
+Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{"Operations": {"CostCenter": "42"}}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-dhcp\-options\-id [text]
+.UNINDENT
+.sp
+The OCID of the set of DHCP options the subnet will use. If you don\(aqt provide a value, the subnet uses the VCN\(aqs default set of DHCP options.
+.INDENT 0.0
+.TP
+.B \-\-display\-name [text]
+.UNINDENT
+.sp
+A user\-friendly name. Does not have to be unique, and it\(aqs changeable. Avoid entering confidential information.
+.INDENT 0.0
+.TP
+.B \-\-dns\-label [text]
+.UNINDENT
+.sp
+A DNS label for the subnet, used in conjunction with the VNIC\(aqs hostname and VCN\(aqs DNS label to form a fully qualified domain name (FQDN) for each VNIC within this subnet (for example, \fIbminstance\-1.subnet123.vcn1.oraclevcn.com\fP). Must be an alphanumeric string that begins with a letter and is unique within the VCN. The value cannot be changed.
+.sp
+This value must be set if you want to use the Internet and VCN Resolver to resolve the hostnames of instances in the subnet. It can only be set if the VCN itself was created with a DNS label.
+.sp
+For more information, see \fI\%DNS in Your Virtual Cloud Network\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm\fP>\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+subnet123
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-freeform\-tags [complex type]
+.UNINDENT
+.sp
+Free\-form tags for this resource. Each tag is a simple key\-value pair with no predefined name, type, or namespace. For more information, see \fI\%Resource Tags\fP <\fBhttps://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm\fP>\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+{"Department": "Finance"}
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-ipv6\-cidr\-block [text]
+.UNINDENT
+.sp
+Use this to enable IPv6 addressing for this subnet. The VCN must be enabled for IPv6. You can\(aqt change this subnet characteristic later. All subnets are /64 in size. The subnet portion of the IPv6 address is the fourth hextet from the left (1111 in the following example).
+.sp
+For important details about IPv6 addressing in a VCN, see \fI\%IPv6 Addresses\fP <\fBhttps://docs.cloud.oracle.com/Content/Network/Concepts/ipv6.htm\fP>\&.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+2001:0db8:0123:1111::/64
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the resource to reach the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-prohibit\-public\-ip\-on\-vnic [boolean]
+.UNINDENT
+.sp
+Whether VNICs within this subnet can have public IP addresses. Defaults to false, which means VNICs created in this subnet will automatically be assigned public IP addresses unless specified otherwise during instance launch (with the \fI\-\-assign\-public\-ip\fP flag). If \fI\-\-prohibit\-public\-ip\-on\-vnic\fP is set to true, VNICs created in this subnet cannot have public IP addresses (i.e., it\(aqs a private subnet).
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+true
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-route\-table\-id [text]
+.UNINDENT
+.sp
+The OCID of the route table the subnet will use. If you don\(aqt provide a value, the subnet uses the VCN\(aqs default route table.
+.INDENT 0.0
+.TP
+.B \-\-security\-list\-ids [complex type]
+.UNINDENT
+.sp
+The OCIDs of the security list or lists the subnet will use. If you don\(aqt provide a value, the subnet uses the VCN\(aqs default security list. Remember that security lists are associated \fIwith the subnet\fP, but the rules are applied to the individual VNICs in the subnet.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\(aq["ocid1.securitylist.oc1.phx.aaaaaaaadyndu2n3hcmdsjfiljwyq7vpxsvv7ynp4ori7aealcvhzicnzhyq"]\(aq
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation creates, modifies or deletes a resource that has a defined lifecycle state. Specify this option to perform the action and then wait until the resource reaches a given lifecycle state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+AVAILABLE, PROVISIONING, TERMINATED, TERMINATING
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the resource to see if it has reached the lifecycle state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

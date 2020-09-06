@@ -1,0 +1,249 @@
+"list"
+******
+
+
+Description
+===========
+
+Gets a list of *Announcement* objects for the current tenancy
+
+
+Usage
+=====
+
+   oci announce announcements list [OPTIONS]
+
+
+Required Parameters
+===================
+
+--compartment-id, -c [text]
+
+The OCID of the compartment. Because announcements are specific to a
+tenancy, this is the OCID of the root compartment.
+
+
+Optional Parameters
+===================
+
+--announcement-type [text]
+
+The type of announcement.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--is-banner [boolean]
+
+Whether the announcement is displayed as a console banner.
+
+--lifecycle-state [text]
+
+The announcement's current lifecycle state.
+
+Accepted values are:
+
+   ACTIVE, INACTIVE
+
+--page [text]
+
+The value of the *opc-next-page* response header from the previous
+"List" call.
+
+--sort-by [text]
+
+The criteria to sort by. You can specify only one sort order.
+
+Accepted values are:
+
+   announcementType, referenceTicketNumber, summary, timeCreated, timeOneValue, timeTwoValue
+
+--sort-order [text]
+
+The sort order to use. (Sorting by *announcementType* orders the
+announcements list according to importance.)
+
+Accepted values are:
+
+   ASC, DESC
+
+--time-one-earliest-time [datetime]
+
+The boundary for the earliest *timeOneValue* date on announcements
+that you want to see.
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+--time-one-latest-time [datetime]
+
+The boundary for the latest *timeOneValue* date on announcements that
+you want to see.
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

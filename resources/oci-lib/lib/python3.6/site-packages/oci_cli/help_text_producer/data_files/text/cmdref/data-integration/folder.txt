@@ -1,0 +1,23 @@
+folder
+******
+
+
+Description
+===========
+
+The folder type contains the audit summary information and the
+definition of the folder.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

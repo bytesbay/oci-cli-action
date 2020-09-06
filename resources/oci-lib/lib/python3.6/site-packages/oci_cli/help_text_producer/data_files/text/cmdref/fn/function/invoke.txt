@@ -1,0 +1,115 @@
+"invoke"
+********
+
+
+Description
+===========
+
+Invokes a function
+
+
+Usage
+=====
+
+   oci fn function invoke [OPTIONS]
+
+
+Required Parameters
+===================
+
+--body [text]
+
+The body of the function invocation. Note: The maximum size of the
+request is limited. This limit is currently 6MB and the endpoint will
+not accept requests that are bigger than this limit.
+
+--file [filename]
+
+The name of the file that will receive the response data, or '-' to
+write to STDOUT.
+
+--function-id [text]
+
+The OCID of this function.
+
+
+Optional Parameters
+===================
+
+--fn-intent [text]
+
+An optional intent header that indicates to the FDK the way the event
+should be interpreted. E.g. 'httprequest', 'cloudevent'.
+
+Accepted values are:
+
+   cloudevent, httprequest
+
+--fn-invoke-type [text]
+
+Indicates whether the functions platform should execute the request
+directly and return the result ('sync') or whether the platform should
+enqueue the request for later processing and acknowledge that it has
+been processed ('detached').
+
+Accepted values are:
+
+   detached, sync
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

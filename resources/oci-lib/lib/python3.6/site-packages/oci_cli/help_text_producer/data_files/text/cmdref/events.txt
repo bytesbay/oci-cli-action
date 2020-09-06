@@ -1,0 +1,28 @@
+events
+******
+
+
+Description
+===========
+
+CLI for the Events Service. Use this CLI to manage rules and actions
+that create automation in your tenancy. For more information, see
+Overview of Events.
+
+
+Available Commands
+==================
+
+* rule
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update

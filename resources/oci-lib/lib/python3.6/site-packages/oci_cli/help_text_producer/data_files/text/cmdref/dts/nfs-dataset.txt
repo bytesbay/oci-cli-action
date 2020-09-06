@@ -1,0 +1,34 @@
+nfs-dataset
+***********
+
+
+Description
+===========
+
+NFS Dataset Operations
+
+
+Available Commands
+==================
+
+* activate
+
+* create
+
+* deactivate
+
+* delete
+
+* get-seal-manifest
+
+* list
+
+* reopen
+
+* seal
+
+* seal-status
+
+* set-export
+
+* show

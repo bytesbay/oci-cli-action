@@ -1,0 +1,19 @@
+load-balancer-health
+********************
+
+
+Description
+===========
+
+The health status details for the specified load balancer.
+
+This object does not explicitly enumerate backend sets with a status
+of *OK*. However, they are included in the *totalBackendSetCount* sum.
+
+
+Available Commands
+==================
+
+* get
+
+* list

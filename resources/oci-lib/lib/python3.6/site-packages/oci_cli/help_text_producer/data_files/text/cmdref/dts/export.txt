@@ -1,0 +1,36 @@
+export
+******
+
+
+Description
+===========
+
+Data Transfer Service CLI Specification
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* configure-physical-appliance
+
+* create
+
+* create-policy
+
+* delete
+
+* generate-manifest
+
+* get-passphrase
+
+* list
+
+* request-appliance
+
+* setup-notifications
+
+* show
+
+* update

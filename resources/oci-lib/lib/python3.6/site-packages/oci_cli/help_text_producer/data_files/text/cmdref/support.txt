@@ -1,0 +1,34 @@
+support
+*******
+
+
+Description
+===========
+
+Use the Support Management CLI to manage support requests. For more
+information, see Getting Help and Contacting Support. **Note**: Before
+you can create service requests with this CLI, you need to have an
+Oracle Single Sign On (SSO) account, and you need to register your
+Customer Support Identifier (CSI) with My Oracle Support.
+
+
+Available Commands
+==================
+
+* incident
+
+  * create
+
+  * get
+
+  * list
+
+  * update
+
+* incident-resource-type
+
+  * list
+
+* validation-response
+
+  * validate-user

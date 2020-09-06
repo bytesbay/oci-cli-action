@@ -1,0 +1,14 @@
+vnics
+*****
+
+
+Description
+===========
+
+Information about a VNIC that belongs to a network security group.
+
+
+Available Commands
+==================
+
+* list

@@ -1,0 +1,24 @@
+stream
+******
+
+
+Description
+===========
+
+Detailed representation of a stream, including all its partitions.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

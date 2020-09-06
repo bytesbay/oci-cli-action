@@ -1,0 +1,253 @@
+"get-job-logs"
+**************
+
+
+Description
+===========
+
+Returns log entries for the specified job in JSON format.
+
+
+Usage
+=====
+
+   oci resource-manager job get-job-logs [OPTIONS]
+
+
+Required Parameters
+===================
+
+--job-id [text]
+
+The OCID of the job.
+
+
+Optional Parameters
+===================
+
+--all
+
+Fetches all pages of results. If you provide this option, then you
+cannot provide the "--limit" option.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--level-greater-than-or-equal-to [text]
+
+A filter that returns only log entries that match a given severity
+level or greater.
+
+Accepted values are:
+
+   DEBUG, ERROR, FATAL, INFO, TRACE, WARN
+
+--limit [integer]
+
+The number of items returned in a paginated *List* call. For
+information about pagination, see List Pagination.
+
+--page [text]
+
+The value of the *opc-next-page* response header from the preceding
+*List* call. For information about pagination, see List Pagination.
+
+--sort-order [text]
+
+The sort order to use when sorting returned resources. Ascending
+(*ASC*) or descending (*DESC*).
+
+Accepted values are:
+
+   ASC, DESC
+
+--timestamp-greater-than-or-equal-to [datetime]
+
+Time stamp specifying the lower time limit for which logs are returned
+in a query. Format is defined by RFC3339. Example:
+*2020-01-01T12:00:00.000Z*
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+--timestamp-less-than-or-equal-to [datetime]
+
+Time stamp specifying the upper time limit for which logs are returned
+in a query. Format is defined by RFC3339. Example:
+*2020-02-01T12:00:00.000Z*
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+--type [text]
+
+A filter that returns only logs of a specified type.
+
+Accepted values are:
+
+   TERRAFORM_CONSOLE
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

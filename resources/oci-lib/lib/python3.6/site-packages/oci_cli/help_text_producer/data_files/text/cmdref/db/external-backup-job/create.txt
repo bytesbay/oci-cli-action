@@ -1,0 +1,125 @@
+"create"
+********
+
+
+Description
+===========
+
+Creates a new backup resource and returns the information the caller
+needs to back up an on-premises Oracle Database to Oracle Cloud
+Infrastructure.
+
+**Note:** This API is used by an Oracle Cloud Infrastructure Python
+script that is packaged with the Oracle Cloud Infrastructure CLI.
+Oracle recommends that you use the script instead using the API
+directly. See Migrating an On-Premises Database to Oracle Cloud
+Infrastructure by Creating a Backup in the Cloud for more information.
+
+
+Usage
+=====
+
+   oci db external-backup-job create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--availability-domain [text]
+
+The targeted availability domain for the backup.
+
+--character-set [text]
+
+The character set for the database.
+
+--compartment-id, -c [text]
+
+The OCID of the compartment where this backup should be created.
+
+--database-edition [text]
+
+The Oracle Database edition to use for creating a database from this
+standalone backup. Note that 2-node RAC DB systems require Enterprise
+Edition - Extreme Performance.
+
+Accepted values are:
+
+   ENTERPRISE_EDITION, ENTERPRISE_EDITION_EXTREME_PERFORMANCE, ENTERPRISE_EDITION_HIGH_PERFORMANCE, STANDARD_EDITION
+
+--database-mode [text]
+
+The mode (single instance or RAC) of the database being backed up.
+
+Accepted values are:
+
+   RAC, SI
+
+--db-name [text]
+
+The name of the database from which the backup is being taken.
+
+--db-version [text]
+
+A valid Oracle Database version.
+
+--display-name [text]
+
+A user-friendly name for the backup. This name does not have to be
+unique.
+
+--external-database-identifier [integer]
+
+The *DBID* of the Oracle Database being backed up.
+
+--ncharacter-set [text]
+
+The national character set for the database.
+
+
+Optional Parameters
+===================
+
+--db-unique-name [text]
+
+The *DB_UNIQUE_NAME* of the Oracle Database being backed up.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--pdb-name [text]
+
+The pluggable database name.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

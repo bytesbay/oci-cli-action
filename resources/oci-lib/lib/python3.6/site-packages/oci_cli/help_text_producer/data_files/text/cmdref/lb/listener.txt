@@ -1,0 +1,19 @@
+listener
+********
+
+
+Description
+===========
+
+The listener's configuration. For more information on backend set
+configuration, see Managing Load Balancer Listeners.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* update

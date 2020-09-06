@@ -1,0 +1,239 @@
+"create"
+********
+
+
+Description
+===========
+
+Creates a new Web Application Acceleration and Security (WAAS) policy
+in the specified compartment. A WAAS policy must be established before
+creating Web Application Firewall (WAF) rules. To use WAF rules, your
+web application's origin servers must defined in the *WaasPolicy*
+schema.
+
+A domain name must be specified when creating a WAAS policy. The
+domain name should be different from the origins specified in your
+*WaasPolicy*. Once domain name is entered and stored, it is
+unchangeable.
+
+Use the record data returned in the *cname* field of the *WaasPolicy*
+object to create a CNAME record in your DNS configuration that will
+direct your domain's traffic through the WAF.
+
+For the purposes of access control, you must provide the OCID of the
+compartment where you want the service to reside. For information
+about access control and compartments, see Overview of the IAM
+Service.
+
+You must specify a display name and domain for the WAAS policy. The
+display name does not have to be unique and can be changed. The domain
+name should be different from every origin specified in *WaasPolicy*.
+
+All Oracle Cloud Infrastructure resources, including WAAS policies,
+receive a unique, Oracle-assigned ID called an Oracle Cloud Identifier
+(OCID). When a resource is created, you can find its OCID in the
+response. You can also retrieve a resource's OCID by using a list API
+operation for that resource type, or by viewing the resource in the
+Console. Fore more information, see Resource Identifiers.
+
+**Note:** After sending the POST request, the new object's state will
+temporarily be *CREATING*. Ensure that the resource's state has
+changed to *ACTIVE* before use.
+
+
+Usage
+=====
+
+   oci waas waas-policy create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--compartment-id, -c [text]
+
+The OCID of the compartment in which to create the WAAS policy.
+
+--domain [text]
+
+The web application domain that the WAAS policy protects.
+
+
+Optional Parameters
+===================
+
+--additional-domains [complex type]
+
+An array of additional domains for the specified web application. This
+is a complex type whose value must be valid JSON. The value can be
+provided as a string on the command line or passed in as a file using
+the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags.
+
+Example:
+
+   {"Operations": {"CostCenter": "42"}}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--display-name [text]
+
+A user-friendly name for the WAAS policy. The name can be changed and
+does not need to be unique.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+Example:
+
+   {"Department": "Finance"}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--origin-groups [complex type]
+
+The map of origin groups and their keys used to associate origins to
+the *wafConfig*. Origin groups allow you to apply weights to groups of
+origins for load balancing purposes. Origins with higher weights will
+receive larger proportions of client requests. To add additional
+origins to your WAAS policy, update the *origins* field of a
+*UpdateWaasPolicy* request.
+
+This option is a JSON dictionary of type dict(str, OriginGroup).  For
+documentation on OriginGroup please see our API reference: https://do
+cs.cloud.oracle.com/api/#/en/waas/20181116/datatypes/OriginGroup. This
+is a complex type whose value must be valid JSON. The value can be
+provided as a string on the command line or passed in as a file using
+the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--origins [complex type]
+
+A map of host to origin for the web application. The key should be a
+customer friendly name for the host, ex. primary, secondary, etc.
+
+This option is a JSON dictionary of type dict(str, Origin).  For
+documentation on Origin please see our API reference:
+https://docs.cloud.oracle.com/api/#/en/waas/20181116/datatypes/Origin.
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--policy-config [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--waf-config [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, CANCELED, CANCELING, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

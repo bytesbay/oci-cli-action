@@ -1,0 +1,14 @@
+configuration
+*************
+
+
+Description
+===========
+
+A configuration
+
+
+Available Commands
+==================
+
+* request-summarized

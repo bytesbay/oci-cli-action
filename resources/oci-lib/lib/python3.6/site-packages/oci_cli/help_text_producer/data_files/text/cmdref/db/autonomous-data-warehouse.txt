@@ -1,0 +1,31 @@
+autonomous-data-warehouse
+*************************
+
+
+Description
+===========
+
+**Deprecated.** See AutonomousDatabase for reference information about
+Autonomous Databases with the warehouse workload type.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* generate-wallet
+
+* get
+
+* list
+
+* restore
+
+* start
+
+* stop
+
+* update

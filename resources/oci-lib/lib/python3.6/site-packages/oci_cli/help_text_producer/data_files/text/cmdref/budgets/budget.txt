@@ -1,0 +1,22 @@
+budget
+******
+
+
+Description
+===========
+
+A budget.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

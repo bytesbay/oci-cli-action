@@ -1,0 +1,73 @@
+data-flow
+*********
+
+
+Description
+===========
+
+Use the Data Flow CLI to run any Apache Spark application at any scale
+without deploying or managing any infrastructure.
+
+
+Available Commands
+==================
+
+* application
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* private-endpoint
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* run
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * get-log
+
+  * list
+
+  * list-logs
+
+  * update
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log
+
+  * list

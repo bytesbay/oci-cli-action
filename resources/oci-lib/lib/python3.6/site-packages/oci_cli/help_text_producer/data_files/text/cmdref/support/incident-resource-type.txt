@@ -1,0 +1,14 @@
+incident-resource-type
+**********************
+
+
+Description
+===========
+
+Details about the resource associated with the support request.
+
+
+Available Commands
+==================
+
+* list

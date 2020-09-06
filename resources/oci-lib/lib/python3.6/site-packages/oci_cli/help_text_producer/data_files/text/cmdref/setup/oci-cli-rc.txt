@@ -1,0 +1,42 @@
+"oci-cli-rc"
+************
+
+
+Description
+===========
+
+Generates a oci_cli_rc file that can contain parameter default values
+and other configuration information such as command aliases and
+predefined queries.
+
+This command will populate the file with some default aliases and
+predefined queries.
+
+
+Usage
+=====
+
+   oci setup oci-cli-rc [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--file [filename]
+
+The file into which default aliases and predefined queries will be
+loaded [default: ~/.oci/oci_cli_rc]
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

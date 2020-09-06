@@ -1,0 +1,48 @@
+managed-instance
+****************
+
+
+Description
+===========
+
+Detail information for an OCI Compute instance that is being managed
+
+
+Available Commands
+==================
+
+* attach-child
+
+* attach-parent
+
+* detach-child
+
+* detach-parent
+
+* get
+
+* install-all-updates
+
+* install-all-windows-updates
+
+* install-package
+
+* install-update
+
+* install-windows-update
+
+* list
+
+* list-available-packages
+
+* list-available-software-sources
+
+* list-available-updates
+
+* list-available-windows-updates
+
+* list-installed-packages
+
+* list-installed-windows-updates
+
+* remove-package

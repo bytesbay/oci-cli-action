@@ -1,0 +1,30 @@
+import
+******
+
+
+Description
+===========
+
+Imports an exported image from the Oracle Cloud Infrastructure Object
+Storage Service. You can use the Object Storage Service URL, or the
+namespace, bucket name, and object name when specifying the location
+to import from.
+
+For more information about importing exported images, see Image
+Import/Export.
+
+See Object Storage URLs and [pre-authenticated requests] for
+constructing URLs for image import/export.
+
+You may optionally specify a display name for the image, which is
+simply a friendly name or description. It does not have to be unique,
+and you can change it. See UpdateImage. Avoid entering confidential
+information.
+
+
+Available Commands
+==================
+
+* from-object
+
+* from-object-uri

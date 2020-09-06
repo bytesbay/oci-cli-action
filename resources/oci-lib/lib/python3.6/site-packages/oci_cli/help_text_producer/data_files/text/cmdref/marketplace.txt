@@ -1,0 +1,58 @@
+marketplace
+***********
+
+
+Description
+===========
+
+Manage applications in Oracle Cloud Infrastructure Marketplace.
+
+
+Available Commands
+==================
+
+* accepted-agreement
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* agreement
+
+  * get
+
+  * list
+
+* category
+
+  * list
+
+* listing
+
+  * get
+
+  * list
+
+* package
+
+  * get
+
+  * list
+
+* publisher
+
+  * list
+
+* report-collection
+
+  * list-reports
+
+* report-type-collection
+
+  * list-report-types

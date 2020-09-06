@@ -1,0 +1,234 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates the protection settings in the Web Application Firewall
+configuration for a WAAS policy. Protection settings allow you define
+what action is taken when a request is blocked by the Web Application
+Firewall, such as returning a response code or block page. Only the
+fields specified in the request body will be updated; all other fields
+will remain unchanged.
+
+
+Usage
+=====
+
+   oci waas protection-settings update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--waas-policy-id [text]
+
+The OCID of the WAAS policy.
+
+
+Optional Parameters
+===================
+
+--allowed-http-methods [text]
+
+The list of allowed HTTP methods. If unspecified, default to
+*[OPTIONS, GET, HEAD, POST]*. This setting only applies if a
+corresponding protection rule is enabled, such as the "Restrict HTTP
+Request Methods" rule (key: 911100).
+
+Accepted values are:
+
+   CONNECT, DELETE, GET, HEAD, OPTIONS, PATCH, POST, PROPFIND, PUT, TRACE
+
+--block-action [text]
+
+If *action* is set to *BLOCK*, this specifies how the traffic is
+blocked when detected as malicious by a protection rule. If
+unspecified, defaults to *SET_RESPONSE_CODE*.
+
+Accepted values are:
+
+   SET_RESPONSE_CODE, SHOW_ERROR_PAGE
+
+--block-error-page-code [text]
+
+The error code to show on the error page when *action* is set to
+*BLOCK*, *blockAction* is set to *SHOW_ERROR_PAGE*, and the traffic is
+detected as malicious by a protection rule. If unspecified, defaults
+to *403*.
+
+--block-error-page-description [text]
+
+The description text to show on the error page when *action* is set to
+*BLOCK*, *blockAction* is set to *SHOW_ERROR_PAGE*, and the traffic is
+detected as malicious by a protection rule. If unspecified, defaults
+to *Access blocked by website owner. Please contact support.*
+
+--block-error-page-message [text]
+
+The message to show on the error page when *action* is set to *BLOCK*,
+*blockAction* is set to *SHOW_ERROR_PAGE*, and the traffic is detected
+as malicious by a protection rule. If unspecified, defaults to 'Access
+to the website is blocked.'
+
+--block-response-code [integer]
+
+The response code returned when *action* is set to *BLOCK*,
+*blockAction* is set to *SET_RESPONSE_CODE*, and the traffic is
+detected as malicious by a protection rule. If unspecified, defaults
+to *403*. The list of available response codes: *400*, *401*, *403*,
+*405*, *409*, *411*, *412*, *413*, *414*, *415*, *416*, *500*, *501*,
+*502*, *503*, *504*, *507*.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the *PUT* or *DELETE* call for
+a resource, set the *if-match* parameter to the value of the etag from
+a previous *GET* or *POST* response for that resource. The resource
+will be updated or deleted only if the etag provided matches the
+resource's current etag value.
+
+--is-response-inspected [boolean]
+
+Inspects the response body of origin responses. Can be used to detect
+leakage of sensitive data. If unspecified, defaults to *false*.
+
+**Note:** Only origin responses with a Content-Type matching a value
+in *mediaTypes* will be inspected.
+
+--max-argument-count [integer]
+
+The maximum number of arguments allowed to be passed to your
+application before an action is taken. Arguements are query parameters
+or body parameters in a PUT or POST request. If unspecified, defaults
+to *255*. This setting only applies if a corresponding protection rule
+is enabled, such as the "Number of Arguments Limits" rule (key:
+960335).
+
+Example:
+
+   If `maxArgumentCount` to `2` for the Max Number of Arguments protection rule (key: 960335), the following requests would be blocked: `GET /myapp/path?query=one&query=two&query=three` `POST /myapp/path` with Body `{"argument1":"one","argument2":"two","argument3":"three"}
+
+--max-name-length-per-argument [integer]
+
+The maximum length allowed for each argument name, in characters.
+Arguements are query parameters or body parameters in a PUT or POST
+request. If unspecified, defaults to *400*. This setting only applies
+if a corresponding protection rule is enabled, such as the "Values
+Limits" rule (key: 960208).
+
+--max-response-size-in-ki-b [integer]
+
+The maximum response size to be fully inspected, in binary kilobytes
+(KiB). Anything over this limit will be partially inspected. If
+unspecified, defaults to *1024*.
+
+--max-total-name-length-of-arguments [integer]
+
+The maximum length allowed for the sum of the argument name and value,
+in characters. Arguements are query parameters or body parameters in a
+PUT or POST request. If unspecified, defaults to *64000*. This setting
+only applies if a corresponding protection rule is enabled, such as
+the "Total Arguments Limits" rule (key: 960341).
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--media-types [complex type]
+
+The list of media types to allow for inspection, if
+*isResponseInspected* is enabled. Only responses with MIME types in
+this list will be inspected. If unspecified, defaults to
+*["text/html", "text/plain", "text/xml"]*.
+
+   Supported MIME types include:
+
+   * text/html     - text/plain     - text/asp     - text/css     -
+     text/x-script     - application/json     - text/webviewhtml     -
+     text/x-java-source     - application/x-javascript     -
+     application/javascript     - application/ecmascript     -
+     text/javascript     - text/ecmascript     - text/x-script.perl -
+     text/x-script.phyton     - application/plain     -
+     application/xml     - text/xml
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--recommendations-period-in-days [integer]
+
+The length of time to analyze traffic traffic, in days. After the
+analysis period, *WafRecommendations* will be populated. If
+unspecified, defaults to *10*.
+
+Use *GET /waasPolicies/{waasPolicyId}/wafRecommendations* to view WAF
+recommendations.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, CANCELED, CANCELING, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

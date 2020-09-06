@@ -1,0 +1,78 @@
+"update-metadata"
+*****************
+
+
+Description
+===========
+
+By default, buckets created using the Amazon S3 Compatibility API or
+the Swift API are created in the root compartment of the Oracle Cloud
+Infrastructure tenancy.
+
+You can change the default Swift/Amazon S3 compartmentId designation
+to a different compartmentId. All subsequent bucket creations will use
+the new default compartment, but no previously created buckets will be
+modified. A user must have OBJECTSTORAGE_NAMESPACE_UPDATE permission
+to make changes to the default compartments for Amazon S3 and Swift.
+
+
+Usage
+=====
+
+   oci os ns update-metadata [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--default-s3-compartment-id [text]
+
+The updated compartment id for use by an S3 client, if this field is
+set.
+
+--default-swift-compartment-id [text]
+
+The updated compartment id for use by a Swift client, if this field is
+set.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--namespace-name, --namespace, -ns [text]
+
+The Object Storage namespace used for the request. If not provided,
+this parameter will be obtained internally using a call to 'oci os ns
+get'
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

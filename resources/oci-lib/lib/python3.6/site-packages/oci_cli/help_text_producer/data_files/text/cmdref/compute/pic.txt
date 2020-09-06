@@ -1,0 +1,36 @@
+pic
+***
+
+
+Description
+===========
+
+Partner image catalog (PIC).
+
+
+Available Commands
+==================
+
+* agreements
+
+  * get
+
+* listing
+
+  * get
+
+  * list
+
+* subscription
+
+  * create
+
+  * delete
+
+  * list
+
+* version
+
+  * get
+
+  * list

@@ -1,0 +1,16 @@
+resource
+********
+
+
+Description
+===========
+
+A resource that exists in the cloud network that you're querying.
+
+
+Available Commands
+==================
+
+* free-text-search
+
+* structured-search

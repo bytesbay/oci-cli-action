@@ -1,0 +1,24 @@
+policy
+******
+
+
+Description
+===========
+
+Autoscaling policies define the criteria that trigger autoscaling
+actions and the actions to take.
+
+An autoscaling policy is part of an autoscaling configuration. For
+more information, see Autoscaling.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* update

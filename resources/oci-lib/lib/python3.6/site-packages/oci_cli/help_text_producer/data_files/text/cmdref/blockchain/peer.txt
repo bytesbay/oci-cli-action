@@ -1,0 +1,16 @@
+peer
+****
+
+
+Description
+===========
+
+A Peer details
+
+
+Available Commands
+==================
+
+* get
+
+* list

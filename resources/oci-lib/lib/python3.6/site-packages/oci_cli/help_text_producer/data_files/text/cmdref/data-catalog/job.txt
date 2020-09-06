@@ -1,0 +1,22 @@
+job
+***
+
+
+Description
+===========
+
+Details of a job. Jobs are scheduled instances of a job definition.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

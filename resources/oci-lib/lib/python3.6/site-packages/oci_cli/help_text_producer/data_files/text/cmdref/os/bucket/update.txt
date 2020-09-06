@@ -1,0 +1,168 @@
+"update"
+********
+
+
+Description
+===========
+
+Performs a partial or full update of a bucket's user-defined metadata.
+
+Use UpdateBucket to move a bucket from one compartment to another
+within the same tenancy. Supply the compartmentID of the compartment
+that you want to move the bucket to. For more information about moving
+resources between compartments, see Moving Resources to a Different
+Compartment.
+
+
+Usage
+=====
+
+   oci os bucket update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--bucket-name, --name, -bn [text]
+
+The name of the bucket. Avoid entering confidential information.
+Example: *my-new-bucket1*
+
+
+Optional Parameters
+===================
+
+--compartment-id, -c [text]
+
+The compartmentId for the compartment to move the bucket to.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags. Example:
+>>`<<{"Operations": {"CostCenter": "42"}} This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags. Example: *{"Department": "Finance"}* This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+The entity tag (ETag) to match. For creating and committing a
+multipart upload to an object, this is the entity tag of the target
+object. For uploading a part, this is the entity tag of the target
+part.
+
+--kms-key-id [text]
+
+The OCID of the Key Management master encryption key to associate with
+the specified bucket. If this value is empty, the Update operation
+will remove the associated key, if there is one, from the bucket. (The
+bucket will continue to be encrypted, but with an encryption key
+managed by Oracle.)
+
+--metadata [complex type]
+
+Arbitrary string, up to 4KB, of keys and values for user-defined
+metadata. This is a complex type whose value must be valid JSON. The
+value can be provided as a string on the command line or passed in as
+a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--namespace-name, --namespace, -ns [text]
+
+The Object Storage namespace used for the request. If not provided,
+this parameter will be obtained internally using a call to 'oci os ns
+get'
+
+--object-events-enabled [boolean]
+
+Whether or not events are emitted for object state changes in this
+bucket. By default, *objectEventsEnabled* is set to *false*. Set
+*objectEventsEnabled* to *true* to emit events for object state
+changes. For more information about events, see Overview of Events.
+
+--public-access-type [text]
+
+The type of public access enabled on this bucket. A bucket is set to
+*NoPublicAccess* by default, which only allows an authenticated caller
+to access the bucket and its contents. When *ObjectRead* is enabled on
+the bucket, public access is allowed for the *GetObject*,
+*HeadObject*, and *ListObjects* operations. When
+*ObjectReadWithoutList* is enabled on the bucket, public access is
+allowed for the *GetObject* and *HeadObject* operations.
+
+Accepted values are:
+
+   NoPublicAccess, ObjectRead, ObjectReadWithoutList
+
+--versioning [text]
+
+The versioning status on the bucket. If in state *Enabled*, multiple
+versions of the same object can be kept in the bucket. When the object
+is overwritten or deleted, previous versions will still be available.
+When versioning is *Suspended*, the previous versions will still
+remain but new versions will no longer be created when overwitten or
+deleted. Versioning cannot be disabled on a bucket once enabled.
+
+Accepted values are:
+
+   Enabled, Suspended
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

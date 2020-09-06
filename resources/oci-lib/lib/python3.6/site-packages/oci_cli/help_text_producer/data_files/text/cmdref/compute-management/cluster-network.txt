@@ -1,0 +1,29 @@
+cluster-network
+***************
+
+
+Description
+===========
+
+A cluster network is a group of high performance computing (HPC) bare
+metal instances that are connected with an ultra low latency network.
+For more information about cluster networks, see Managing Cluster
+Networks.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* get
+
+* list
+
+* list-instances
+
+* terminate
+
+* update

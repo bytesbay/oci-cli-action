@@ -1,0 +1,16 @@
+policy
+******
+
+
+Description
+===========
+
+A policy that determines how traffic is distributed among backend
+servers. For more information on load balancing policies, see How Load
+Balancing Policies Work.
+
+
+Available Commands
+==================
+
+* list

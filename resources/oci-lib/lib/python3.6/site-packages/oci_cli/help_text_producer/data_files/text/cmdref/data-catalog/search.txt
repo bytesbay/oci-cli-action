@@ -1,0 +1,18 @@
+search
+******
+
+
+Description
+===========
+
+The search result object is the definition of an element that is
+returned as part of search. It contains basic information about the
+object such as key, name and description. The search result also
+contains the list of tags for each object along with other contextual
+information like the data asset root, folder, or entity parents.
+
+
+Available Commands
+==================
+
+* query

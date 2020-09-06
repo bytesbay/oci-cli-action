@@ -1,0 +1,39 @@
+glossary
+********
+
+
+Description
+===========
+
+Full glossary details. A glossary of business terms, such as
+'Customer', 'Account', 'Contact' , 'Address', or 'Product', with
+definitions, used to provide common meaning across disparate data
+assets. Business glossaries may be hierarchical where some terms may
+contain child terms to allow them to be used as 'taxonomies'. By
+linking data assets, data entities, and attributes to glossaries and
+glossary terms, the glossary can act as a way of organizing data
+catalog objects in a hierarchy to make a large number of objects more
+navigable and easier to consume. Objects in the data aatalog, such as
+data assets or data entities, may be linked to any level in the
+glossary, so that the glossary can be used to browse the available
+data according to the business model of the organization.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* expand-tree-for
+
+* export
+
+* get
+
+* import
+
+* list
+
+* update

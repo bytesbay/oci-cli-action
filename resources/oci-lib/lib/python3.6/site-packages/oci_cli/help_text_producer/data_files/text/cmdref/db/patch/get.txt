@@ -1,0 +1,16 @@
+get
+***
+
+
+Description
+===========
+
+Gets information about a specified patch package.
+
+
+Available Commands
+==================
+
+* by-database
+
+* by-db-system

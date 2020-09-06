@@ -1,0 +1,126 @@
+dts
+***
+
+
+Description
+===========
+
+Transfer disk or appliance job operations
+
+
+Available Commands
+==================
+
+* appliance
+
+  * cancel
+
+  * delete
+
+  * get-passphrase
+
+  * list
+
+  * never-receive
+
+  * request
+
+  * request-entitlement
+
+  * setup-notifications
+
+  * show
+
+  * show-entitlement
+
+  * update-shipping-address
+
+* export
+
+  * change-compartment
+
+  * configure-physical-appliance
+
+  * create
+
+  * create-policy
+
+  * delete
+
+  * generate-manifest
+
+  * get-passphrase
+
+  * list
+
+  * request-appliance
+
+  * setup-notifications
+
+  * show
+
+  * update
+
+* job
+
+  * change-compartment
+
+  * close
+
+  * create
+
+  * delete
+
+  * detach-devices-details
+
+    * change-compartment
+
+  * list
+
+  * setup-notifications
+
+  * show
+
+  * update
+
+  * verify-upload-user-credentials
+
+* nfs-dataset
+
+  * activate
+
+  * create
+
+  * deactivate
+
+  * delete
+
+  * get-seal-manifest
+
+  * list
+
+  * reopen
+
+  * seal
+
+  * seal-status
+
+  * set-export
+
+  * show
+
+* physical-appliance
+
+  * configure-encryption
+
+  * finalize
+
+  * initialize-authentication
+
+  * list
+
+  * show
+
+  * unlock
+
+  * unregister

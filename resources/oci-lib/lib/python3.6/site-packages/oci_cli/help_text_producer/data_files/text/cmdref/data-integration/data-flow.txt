@@ -1,0 +1,23 @@
+data-flow
+*********
+
+
+Description
+===========
+
+The data flow type contains the audit summary information and the
+definition of the data flow.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

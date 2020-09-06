@@ -1,0 +1,311 @@
+"create"
+********
+
+
+Description
+===========
+
+Creates a new Scheduled Job to perform a specific package operation on
+a set of managed instances or managed instance groups.  Can be created
+as a one-time execution in the future, or as a recurring execution
+that repeats on a defined interval.
+
+
+Usage
+=====
+
+   oci os-management scheduled-job create [OPTIONS]
+
+
+Required Parameters
+===================
+
+--compartment-id, -c [text]
+
+OCID for the Compartment
+
+--display-name [text]
+
+Scheduled Job name
+
+--operation-type [text]
+
+the type of operation this Scheduled Job performs
+
+Accepted values are:
+
+   INSTALL, REMOVE, UPDATE, UPDATEALL
+
+--schedule-type [text]
+
+the type of scheduling this Scheduled Job follows
+
+Accepted values are:
+
+   ONETIME, RECURRING
+
+--time-next-execution [datetime]
+
+the desired time for the next execution of this Scheduled Job
+
+The following datetime formats are supported:
+
+
+UTC with milliseconds
+---------------------
+
+   Format: YYYY-MM-DDTHH:mm:ss.sssTZD
+   Example: 2017-09-15T20:30:00.123Z
+
+
+UTC without milliseconds
+------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T20:30:00Z
+
+
+UTC with minute precision
+-------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T20:30Z
+
+
+Timezone with milliseconds
+--------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00.456-08:00, 2017-09-15T12:30:00.456-0800
+
+
+Timezone without milliseconds
+-----------------------------
+
+   Format: YYYY-MM-DDTHH:mm:ssTZD
+   Example: 2017-09-15T12:30:00-08:00, 2017-09-15T12:30:00-0800
+
+
+Timezone with minute precision
+------------------------------
+
+   Format: YYYY-MM-DDTHH:mmTZD
+   Example: 2017-09-15T12:30-08:00, 2017-09-15T12:30-0800
+
+
+Short date and time
+-------------------
+
+The timezone for this date and time will be taken as UTC (Needs to be
+surrounded by single or double quotes)
+
+   Format: 'YYYY-MM-DD HH:mm' or "YYYY-MM-DD HH:mm"
+   Example: '2017-09-15 17:25'
+
+
+Date Only
+---------
+
+This date will be taken as midnight UTC of that day
+
+   Format: YYYY-MM-DD
+   Example: 2017-09-15
+
+
+Epoch seconds
+-------------
+
+   Example: 1412195400
+
+
+Optional Parameters
+===================
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. Example: *{"foo-namespace": {"bar-key": "value"}}* This is
+a complex type whose value must be valid JSON. The value can be
+provided as a string on the command line or passed in as a file using
+the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--description [text]
+
+Details describing the Scheduled Job.
+
+--freeform-tags [complex type]
+
+Simple key-value pair that is applied without any predefined name,
+type or scope. Exists for cross-compatibility only. Example: *{"bar-
+key": "value"}* This is a complex type whose value must be valid JSON.
+The value can be provided as a string on the command line or passed in
+as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--interval-type [text]
+
+the interval period for a recurring Scheduled Job (only if schedule
+type is RECURRING)
+
+Accepted values are:
+
+   DAY, HOUR, MONTH, WEEK
+
+--interval-value [text]
+
+the value for the interval period for a recurring Scheduled Job (only
+if schedule type is RECURRING)
+
+--managed-instance-groups [complex type]
+
+The list of managed instance groups this scheduled job operates on
+(mutually exclusive with managedInstances). Either this or
+managedInstances must be supplied.
+
+This option is a JSON list with items of type Id.  For documentation
+on Id please see our API reference: https://docs.cloud.oracle.com/api
+/#/en/osmanagement/20190801/datatypes/Id. This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--managed-instances [complex type]
+
+The list of managed instances this scheduled job operates on (mutually
+exclusive with managedInstanceGroups). Either this or the
+managedInstanceGroups must be supplied.
+
+This option is a JSON list with items of type Id.  For documentation
+on Id please see our API reference: https://docs.cloud.oracle.com/api
+/#/en/osmanagement/20190801/datatypes/Id. This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--os-family [text]
+
+The Operating System type of the managed instance(s) on which this
+scheduled job will operate. If not specified, this defaults to Linux.
+
+Accepted values are:
+
+   ALL, LINUX, WINDOWS
+
+--package-names [complex type]
+
+the id of the package (only if operation type is
+INSTALL/UPDATE/REMOVE)
+
+This option is a JSON list with items of type PackageName.  For
+documentation on PackageName please see our API reference: https://do
+cs.cloud.oracle.com/api/#/en/osmanagement/20190801/datatypes/PackageN
+ame. This is a complex type whose value must be valid JSON. The value
+can be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--update-names [complex type]
+
+The unique names of the Windows Updates (only if operation type is
+INSTALL). This is only applicable when the osFamily is for Windows
+managed instances. This is a complex type whose value must be valid
+JSON. The value can be provided as a string on the command line or
+passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--update-type [text]
+
+Type of the update (only if operation type is UPDATEALL)
+
+Accepted values are:
+
+   ALL, BUGFIX, ENHANCEMENT, SECURITY
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING, FAILED, UPDATING
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

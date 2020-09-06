@@ -1,0 +1,25 @@
+ping-monitor
+************
+
+
+Description
+===========
+
+A summary containing all of the mutable and immutable properties for a
+ping monitor.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

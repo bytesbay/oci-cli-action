@@ -1,0 +1,120 @@
+"list"
+******
+
+
+Description
+===========
+
+Lists the terms of use agreements that have been accepted in the
+specified compartment. You can filter results by specifying query
+parameters.
+
+
+Usage
+=====
+
+   oci marketplace accepted-agreement list [OPTIONS]
+
+
+Required Parameters
+===================
+
+--compartment-id, -c [text]
+
+The unique identifier for the compartment.
+
+
+Optional Parameters
+===================
+
+--accepted-agreement-id [text]
+
+The unique identifier for the accepted terms of use agreement.
+
+--all
+
+Fetches all pages of results. If you provide this option, then you
+cannot provide the "--limit" option.
+
+--display-name [text]
+
+The display name of the resource.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--limit [integer]
+
+How many records to return. Specify a value greater than zero and less
+than or equal to 1000. The default is 30.
+
+--listing-id [text]
+
+The unique identifier for the listing.
+
+--package-version [text]
+
+The version of the package. Package versions are unique within a
+listing.
+
+--page [text]
+
+The value of the *opc-next-page* response header from the previous
+"List" call.
+
+--page-size [integer]
+
+When fetching results, the number of results to fetch per call. Only
+valid when used with "--all" or "--limit", and ignored otherwise.
+
+--sort-by [text]
+
+The field to use to sort listed results. You can only specify one
+field to sort by. *TIMEACCEPTED* displays results in descending order
+by default. You can change your preference by specifying a different
+sort order.
+
+Accepted values are:
+
+   TIMEACCEPTED
+
+--sort-order [text]
+
+The sort order to use, either *ASC* or *DESC*.
+
+Accepted values are:
+
+   ASC, DESC
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

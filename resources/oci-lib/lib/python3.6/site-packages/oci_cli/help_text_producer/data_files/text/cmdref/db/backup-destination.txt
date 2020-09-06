@@ -1,0 +1,24 @@
+backup-destination
+******************
+
+
+Description
+===========
+
+Backup destination details.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create-nfs-details
+
+* create-recovery-appliance-details
+
+* delete
+
+* get
+
+* update

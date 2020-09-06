@@ -1,0 +1,83 @@
+"raw-request"
+*************
+
+
+Description
+===========
+
+Makes a raw request against an OCI service based on a provided URI,
+HTTP method and payload. This operation currently only supports JSON
+payloads. This operation will output a JSON structure that looks like:
+
+
+   {
+      "data": <a JSON array or object containing the parsed response
+      body>, "headers": <a JSON object where each header is a key and
+      the value is the header value>, "status": <the HTTP status code
+      and reason, e.g. '200 OK', '404 Not Found'>
+
+   }
+
+
+Usage
+=====
+
+   oci raw-request [OPTIONS]
+
+
+Required Parameters
+===================
+
+--http-method [text]
+
+The HTTP method to use
+
+Accepted values are:
+
+   DELETE, GET, HEAD, POST, PUT
+
+--target-uri [text]
+
+The URI to make the request against
+
+
+Optional Parameters
+===================
+
+--request-body [complex type]
+
+Data to send in the body of the request. This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--request-headers [complex type]
+
+Additional headers to send as part of the request. This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

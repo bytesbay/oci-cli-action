@@ -1,0 +1,274 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "OS_OBJECT_BULK-UPLOAD" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+os_object_bulk-upload \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Uploads all files in a given directory and all subdirectories.
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-src\-dir [text]
+.UNINDENT
+.sp
+The directory which contains files to upload. Files in the directory and all subdirectories will be uploaded.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-content\-encoding [text]
+.UNINDENT
+.sp
+The content encoding to apply to all files being uploaded.
+.INDENT 0.0
+.TP
+.B \-\-content\-language [text]
+.UNINDENT
+.sp
+The content language to apply to all files being uploaded.
+.INDENT 0.0
+.TP
+.B \-\-content\-type [text]
+.UNINDENT
+.sp
+The content type to apply to all files being uploaded. If content type is set to auto, then the CLI will guess the content type of the file.
+.INDENT 0.0
+.TP
+.B \-\-disable\-parallel\-uploads
+.UNINDENT
+.sp
+[DEPRECATED] This option is no longer used. If a file in the directory will be uploaded in multiple parts, this option disables those parts from being uploaded in parallel. This applies to all files being uploaded in multiple parts
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-exclude [text]
+.UNINDENT
+.sp
+Only upload files which do not match the provided pattern. Patterns are taken relative to the CURRENT directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-include [text]
+.UNINDENT
+.sp
+Only upload files which match the provided pattern. Patterns are taken relative to the CURRENT directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-metadata [text]
+.UNINDENT
+.sp
+Arbitrary string keys and values for user\-defined metadata. This will be applied to all files being uploaded. Must be in JSON format. Example: \(aq{"key1":"value1","key2":"value2"}\(aq
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+Object Storage namespace. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-no\-multipart
+.UNINDENT
+.sp
+Do not use multipart uploads to upload the file in parts. By default, files above 128 MiB will be uploaded in multiple parts, then combined server\-side. This applies to all files being uploaded
+.INDENT 0.0
+.TP
+.B \-\-no\-overwrite
+.UNINDENT
+.sp
+If a file being uploaded already exists in Object Storage with the same name, do not overwite the object. If neither this flag nor \-\-overwrite is specified, you will be prompted each time an object with the same name would be overwritten.
+.INDENT 0.0
+.TP
+.B \-\-object\-prefix [text]
+.UNINDENT
+.sp
+A prefix to apply to the names of all files being uploaded
+.INDENT 0.0
+.TP
+.B \-\-overwrite
+.UNINDENT
+.sp
+If a file being uploaded already exists in Object Storage with the same name, overwrite the existing object in Object Storage without a confirmation prompt. If neither this flag nor \-\-no\-overwrite is specified, you will be prompted each time an object with the same name would be overwritten.
+.sp
+Specifying this flag will also allow for faster uploads as the CLI will not initially check whether or not the files with the same name already exist in Object Storage.
+.INDENT 0.0
+.TP
+.B \-\-parallel\-upload\-count [integer range]
+.UNINDENT
+.sp
+The number of parallel operations to perform. Decreasing this value will make bulk uploads less resource intensive but they may take longer. Increasing this value may improve bulk upload times, but the upload process will consume more system resources and network bandwidth. The maximum is 1000. [default: 10]
+.INDENT 0.0
+.TP
+.B \-\-part\-size [integer]
+.UNINDENT
+.sp
+Part size (in MiB) to use if uploading via multipart upload operations. This applies to all files which will be uploaded in multiple parts. Part size must be greater than 10 MiB
+.INDENT 0.0
+.TP
+.B \-\-verify\-checksum
+.UNINDENT
+.sp
+Verify the checksum of the uploaded object with the local file.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Examples
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
+.sp
+.ce
+----
+
+.ce 0
+.sp
+.SS Upload all files from a given directory
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Forcing object overwrite to resolve object name collision
+.sp
+If a file being uploaded already exists in Object Storage, it can be overwritten without a prompt by using the \fB\-\-overwrite\fP flag.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-overwrite
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Prevent object overwrite to resolve object name collision
+.sp
+If a file being uploaded already exists in Object Storage, it can be preserved (not overwritten) without a prompt by using the \fB\-\-no\-overwrite\fP flag.
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-no\-overwrite
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Applying metadata
+.sp
+Metadata can be applied when the files are put into Object Storage by specifying the \fB\-\-metadata\fP flag and passing metadata either via a file or as a string on the command line.
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+The same metadata will be applied to \fBall\fP uploaded files.
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-metadata \(aq{"key1":"value1","key2":"value2"}\(aq
+oci os object bulk\-upload \-ns mynamespace \-bn mybucket \-\-src\-dir path/to/upload/directory \-\-metadata file://path/to/my/metadata.json
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

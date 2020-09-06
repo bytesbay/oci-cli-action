@@ -1,0 +1,19 @@
+protection-rule
+***************
+
+
+Description
+===========
+
+The protection rule settings. Protection rules can allow, block, or
+trigger an alert if a request meets the parameters of an applied rule.
+
+
+Available Commands
+==================
+
+* get
+
+* list
+
+* update

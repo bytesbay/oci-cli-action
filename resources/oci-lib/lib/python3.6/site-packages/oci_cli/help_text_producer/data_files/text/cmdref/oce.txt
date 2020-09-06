@@ -1,0 +1,41 @@
+oce
+***
+
+
+Description
+===========
+
+Oracle Content and Experience is a cloud-based content hub to drive
+omni-channel content management and accelerate experience delivery
+
+
+Available Commands
+==================
+
+* oce-instance
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

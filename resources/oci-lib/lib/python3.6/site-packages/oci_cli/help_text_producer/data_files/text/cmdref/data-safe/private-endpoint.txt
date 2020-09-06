@@ -1,0 +1,25 @@
+private-endpoint
+****************
+
+
+Description
+===========
+
+A Data Safe private endpoint that allows Data Safe to connect to
+databases in a customer's virtual cloud network (VCN).
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

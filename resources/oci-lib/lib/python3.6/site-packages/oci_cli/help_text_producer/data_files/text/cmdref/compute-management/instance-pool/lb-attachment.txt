@@ -1,0 +1,18 @@
+lb-attachment
+*************
+
+
+Description
+===========
+
+Represents a load balancer that is attached to an instance pool.
+
+
+Available Commands
+==================
+
+* attach
+
+* detach
+
+* get

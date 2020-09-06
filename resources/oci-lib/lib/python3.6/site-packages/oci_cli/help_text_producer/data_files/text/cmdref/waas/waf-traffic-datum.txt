@@ -1,0 +1,15 @@
+waf-traffic-datum
+*****************
+
+
+Description
+===========
+
+A time series of traffic data for the  Web Application Firewall
+configured for a policy.
+
+
+Available Commands
+==================
+
+* list-waf-traffic

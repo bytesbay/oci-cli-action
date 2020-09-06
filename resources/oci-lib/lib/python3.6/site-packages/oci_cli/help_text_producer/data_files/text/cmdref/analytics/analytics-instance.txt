@@ -1,0 +1,32 @@
+analytics-instance
+******************
+
+
+Description
+===========
+
+Analytics Instance metadata.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* change-network-endpoint
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* scale
+
+* start
+
+* stop
+
+* update

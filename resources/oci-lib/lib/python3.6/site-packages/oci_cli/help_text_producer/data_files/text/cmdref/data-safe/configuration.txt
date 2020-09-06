@@ -1,0 +1,15 @@
+configuration
+*************
+
+
+Description
+===========
+
+A Data Safe Configuration that allows customer to enable Data Safe in
+their tenancy.
+
+
+Available Commands
+==================
+
+* get

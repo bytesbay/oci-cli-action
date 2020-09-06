@@ -1,0 +1,32 @@
+exadata-infrastructure
+**********************
+
+
+Description
+===========
+
+ExadataInfrastructure
+
+
+Available Commands
+==================
+
+* activate
+
+* change-compartment
+
+* create
+
+* delete
+
+* download-exadata-infrastructure-config-file
+
+* generate-recommended-vm-cluster-network
+
+* get
+
+* get-compute-units
+
+* list
+
+* update

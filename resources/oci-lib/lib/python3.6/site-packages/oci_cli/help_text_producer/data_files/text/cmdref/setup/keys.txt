@@ -1,0 +1,57 @@
+"keys"
+******
+
+
+Description
+===========
+
+Generates an API Signing RSA key pair. A passphrase for the private
+key can be provided using either the 'passphrase' or 'passphrase-file'
+option. If neither option is provided, the user will be prompted for a
+passphrase via stdin.
+
+
+Usage
+=====
+
+   oci setup keys [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--key-name [text]
+
+A name for the API Signing key. Generated key files will be {key-
+name}.pem and {key-name}_public.pem
+
+--output-dir [path]
+
+An optional directory to output the generated API Signing keys.
+
+--overwrite
+
+An option to overwrite existing files without a confirmation prompt.
+
+--passphrase [text]
+
+An optional passphrase to encrypt the private API Signing key.
+
+--passphrase-file [filename]
+
+An optional file with the first line specifying a passphrase to
+encrypt the API Signing private key (or '-' to read from stdin).
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

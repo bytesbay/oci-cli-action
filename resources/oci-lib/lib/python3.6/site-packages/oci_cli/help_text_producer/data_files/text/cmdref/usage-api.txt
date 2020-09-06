@@ -1,0 +1,20 @@
+usage-api
+*********
+
+
+Description
+===========
+
+A description of the UsageApi CLI.
+
+
+Available Commands
+==================
+
+* configuration
+
+  * request-summarized
+
+* usage-summary
+
+  * request-summarized-usages

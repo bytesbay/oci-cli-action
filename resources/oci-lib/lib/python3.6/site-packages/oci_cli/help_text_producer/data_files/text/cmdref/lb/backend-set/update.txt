@@ -1,0 +1,235 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates a backend set.
+
+
+Usage
+=====
+
+   oci lb backend-set update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--backend-set-name [text]
+
+The name of the backend set to update.
+
+Example:
+
+   example_backend_set
+
+--backends [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--health-checker-protocol [text]
+
+The protocol the health check must use; either HTTP or TCP.
+
+--load-balancer-id [text]
+
+The OCID of the load balancer associated with the backend set.
+
+--policy [text]
+
+The load balancer policy for the backend set. To get a list of
+available policies, use the ListPolicies operation.
+
+Example:
+
+   LEAST_CONNECTIONS
+
+
+Optional Parameters
+===================
+
+--cipher-suite-name [text]
+
+Cipher suite name for backend.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--health-checker-interval-in-ms [integer]
+
+The interval between health checks, in milliseconds.
+
+--health-checker-port [integer]
+
+The backend server port against which to run the health check. If the
+port is not specified, the load balancer uses the port information
+from the Backend object.
+
+--health-checker-response-body-regex [text]
+
+A regular expression for parsing the response body from the backend
+server.
+
+--health-checker-retries [integer]
+
+The number of retries to attempt before a backend server is considered
+"unhealthy".
+
+--health-checker-return-code [integer]
+
+The status code a healthy backend server should return.
+
+--health-checker-timeout-in-ms [integer]
+
+The maximum time, in milliseconds, to wait for a reply to a health
+check. A health check is successful only if a reply returns within
+this timeout period.
+
+--health-checker-url-path [text]
+
+The path against which to run the health check.
+
+--lb-cookie-session-persistence-configuration [complex type]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--protocols [complex type]
+
+A list of protocols to be configured for backend. It must be a list of
+strings.
+
+Example:
+
+   ["TLSv1.1","TLSv1.2"]
+
+--server-order-preference [text]
+
+Server order preference for backend.
+
+--session-persistence-cookie-name [text]
+
+The name of the cookie used to detect a session initiated by the
+backend server. Use '*' to specify that any cookie set by the backend
+causes the session to persist.
+
+--session-persistence-disable-fallback [boolean]
+
+Whether the load balancer is prevented from directing traffic from a
+persistent session client to a different backend server if the
+original server is unavailable. Defaults to false.
+
+--ssl-certificate-name [text]
+
+A friendly name for the certificate bundle. It must be unique and it
+cannot be changed. Valid certificate bundle names include only
+alphanumeric characters, dashes, and underscores. Certificate bundle
+names cannot contain spaces. Avoid entering confidential information.
+
+--ssl-verify-depth [integer]
+
+The maximum depth for peer certificate chain verification.
+
+--ssl-verify-peer-certificate [boolean]
+
+Whether the load balancer listener should verify peer certificates.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

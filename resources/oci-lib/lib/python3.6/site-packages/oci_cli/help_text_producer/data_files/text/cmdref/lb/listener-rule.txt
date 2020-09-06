@@ -1,0 +1,15 @@
+listener-rule
+*************
+
+
+Description
+===========
+
+The attributes of a rule associated with the specified listener, and
+the name of the rule set that the rule belongs to.
+
+
+Available Commands
+==================
+
+* list

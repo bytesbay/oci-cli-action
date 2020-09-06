@@ -1,0 +1,152 @@
+"oci"
+*****
+
+
+Description
+===========
+
+Oracle Cloud Infrastructure command line interface, with support for
+Audit, Block Volume, Compute, Database, IAM, Load Balancing,
+Networking, DNS, File Storage, Email Delivery and Object Storage
+Services.
+
+Most commands must specify a service, followed by a resource type and
+then an action. For example, to list users (where $T contains the OCID
+of the current tenant):
+
+   oci iam user list --compartment-id $T
+
+Output is in JSON format.
+
+For information on configuration, see
+https://docs.cloud.oracle.com/Content/API/Concepts/sdkconfig.htm.
+
+
+Usage
+=====
+
+   oci
+
+
+Optional Parameters
+===================
+
+--auth [text]
+
+The type of auth to use for the API request. By default the API key in
+your config file will be used.  This value can also be provided in the
+OCI_CLI_AUTH environment variable.
+
+Accepted values are:
+
+   api_key, instance_obo_user, instance_principal, resource_principal, security_token
+
+--auth-purpose [text]
+
+The The auth purpose which can be used in conjunction with --auth.
+
+--cert-bundle [text]
+
+The full path to a CA certificate bundle to be used for SSL
+verification. This will override the default CA certificate bundle.
+
+--config-file [text]
+
+The path to the config file.
+
+-d, --debug
+
+Show additional debug information.
+
+--cli-rc-file, --defaults-file [text]
+
+The path to the OCI CLI-specific configuration file, containing
+parameter default values and other configuration information such as
+command aliases and predefined queries. The --defaults-file option is
+deprecated and you should use the --cli-rc-file option instead.
+
+--endpoint [text]
+
+The value to use as the service endpoint, including any required API
+version path. For example: "https://iaas.us-
+phoenix-1.oracle.com/20160918". This will override the default service
+endpoint / API version path. Note: The --region parameter is the
+recommended way of targeting different regions.
+
+--generate-full-command-json-input
+
+Prints out a JSON document which represents all possible options that
+can be provided to this command.
+
+This JSON document can be saved to a file, modified with the
+appropriate option values, and then passed back via the --from-json
+option. This provides an alternative to typing options out on the
+command line.
+
+--generate-param-json-input [text]
+
+Complex input, such as arrays and objects, are passed in JSON format.
+
+When passed the name of an option which takes complex input, this will
+print out example JSON of what needs to be passed to that option.
+
+-?, -h, --help
+
+For detailed help on the individual OCI CLI command, enter <command>
+--help.
+
+--latest-version
+
+Print latest release version.
+
+--no-retry
+
+Disable retry logic for calls to services.
+
+--output [text]
+
+The output format. [Default is json]
+
+Accepted values are:
+
+   json, table
+
+--profile [text]
+
+The profile in the config file to load. This profile will also be used
+to locate any default parameter values which have been specified in
+the OCI CLI-specific configuration file.  [default: DEFAULT]
+
+--query [text]
+
+JMESPath query [http://jmespath.org/] to run on the response JSON
+before output.
+
+Queries can be entered directly on the command line or referenced from
+the [OCI_CLI_COMMAND_ALIASES] section of your configuration file by
+using the syntax query://<query_name>, for example
+query://get_id_and_name
+
+--raw-output
+
+If the output of a given query is a single string value, this will
+return the string without surrounding quotes
+
+--region [text]
+
+The region to make calls against.  For a list of valid region names
+use the command: "oci iam region list".
+
+--release-info
+
+Print latest release info. Please visit
+https://raw.githubusercontent.com/oracle/oci-cli/master/CHANGELOG.rst
+for more info
+
+--opc-request-id, --opc-client-request-id, --request-id [text]
+
+The request id to use for tracking the request.
+
+-v, --version
+
+Show the version and exit.

@@ -1,0 +1,16 @@
+osn
+***
+
+
+Description
+===========
+
+An Ordering Service Node details
+
+
+Available Commands
+==================
+
+* get
+
+* list

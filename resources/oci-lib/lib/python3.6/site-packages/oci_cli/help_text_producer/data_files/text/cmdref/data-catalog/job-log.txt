@@ -1,0 +1,17 @@
+job-log
+*******
+
+
+Description
+===========
+
+Job log details. A job log is an audit log record inserted during the
+lifecycle of a job execution instance.
+
+
+Available Commands
+==================
+
+* get
+
+* list

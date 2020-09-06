@@ -1,0 +1,254 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates an application using an *applicationId*.
+
+
+Usage
+=====
+
+   oci data-flow application update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--application-id [text]
+
+The unique ID for an application.
+
+
+Optional Parameters
+===================
+
+--archive-uri [text]
+
+An Oracle Cloud Infrastructure URI of an archive.zip file containing
+custom dependencies that may be used to support the execution a
+Python, Java, or Scala application. See https://docs.cloud.oracle.com
+/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
+
+--arguments [text]
+
+The arguments passed to the running application as command line
+arguments. Arguments may contain zero or more placeholders that are
+replaced using values from the parameters map. Each placeholder
+specified must be represented in the parameters map else the request
+will fail with a HTTP 400 status code. Placeholders are specified as
+*${name}*, where *name* is the name of the parameter. Example:  '--
+input ${input_file} --name "John Doe"'  Alternatively, the arguments
+can be specified as a JSON array of strings where each string
+represent an argument. Example:  [ "--input", "${input_file}", "--
+name", "John Doe" ]  If "input_file" has a value of "mydata.xml", then
+the value above will be translated to *--input mydata.xml --name "John
+Doe"*
+
+--class-name [text]
+
+The class for the application.
+
+--configuration [text]
+
+The Spark configuration passed to the running process. See
+https://spark.apache.org/docs/latest/configuration.html#available-
+properties Example: 'spark.app.name="My App Name"
+spark.shuffle.io.maxRetries=4'  Alternatively, the configuration can
+be specified as a JSON objects. Example:  { "spark.app.name" : "My App
+Name", "spark.shuffle.io.maxRetries" : "4" }  Note: Not all Spark
+properties are permitted to be set. Attempting to set a property that
+is not allowed to be overwritten will cause a 400 status to be
+returned.
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags. Example:
+*{"Operations": {"CostCenter": "42"}}* This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--description [text]
+
+A user-friendly description. Avoid entering confidential information.
+
+--display-name [text]
+
+A user-friendly name. It does not have to be unique. Avoid entering
+confidential information.
+
+--driver-shape [text]
+
+The VM shape for the driver. Sets the driver cores and memory.
+
+--executor-shape [text]
+
+The VM shape for the executors. Sets the executor cores and memory.
+
+--file-uri [text]
+
+An Oracle Cloud Infrastructure URI of the file containing the
+application to execute. See https://docs.cloud.oracle.com/iaas/Conten
+t/API/SDKDocs/hdfsconnector.htm#uriformat.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags. Example: *{"Department": "Finance"}* This is a complex
+type whose value must be valid JSON. The value can be provided as a
+string on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource. The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--language [text]
+
+The Spark language.
+
+Accepted values are:
+
+   JAVA, PYTHON, SCALA, SQL
+
+--logs-bucket-uri [text]
+
+An Oracle Cloud Infrastructure URI of the bucket where the Spark job
+logs are to be uploaded. See https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/hdfsconnector.htm#uriformat.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the resource to reach the lifecycle state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--num-executors [integer]
+
+The number of executor VMs requested.
+
+--parameters [text]
+
+A string of name=value pairs used to supply SQL parameters or fill
+placeholders found in the arguments parameter. The name must be a
+string of one or more word characters (a-z, A-Z, 0-9, _). The value
+can be a string of zero or more characters of any kind. Example:
+'iterations=10 input_file=mydata.xml variable_x=${x}'  Alternatively,
+the arguments can be specified as a JSON array of objects. Example:  [
+{ name : "iterations", value : "10" }, { name : "input_file", value :
+"mydata.xml" }, { name : "variable_x", value : "${x}" } ]
+
+--private-endpoint-id [text]
+
+The OCID of a private endpoint.
+
+--spark-version [text]
+
+The Spark version utilized to run the application.
+
+--wait-for-state [text]
+
+This operation creates, modifies or deletes a resource that has a
+defined lifecycle state. Specify this option to perform the action and
+then wait until the resource reaches a given lifecycle state. Multiple
+states can be specified, returning on the first state. For example, "
+--wait-for-state" SUCCEEDED "--wait-for-state" FAILED would return on
+whichever lifecycle state is reached first. If timeout is reached, a
+return code of 2 is returned. For any other error, a return code of 1
+is returned.
+
+Accepted values are:
+
+   ACTIVE, DELETED, INACTIVE
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the resource to
+see if it has reached the lifecycle state defined by "--wait-for-
+state". Defaults to 30 seconds.
+
+--warehouse-bucket-uri [text]
+
+An Oracle Cloud Infrastructure URI of the bucket to be used as default
+warehouse directory for BATCH SQL runs. See https://docs.cloud.oracle
+.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

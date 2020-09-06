@@ -1,0 +1,14 @@
+dedicated-vm-host-instance
+**************************
+
+
+Description
+===========
+
+Condensed instance data when listing instances on a dedicated VM host.
+
+
+Available Commands
+==================
+
+* list

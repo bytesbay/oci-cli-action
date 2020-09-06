@@ -1,0 +1,19 @@
+job-metric
+**********
+
+
+Description
+===========
+
+A set of metrics are collected periodically to assess the state and
+performance characteristics of the execution instance of a job. The
+metrics are grouped based on their category and sub categories and
+aggregated based on their batch information.
+
+
+Available Commands
+==================
+
+* get
+
+* list

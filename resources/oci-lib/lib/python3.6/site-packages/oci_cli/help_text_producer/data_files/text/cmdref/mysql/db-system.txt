@@ -1,0 +1,32 @@
+db-system
+*********
+
+
+Description
+===========
+
+The CLI for the MySQL Database Service
+
+
+Available Commands
+==================
+
+* clone
+
+* create
+
+* delete
+
+* get
+
+* import
+
+* list
+
+* restart
+
+* start
+
+* stop
+
+* update

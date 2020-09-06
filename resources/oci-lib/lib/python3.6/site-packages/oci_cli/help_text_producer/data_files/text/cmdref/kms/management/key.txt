@@ -1,0 +1,38 @@
+key
+***
+
+
+Description
+===========
+
+Source of cryptographic material used to encrypt and decrypt data
+
+
+Available Commands
+==================
+
+* backup
+
+* cancel-deletion
+
+* change-compartment
+
+* create
+
+* disable
+
+* enable
+
+* get
+
+* import
+
+* list
+
+* restore
+
+* restore-from-file
+
+* schedule-deletion
+
+* update

@@ -1,0 +1,24 @@
+announce
+********
+
+
+Description
+===========
+
+Manage Oracle Cloud Infrastructure console announcements.
+
+
+Available Commands
+==================
+
+* announcements
+
+  * get
+
+  * list
+
+* user-status
+
+  * get
+
+  * update

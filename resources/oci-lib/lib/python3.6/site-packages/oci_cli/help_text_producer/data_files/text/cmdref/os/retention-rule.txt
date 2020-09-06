@@ -1,0 +1,22 @@
+retention-rule
+**************
+
+
+Description
+===========
+
+The details of a retention rule.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

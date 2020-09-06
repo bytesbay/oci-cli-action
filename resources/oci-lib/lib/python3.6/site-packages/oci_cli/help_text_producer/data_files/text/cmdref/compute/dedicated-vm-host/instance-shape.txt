@@ -1,0 +1,15 @@
+instance-shape
+**************
+
+
+Description
+===========
+
+The shape used to launch instances associated with the dedicated VM
+host.
+
+
+Available Commands
+==================
+
+* list

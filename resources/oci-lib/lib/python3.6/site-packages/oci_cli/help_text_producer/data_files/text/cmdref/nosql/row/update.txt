@@ -1,0 +1,129 @@
+"update"
+********
+
+
+Description
+===========
+
+Write a single row into the table.
+
+
+Usage
+=====
+
+   oci nosql row update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--table-name-or-id [text]
+
+A table name within the compartment, or a table OCID.
+
+--value [complex type]
+
+The map of values from a row. This is a complex type whose value must
+be valid JSON. The value can be provided as a string on the command
+line or passed in as a file using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+
+Optional Parameters
+===================
+
+--compartment-id, -c [text]
+
+The OCID of the table's compartment.  Required if the tableNameOrId
+path parameter is a table name. Optional if tableNameOrId is an OCID.
+If tableNameOrId is an OCID, and compartmentId is supplied, the latter
+must match the identified table's compartmentId.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--identity-cache-size [integer]
+
+Sets the number of generated identity values that are requested from
+the server during a put. If present and greater than 0, this value
+takes precedence over a default value for the table.
+
+--if-match [text]
+
+For optimistic concurrency control. In the PUT or DELETE call for a
+resource, set the *if-match* parameter to the value of the etag from a
+previous GET or POST response for that resource. The resource will be
+updated or deleted only if the etag you provide matches the resource's
+current etag value.
+
+--is-exact-match [boolean]
+
+If present and true, the presented row value must exactly match the
+table's schema.  Otherwise, rows with missing non-key fields or extra
+fields can be written successfully.
+
+--is-get-return-row [boolean]
+
+If true, and the put fails due to an option setting, then the existing
+row will be returned.
+
+--option [text]
+
+Specifies a condition for the put operation.
+
+Accepted values are:
+
+   IF_ABSENT, IF_PRESENT
+
+--timeout-in-ms [integer]
+
+Timeout setting for the put.
+
+--ttl [integer]
+
+Time-to-live for the row, in days.
+
+--ttl-use-default [boolean]
+
+If true, set time-to-live for this row to the table's default.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

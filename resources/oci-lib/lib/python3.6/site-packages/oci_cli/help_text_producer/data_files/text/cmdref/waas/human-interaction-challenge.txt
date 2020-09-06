@@ -1,0 +1,18 @@
+human-interaction-challenge
+***************************
+
+
+Description
+===========
+
+The human interaction challenge settings. The human interaction
+challenge checks various event listeners in the user's browser to
+determine if there is a human user making a request.
+
+
+Available Commands
+==================
+
+* get
+
+* update

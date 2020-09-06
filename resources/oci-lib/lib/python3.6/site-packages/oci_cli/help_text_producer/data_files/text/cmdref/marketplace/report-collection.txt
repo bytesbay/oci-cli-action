@@ -1,0 +1,14 @@
+report-collection
+*****************
+
+
+Description
+===========
+
+A collection of reports that match the parameters of the request.
+
+
+Available Commands
+==================
+
+* list-reports

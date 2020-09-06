@@ -1,0 +1,14 @@
+tagging-work-request-error
+**************************
+
+
+Description
+===========
+
+The error entity.
+
+
+Available Commands
+==================
+
+* list

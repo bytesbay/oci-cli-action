@@ -1,0 +1,249 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "OS_OBJECT_BULK-DOWNLOAD" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+os_object_bulk-download \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Downloads all objects which match the given prefix to a given directory.
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci os object bulk\-download [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-bn, \-\-bucket\-name [text]
+.UNINDENT
+.sp
+The name of the bucket.
+.INDENT 0.0
+.TP
+.B \-\-download\-dir [text]
+.UNINDENT
+.sp
+The directory where retrieved objects will be placed as files. This directory will be created if it does not exist.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-delimiter [text]
+.UNINDENT
+.sp
+When this parameter is set, only objects whose names do not contain the delimiter character (after an optionally specified prefix) are returned. Scanned objects whose names contain the delimiter have part of their name up to the last occurrence of the delimiter (after the optional prefix) returned as a set of prefixes. Note: Only \(aq/\(aq is a supported delimiter character at this time.
+.INDENT 0.0
+.TP
+.B \-\-encryption\-key\-file [filename]
+.UNINDENT
+.sp
+A file containing the base64\-encoded string of the AES\-256 encryption key associated with the object.
+.INDENT 0.0
+.TP
+.B \-\-exclude [text]
+.UNINDENT
+.sp
+Only download objects which do not match the provided pattern. Patterns are taken relative to the DOWNLOAD directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-include [text]
+.UNINDENT
+.sp
+Only download objects which match the provided pattern. Patterns are taken relative to the DOWNLOAD directory. This option can be provided mulitple times to match on mulitple patterns. Supported pattern symbols are:
+
+.sp
+*: Matches everything
+.sp
+?: Matches any single character
+.sp
+[sequence]: Matches any character in sequence
+.sp
+[!sequence]: Matches any character not in sequence
+.INDENT 0.0
+.TP
+.B \-\-multipart\-download\-threshold [integer range]
+.UNINDENT
+.sp
+Objects larger than this size (in MiB) will be downloaded in multiple parts. The minimum allowable threshold is 128 MiB.
+.INDENT 0.0
+.TP
+.B \-ns, \-\-namespace, \-\-namespace\-name [text]
+.UNINDENT
+.sp
+The top\-level namespace used for the request. If not provided, this parameter will be obtained internally using a call to \(aqoci os ns get\(aq
+.INDENT 0.0
+.TP
+.B \-\-no\-overwrite
+.UNINDENT
+.sp
+If a file with the same name as an object already exists in the download directory, do not overwite it. If neither this flag nor \-\-overwrite is specified, you will be prompted each time a file would be overwritten
+.INDENT 0.0
+.TP
+.B \-\-overwrite
+.UNINDENT
+.sp
+If a file with the same name as an object already exists in the download directory, overwrite it. If neither this flag nor \-\-no\-overwrite is specified, you will be prompted each time a file would be overwritten.
+.INDENT 0.0
+.TP
+.B \-\-parallel\-operations\-count [integer]
+.UNINDENT
+.sp
+The number of parallel operations to perform. Decreasing this value will make bulk downloads less resource intensive but they may take longer. Increasing this value may improve bulk download times, but the upload process will consume more system resources and network bandwidth. [default: 10]
+.INDENT 0.0
+.TP
+.B \-\-part\-size [integer range]
+.UNINDENT
+.sp
+Part size (in MiB) to use when downloading an object in multiple parts. The minimum allowable size is 128 MiB.
+.INDENT 0.0
+.TP
+.B \-\-prefix [text]
+.UNINDENT
+.sp
+Retrieve all objects with the given prefix. Omit this parameter to get all objects in the bucket
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+Examples
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+
+.sp
+.ce
+----
+
+.ce 0
+.sp
+.SS Download all objects in the bucket
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Download all objects that match a given prefix
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-prefix myprefix
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+You can download all objects that match a given prefix by specifying the \-\-prefix flag. In the above example, "\-\-prefix myprefix" would match object names such as myPrefix_textfile1.txt, myPrefix_myImage.png etc.
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, then you can download objects at a given level (and all sub levels) by specifying a prefix:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-prefix level1/level2/
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This will download all objects of the form level1/level2/<object name>, level1/level2/leve3/<object name>, level1/level2/leve3/level4/<object name> etc.
+.SS Limiting downloaded objects using a prefix and delimiter
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-prefix level1/level2/ \-\-delimiter /
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If you have named your objects so that they exist in Object Storage as a hierarchy, e.g. level1/level2/level3/myobject.txt, and you only want to download objects at a given level of the hierarchy, e.g. example everything of the form level1/level2/<object name> but not level1/level2/leve3/<object name> or any other sub\-levels, you can specify a prefix and delimiter. Currently the only supported delimiter is /
+.SS Overwriting or skipping files
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-overwrite
+ oci os object bulk\-download \-ns mynamespace \-bn mybucket \-\-download\-dir path/to/download/directory \-\-no\-overwrite
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If files with the same name as the objects being downloaded already exist in the download directory, you can opt to overwrite them with the \-\-overwrite option, or preserve them with the \-\-no\-overwrite option.
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

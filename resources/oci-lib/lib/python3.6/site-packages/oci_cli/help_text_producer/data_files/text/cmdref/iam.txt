@@ -1,0 +1,306 @@
+iam
+***
+
+
+Description
+===========
+
+CLI for managing users, groups, compartments, and policies.
+
+
+Available Commands
+==================
+
+* auth-token
+
+  * create
+
+  * delete
+
+  * list
+
+  * update
+
+* authentication-policy
+
+  * get
+
+  * update
+
+* availability-domain
+
+  * list
+
+* bulk-action-resource-type-collection
+
+  * list
+
+* compartment
+
+  * bulk-delete-resources
+
+  * bulk-move-resources
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * move
+
+  * recover
+
+  * update
+
+* customer-secret-key
+
+  * create
+
+  * delete
+
+  * list
+
+  * update
+
+* dynamic-group
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* fault-domain
+
+  * list
+
+* group
+
+  * add-user
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * list-users
+
+  * remove-user
+
+  * update
+
+* identity-provider
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* identity-provider-group
+
+  * list
+
+* mfa-totp-device
+
+  * activate
+
+  * create
+
+  * delete
+
+  * generate-totp-seed
+
+  * get
+
+  * list
+
+* network-sources
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* policy
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* region
+
+  * list
+
+* region-subscription
+
+  * create
+
+  * list
+
+* scim-client-credentials
+
+  * reset-idp-scim-client
+
+* smtp-credential
+
+  * create
+
+  * delete
+
+  * list
+
+  * update
+
+* tag
+
+  * bulk-delete
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * list-cost-tracking
+
+  * reactivate
+
+  * retire
+
+  * update
+
+* tag-default
+
+  * assemble-effective-tag-set
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* tag-namespace
+
+  * cascade-delete
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * reactivate
+
+  * retire
+
+  * update
+
+* tagging-work-request
+
+  * get
+
+  * list
+
+* tagging-work-request-error
+
+  * list
+
+* tagging-work-request-log
+
+  * list
+
+* ui-password-information
+
+  * get-user
+
+* user
+
+  * api-key
+
+    * delete
+
+    * list
+
+    * upload
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * list-groups
+
+  * oauth2-credential
+
+    * create
+
+    * delete
+
+    * list
+
+    * update
+
+  * swift-password
+
+    * create
+
+    * delete
+
+    * list
+
+    * update
+
+  * ui-password
+
+    * create-or-reset
+
+  * update
+
+  * update-user-capabilities
+
+  * update-user-state
+
+* work-request
+
+  * get
+
+  * list

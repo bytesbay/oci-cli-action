@@ -1,0 +1,20 @@
+folder-tag
+**********
+
+
+Description
+===========
+
+Represents an association of a folder to a term.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list

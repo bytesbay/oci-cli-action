@@ -1,0 +1,63 @@
+bds
+***
+
+
+Description
+===========
+
+CLI for the Big Data Service. Use this CLI to build, deploy, and
+manage fully elastic Big Data Service build on Hadoop, Spark and Data
+Science distribution, which can be fully integrated with existing
+enterprise data in Oracle Database and Oracle Applications..
+
+
+Available Commands
+==================
+
+* block-storage
+
+  * add
+
+* cloudsql
+
+  * add
+
+  * remove
+
+* instance
+
+  * change-compartment
+
+  * change-shape
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * remove
+
+  * restart-node
+
+  * update
+
+  * worker-nodes
+
+    * add
+
+* work-request
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

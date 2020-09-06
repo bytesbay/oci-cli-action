@@ -1,0 +1,34 @@
+stream
+******
+
+
+Description
+===========
+
+Stream operations
+
+
+Available Commands
+==================
+
+* cursor
+
+  * create-cursor
+
+  * create-group-cursor
+
+* group
+
+  * commit
+
+  * get
+
+  * heartbeat
+
+  * update
+
+* message
+
+  * get
+
+  * put

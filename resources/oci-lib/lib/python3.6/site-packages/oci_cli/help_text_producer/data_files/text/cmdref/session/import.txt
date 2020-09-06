@@ -1,0 +1,45 @@
+"import"
+********
+
+
+Description
+===========
+
+Imports a CLI session from an archive.
+
+
+Usage
+=====
+
+   oci session import [OPTIONS]
+
+
+Required Parameters
+===================
+
+--session-archive [path]
+
+The session archive to import.
+
+
+Optional Parameters
+===================
+
+--force
+
+If the profile being imported already exists, overwrite the existing
+profile without a confirmation prompt.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

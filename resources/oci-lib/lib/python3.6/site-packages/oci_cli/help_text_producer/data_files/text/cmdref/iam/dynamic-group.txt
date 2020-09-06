@@ -1,0 +1,38 @@
+dynamic-group
+*************
+
+
+Description
+===========
+
+A dynamic group defines a matching rule. Every bare metal or virtual
+machine instance is deployed with an instance certificate. The
+certificate contains metadata about the instance. This includes the
+instance OCID and the compartment OCID, along with a few other
+optional properties. When an API call is made using this instance
+certificate as the authenticator, the certificate can be matched to
+one or multiple dynamic groups. The instance can then get access to
+the API based on the permissions granted in policies written for the
+dynamic groups.
+
+This works like regular user/group membership. But in that case, the
+membership is a static relationship, whereas in a dynamic group, the
+membership of an instance certificate to a dynamic group is determined
+during runtime. For more information, see Managing Dynamic Groups.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

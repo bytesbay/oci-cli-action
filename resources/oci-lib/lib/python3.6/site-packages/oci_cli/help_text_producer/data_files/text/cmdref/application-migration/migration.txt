@@ -1,0 +1,26 @@
+migration
+*********
+
+
+Description
+===========
+
+An application being migrated from a source environment to OCI.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* migrate-application
+
+* update

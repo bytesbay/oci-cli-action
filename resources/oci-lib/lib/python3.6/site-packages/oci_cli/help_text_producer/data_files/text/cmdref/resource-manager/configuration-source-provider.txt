@@ -1,0 +1,29 @@
+configuration-source-provider
+*****************************
+
+
+Description
+===========
+
+The properties that define a configuration source provider. For more
+information, see Managing Configuration Source Providers.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* create-gitlab-access-token-provider
+
+* delete
+
+* get
+
+* list
+
+* update
+
+* update-gitlab-access-token-provider

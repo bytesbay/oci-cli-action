@@ -1,0 +1,204 @@
+"list"
+******
+
+
+Description
+===========
+
+Returns metric definitions that match the criteria specified in the
+request. Compartment OCID required. For information about metrics, see
+Metrics Overview. For important limits information, see Limits on
+Monitoring.
+
+Transactions Per Second (TPS) per-tenancy limit for this operation:
+10.
+
+
+Usage
+=====
+
+   oci monitoring metric list [OPTIONS]
+
+
+Required Parameters
+===================
+
+--compartment-id, -c [text]
+
+The OCID of the compartment containing the resources monitored by the
+metric that you are searching for. Use tenancyId to search in the root
+compartment.
+
+Example:
+
+   ocid1.compartment.oc1..exampleuniqueID
+
+
+Optional Parameters
+===================
+
+--all
+
+Fetches all pages of results. If you provide this option, then you
+cannot provide the "--limit" option.
+
+--compartment-id-in-subtree [boolean]
+
+When true, returns resources from all compartments and
+subcompartments. The parameter can only be set to true when
+compartmentId is the tenancy OCID (the tenancy is the root
+compartment). A true value requires the user to have tenancy-level
+permissions. If this requirement is not met, then the call is
+rejected. When false, returns resources from only the compartment
+specified in compartmentId. Default is false.
+
+--dimension-filters [complex type]
+
+Qualifiers that you want to use when searching for metric definitions.
+Available dimensions vary by metric namespace. Each dimension takes
+the form of a key-value pair.
+
+Example:
+
+   { "resourceId": "<var>&lt;instance_OCID&gt;</var>" }
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--group-by [complex type]
+
+Group metrics by these fields in the response. For example, to list
+all metric namespaces available           in a compartment, groupBy
+the "namespace" field. Supported fields: namespace, name,
+resourceGroup.
+
+Example - group by namespace: *[ "namespace" ]* This is a complex type
+whose value must be valid JSON. The value can be provided as a string
+on the command line or passed in as a file using the
+file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--limit [integer]
+
+For list pagination. The maximum number of results per page, or items
+to return in a paginated "List" call. For important details about how
+pagination works, see List Pagination.
+
+Default: 1000
+
+Example:
+
+   500
+
+--name [text]
+
+The metric name to use when searching for metric definitions.
+
+Example:
+
+   CpuUtilization
+
+--namespace [text]
+
+The source service or application to use when searching for metric
+definitions.
+
+Example:
+
+   oci_computeagent
+
+--page [text]
+
+For list pagination. The value of the *opc-next-page* response header
+from the previous "List" call. For important details about how
+pagination works, see List Pagination.
+
+--page-size [integer]
+
+When fetching results, the number of results to fetch per call. Only
+valid when used with "--all" or "--limit", and ignored otherwise.
+
+--resource-group [text]
+
+Resource group that you want to use as a filter. The specified
+resource group must exist in the definition of the posted metric. Only
+one resource group can be applied per metric. A valid resourceGroup
+value starts with an alphabetical character and includes only
+alphanumeric characters, periods (.), underscores (_), hyphens (-),
+and dollar signs ($). Avoid entering confidential information.
+
+Example:
+
+   frontend-fleet
+
+--sort-by [text]
+
+The field to use when sorting returned metric definitions. Only one
+sorting level is provided.
+
+Example:
+
+   NAMESPACE
+
+Accepted values are:
+
+   NAME, NAMESPACE, RESOURCEGROUP
+
+--sort-order [text]
+
+The sort order to use when sorting returned metric definitions.
+Ascending (ASC) or descending (DESC).
+
+Example:
+
+   ASC
+
+Accepted values are:
+
+   ASC, DESC
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

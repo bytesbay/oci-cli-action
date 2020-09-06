@@ -1,0 +1,16 @@
+authentication-policy
+*********************
+
+
+Description
+===========
+
+Authentication policy, currently set for the given compartment
+
+
+Available Commands
+==================
+
+* get
+
+* update

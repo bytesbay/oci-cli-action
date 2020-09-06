@@ -1,0 +1,134 @@
+os
+**
+
+
+Description
+===========
+
+Object Storage Service CLI
+
+
+Available Commands
+==================
+
+* bucket
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * reencrypt
+
+  * update
+
+* multipart
+
+  * abort
+
+  * list
+
+* ns
+
+  * get
+
+  * get-metadata
+
+  * update-metadata
+
+* object
+
+  * bulk-delete
+
+  * bulk-delete-versions
+
+  * bulk-download
+
+  * bulk-upload
+
+  * copy
+
+  * delete
+
+  * get
+
+  * head
+
+  * list
+
+  * list-object-versions
+
+  * put
+
+  * reencrypt
+
+  * rename
+
+  * restore
+
+  * restore-status
+
+  * resume-put
+
+* object-lifecycle-policy
+
+  * delete
+
+  * get
+
+  * put
+
+* preauth-request
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* replication
+
+  * create-replication-policy
+
+  * delete-replication-policy
+
+  * get-replication-policy
+
+  * list-replication-policies
+
+  * list-replication-sources
+
+  * make-bucket-writable
+
+* retention-rule
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* work-request
+
+  * cancel
+
+  * get
+
+  * list
+
+* work-request-error
+
+  * list
+
+* work-request-log-entry
+
+  * list

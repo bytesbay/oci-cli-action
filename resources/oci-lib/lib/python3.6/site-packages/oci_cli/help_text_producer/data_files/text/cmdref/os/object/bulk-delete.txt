@@ -1,0 +1,201 @@
+"bulk-delete"
+*************
+
+
+Description
+===========
+
+Deletes all objects in a bucket which match the provided criteria.
+
+
+Usage
+=====
+
+   oci os object bulk-delete [OPTIONS]
+
+
+Required Parameters
+===================
+
+-bn, --bucket-name [text]
+
+The name of the bucket.
+
+
+Optional Parameters
+===================
+
+--delimiter [text]
+
+When this parameter is set, only objects whose names do not contain
+the delimiter character (after an optionally specified prefix) are
+deleted. Scanned objects whose names contain the delimiter have part
+of their name up to the last occurrence of the delimiter (after the
+optional prefix) returned as a set of prefixes. Note: Only '/' is a
+supported delimiter character at this time.
+
+--dry-run
+
+Displays a list of objects which would be deleted by this command, if
+it were run without --dry-run. If --dry-run is passed, no objects will
+actually be deleted.
+
+--exclude [text]
+
+Only download objects which do not match the provided pattern.
+Patterns are taken relative to the bucket root. This option can be
+provided mulitple times to match on mulitple patterns. Supported
+pattern symbols are: 
+
+*: Matches everything
+
+?: Matches any single character
+
+[sequence]: Matches any character in sequence
+
+[!sequence]: Matches any character not in sequence
+
+--force
+
+Do not ask for confirmation prior to performing the bulk delete.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--include [text]
+
+Only delete objects which match the provided pattern. Patterns are
+taken relative to the bucket root. This option can be provided
+mulitple times to match on mulitple patterns. Supported pattern
+symbols are: 
+
+*: Matches everything
+
+?: Matches any single character
+
+[sequence]: Matches any character in sequence
+
+[!sequence]: Matches any character not in sequence
+
+-ns, --namespace, --namespace-name [text]
+
+The top-level namespace used for the request. If not provided, this
+parameter will be obtained internally using a call to 'oci os ns get'
+
+--parallel-operations-count [integer]
+
+The number of parallel operations to perform. Decreasing this value
+will make bulk deletes less resource intensive but they may take
+longer. Increasing this value may improve bulk delete times, but the
+upload process will consume more system resources and network
+bandwidth. [default: 10]
+
+--prefix [text]
+
+Delete all objects with the given prefix. Omit this parameter to
+delete all objects in the bucket.
+
+   Examples
+
+======================================================================
+
+
+Deleting all objects in the bucket
+----------------------------------
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket
+
+
+Delete all objects that match a given prefix
+--------------------------------------------
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --prefix myprefix
+
+You can delete all objects that match a given prefix by specifying the
+--prefix flag. In the above example, "--prefix myprefix" would match
+object names such as myprefix_textfile1.txt, myprefix_myImage.png etc.
+
+If you have named your objects so that they exist in Object Storage as
+a hierarchy, e.g. level1/level2/level3/myobject.txt, then you can
+delete objects at a given level (and all sub levels) by specifying a
+prefix:
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/
+
+This will delete all objects of the form level1/level2/<object name>,
+level1/level2/leve3/<object name>, level1/level2/leve3/level4/<object
+name> etc.
+
+
+Limiting deleted objects using a prefix and delimiter
+-----------------------------------------------------
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --delimiter /
+
+If you have named your objects so that they exist in Object Storage as
+a hierarchy, e.g. level1/level2/level3/myobject.txt, and you only want
+to delete objects at a given level of the hierarchy, e.g. example
+everything of the form level1/level2/<object name> but not
+level1/level2/leve3/<object name> or any other sub-levels, you can
+specify a prefix and delimiter. Currently the only supported delimiter
+is /
+
+
+Previewing what would be deleted
+--------------------------------
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --dry-run
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --dry-run
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --delimiter / --dry-run
+
+For any bulk-delete command you can get a list of all objects which
+would be deleted, but without actually deleting them, by using the
+--dry-run flag
+
+
+Do not prompt for delete
+------------------------
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --force
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --force
+
+    oci os object bulk-delete -ns mynamespace -bn mybucket --prefix level1/level2/ --delimiter / --force
+
+By default, the bulk-delete command will prompt you prior to deleting
+objects. To suppress this prompt, pass the --force option.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

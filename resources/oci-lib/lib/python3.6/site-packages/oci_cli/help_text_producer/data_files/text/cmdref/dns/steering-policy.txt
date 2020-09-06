@@ -1,0 +1,27 @@
+steering-policy
+***************
+
+
+Description
+===========
+
+A DNS steering policy.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

@@ -1,0 +1,28 @@
+certificate
+***********
+
+
+Description
+===========
+
+The details of the SSL certificate. **Warning:** Oracle recommends
+that you avoid using any confidential information when you supply
+string values using the API.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update
+
+* update-address-list

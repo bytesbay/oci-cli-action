@@ -1,0 +1,143 @@
+"assign-private-ip"
+*******************
+
+
+Description
+===========
+
+Assigns a secondary private IP address to the specified VNIC. The
+secondary private IP must be in the same subnet as the VNIC. This
+command can also be used to move an existing secondary private IP to
+the specified VNIC.
+
+For more information about secondary private IPs, see IP Addresses
+
+
+Usage
+=====
+
+   oci network vnic assign-private-ip [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--defined-tags [complex type]
+
+Defined tags for this resource. Each key is predefined and scoped to a
+namespace. For more information, see Resource Tags.
+
+Example:
+
+   {"Operations": {"CostCenter": "42"}}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--display-name [text]
+
+A user-friendly name. Does not have to be unique, and it's changeable.
+Avoid entering confidential information.
+
+--freeform-tags [complex type]
+
+Free-form tags for this resource. Each tag is a simple key-value pair
+with no predefined name, type, or namespace. For more information, see
+Resource Tags.
+
+Example:
+
+   {"Department": "Finance"}
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--hostname-label [text]
+
+The hostname for the private IP. Used for DNS. The value is the
+hostname portion of the private IP's fully qualified domain name
+(FQDN) (for example, *bminstance-1* in FQDN
+*bminstance-1.subnet123.vcn1.oraclevcn.com*). Must be unique across
+all VNICs in the subnet and comply with RFC 952 and RFC 1123.
+
+For more information, see DNS in Your Virtual Cloud Network.
+
+Example:
+
+   bminstance-1
+
+--ip-address [text]
+
+A private IP address of your choice. Must be an available IP address
+within the subnet's CIDR. If you don't specify a value, Oracle
+automatically assigns a private IP address from the subnet.
+
+Example:
+
+   10.0.3.3
+
+--unassign-if-already-assigned
+
+Force reassignment of the IP address if it's already assigned to
+another VNIC in the subnet. This is only relevant if an IP address is
+associated with this command.
+
+--vlan-id [text]
+
+Use this attribute only with the Oracle Cloud VMware Solution.
+
+The OCID of the VLAN from which the private IP is to be drawn. The IP
+address, *if supplied*, must be valid for the given VLAN. See Vlan.
+
+--vnic-id [text]
+
+The OCID of the VNIC to assign the private IP to. The VNIC and private
+IP must be in the same subnet.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

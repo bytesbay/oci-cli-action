@@ -1,0 +1,426 @@
+network
+*******
+
+
+Description
+===========
+
+Networking Service CLI
+
+
+Available Commands
+==================
+
+* cpe
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * get-cpe-device-config-content
+
+  * list
+
+  * update
+
+* cpe-device-shape
+
+  * list
+
+* cpe-device-shape-detail
+
+  * get-cpe-device-shape
+
+* cross-connect
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* cross-connect-group
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* cross-connect-location
+
+  * list
+
+* cross-connect-port-speed-shape
+
+  * list
+
+* cross-connect-status
+
+  * get
+
+* dhcp-options
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* drg
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* drg-attachment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* drg-redundancy-status
+
+  * get
+
+* fast-connect-provider-service
+
+  * get
+
+  * list
+
+  * virtual-circuit-bandwidth-shape
+
+    * list
+
+* fast-connect-provider-service-key
+
+  * get
+
+* internet-gateway
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* ip-sec-connection
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * get-config
+
+  * get-ipsec-cpe-device-config-content
+
+  * get-status
+
+  * list
+
+  * update
+
+* ip-sec-psk
+
+  * get
+
+  * update
+
+* ip-sec-tunnel
+
+  * get
+
+  * list
+
+  * update
+
+* ipv6
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* local-peering-gateway
+
+  * change-compartment
+
+  * connect
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* nat-gateway
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* nsg
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * rules
+
+    * add
+
+    * list
+
+    * remove
+
+    * update
+
+  * update
+
+  * vnics
+
+    * list
+
+* private-ip
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* public-ip
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* remote-peering-connection
+
+  * change-compartment
+
+  * connect
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* route-table
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* security-list
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* service
+
+  * get
+
+  * list
+
+* service-gateway
+
+  * attach
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * detach
+
+  * get
+
+  * list
+
+  * update
+
+* subnet
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* tunnel-cpe-device-config
+
+  * get
+
+  * get-tunnel-cpe-device-config-content
+
+  * update
+
+* vcn
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* virtual-circuit
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* virtual-circuit-public-prefix
+
+  * bulk-add
+
+  * bulk-delete
+
+  * list
+
+* vlan
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* vnic
+
+  * assign-private-ip
+
+  * get
+
+  * unassign-private-ip
+
+  * update

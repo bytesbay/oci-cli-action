@@ -1,0 +1,25 @@
+network-sources
+***************
+
+
+Description
+===========
+
+A network source specifies a list of source IP addresses that are
+allowed to make authorization requests. Use the network source in
+policy statements to restrict access to only requests that come from
+the specified IPs. For more information, see Managing Network Sources.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* update

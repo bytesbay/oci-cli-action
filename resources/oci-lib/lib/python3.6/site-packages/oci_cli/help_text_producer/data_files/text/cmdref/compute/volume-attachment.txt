@@ -1,0 +1,32 @@
+volume-attachment
+*****************
+
+
+Description
+===========
+
+A base object for all types of attachments between a storage volume
+and an instance. For specific details about iSCSI attachments, see
+IScsiVolumeAttachment Reference.
+
+For general information about volume attachments, see Overview of
+Block Volume Storage.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* attach
+
+* attach-iscsi-volume
+
+* attach-paravirtualized-volume
+
+* detach
+
+* get
+
+* list

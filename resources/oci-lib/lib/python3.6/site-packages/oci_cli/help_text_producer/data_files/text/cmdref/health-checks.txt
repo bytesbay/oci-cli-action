@@ -1,0 +1,62 @@
+health-checks
+*************
+
+
+Description
+===========
+
+CLI for the Health Checks service. Use this CLI to manage endpoint
+probes and monitors. For more information, see Overview of the Health
+Checks Service.
+
+
+Available Commands
+==================
+
+* http-monitor
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* http-probe
+
+  * create-on-demand
+
+* http-probe-result
+
+  * list
+
+* ping-monitor
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* ping-probe
+
+  * create-on-demand
+
+* ping-probe-result
+
+  * list
+
+* vantage-point
+
+  * list

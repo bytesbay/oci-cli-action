@@ -1,0 +1,16 @@
+waf-config
+**********
+
+
+Description
+===========
+
+The Web Application Firewall configuration for the WAAS policy.
+
+
+Available Commands
+==================
+
+* get
+
+* update

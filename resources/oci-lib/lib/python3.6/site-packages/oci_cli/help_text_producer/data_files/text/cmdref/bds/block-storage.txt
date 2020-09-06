@@ -1,0 +1,16 @@
+block-storage
+*************
+
+
+Description
+===========
+
+Adds storage to existing worker nodes. The same amount of storage will
+be added to all workers. No change will be made to already attached
+storage. Block Storage once added cannot be removed.
+
+
+Available Commands
+==================
+
+* add

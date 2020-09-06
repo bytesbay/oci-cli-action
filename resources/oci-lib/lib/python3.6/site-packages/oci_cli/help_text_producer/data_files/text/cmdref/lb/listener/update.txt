@@ -1,0 +1,205 @@
+"update"
+********
+
+
+Description
+===========
+
+Updates a listener for a given load balancer.
+
+
+Usage
+=====
+
+   oci lb listener update [OPTIONS]
+
+
+Required Parameters
+===================
+
+--default-backend-set-name [text]
+
+The name of the associated backend set.
+
+Example:
+
+   example_backend_set
+
+--listener-name [text]
+
+The name of the listener to update.
+
+Example:
+
+   example_listener
+
+--load-balancer-id [text]
+
+The OCID of the load balancer associated with the listener to update.
+
+--port [integer]
+
+The communication port for the listener.
+
+Example:
+
+   80
+
+--protocol [text]
+
+The protocol on which the listener accepts connection requests. To get
+a list of valid protocols, use the ListProtocols operation.
+
+Example:
+
+   HTTP
+
+
+Optional Parameters
+===================
+
+--cipher-suite-name [text]
+
+Cipher suite name for listener.
+
+--connection-configuration-backend-tcp-proxy-protocol-version [integer]
+
+Connection Configuration Backend TCP Proxy Protocol Version.
+
+--connection-configuration-idle-timeout [integer]
+
+The maximum idle time, in seconds, allowed between two successive
+receive or two successive send operations between the client and
+backend servers.
+
+--force
+
+Perform update without prompting for confirmation.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--hostname-names [complex type]
+
+An array of hostname resource names. This is a complex type whose
+value must be valid JSON. The value can be provided as a string on the
+command line or passed in as a file using the file://path/to/file
+syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--max-wait-seconds [integer]
+
+The maximum time to wait for the work request to reach the state
+defined by "--wait-for-state". Defaults to 1200 seconds.
+
+--path-route-set-name [text]
+
+The name of the set of path-based routing rules, PathRouteSet, applied
+to this listener's traffic.
+
+Example:
+
+   example_path_route_set
+
+--protocols [complex type]
+
+List of protocols to be configured for listener. It must be a list of
+strings.
+
+Example:
+
+   ["TLSv1.1","TLSv1.2"]
+
+--rule-set-names [complex type]
+
+The names of the rule sets to apply to the listener.
+
+Example:
+
+   ["example_rule_set"]
+
+This is a complex type whose value must be valid JSON. The value can
+be provided as a string on the command line or passed in as a file
+using the file://path/to/file syntax.
+
+The "--generate-param-json-input" option can be used to generate an
+example of the JSON which must be provided. We recommend storing this
+example in a file, modifying it as needed and then passing it back in
+via the file:// syntax.
+
+--server-order-preference [text]
+
+Server order preference for listener.
+
+--ssl-certificate-name [text]
+
+A friendly name for the certificate bundle. It must be unique and it
+cannot be changed. Valid certificate bundle names include only
+alphanumeric characters, dashes, and underscores. Certificate bundle
+names cannot contain spaces. Avoid entering confidential information.
+
+--ssl-verify-depth [integer]
+
+The maximum depth for peer certificate chain verification.
+
+--ssl-verify-peer-certificate [boolean]
+
+Whether the load balancer listener should verify peer certificates.
+
+--wait-for-state [text]
+
+This operation asynchronously creates, modifies or deletes a resource
+and uses a work request to track the progress of the operation.
+Specify this option to perform the action and then wait until the work
+request reaches a certain state. Multiple states can be specified,
+returning on the first state. For example, "--wait-for-state"
+SUCCEEDED "--wait-for-state" FAILED would return on whichever
+lifecycle state is reached first. If timeout is reached, a return code
+of 2 is returned. For any other error, a return code of 1 is returned.
+
+Accepted values are:
+
+   ACCEPTED, FAILED, IN_PROGRESS, SUCCEEDED
+
+--wait-interval-seconds [integer]
+
+Check every "--wait-interval-seconds" to see whether the work request
+to see if it has reached the state defined by "--wait-for-state".
+Defaults to 30 seconds.
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

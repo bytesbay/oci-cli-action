@@ -1,0 +1,16 @@
+protection-settings
+*******************
+
+
+Description
+===========
+
+The settings used for protection rules.
+
+
+Available Commands
+==================
+
+* get
+
+* update

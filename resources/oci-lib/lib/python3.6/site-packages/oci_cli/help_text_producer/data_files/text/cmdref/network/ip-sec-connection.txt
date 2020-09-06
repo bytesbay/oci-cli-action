@@ -1,0 +1,57 @@
+ip-sec-connection
+*****************
+
+
+Description
+===========
+
+A connection between a DRG and CPE. This connection consists of
+multiple IPSec tunnels. Creating this connection is one of the steps
+required when setting up an IPSec VPN.
+
+**Important:**  Each tunnel in an IPSec connection can use either
+static routing or BGP dynamic routing (see the IPSecConnectionTunnel
+object's *routing* attribute). Originally only static routing was
+supported and every IPSec connection was required to have at least one
+static route configured. To maintain backward compatibility in the API
+when support for BPG dynamic routing was introduced, the API accepts
+an empty list of static routes if you configure both of the IPSec
+tunnels to use BGP dynamic routing. If you switch a tunnel's routing
+from *BGP* to *STATIC*, you must first ensure that the IPSec
+connection is configured with at least one valid CIDR block static
+route. Oracle uses the IPSec connection's static routes when routing a
+tunnel's traffic *only* if that tunnel's *routing* attribute =
+*STATIC*. Otherwise the static routes are ignored.
+
+For more information about the workflow for setting up an IPSec
+connection, see IPSec VPN.
+
+To use any of the API operations, you must be authorized in an IAM
+policy. If you're not authorized, talk to an administrator. If you're
+an administrator who needs to write policies to give users access, see
+Getting Started with Policies.
+
+**Warning:** Oracle recommends that you avoid using any confidential
+information when you supply string values using the API.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* get-config
+
+* get-ipsec-cpe-device-config-content
+
+* get-status
+
+* list
+
+* update

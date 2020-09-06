@@ -1,0 +1,15 @@
+validation-response
+*******************
+
+
+Description
+===========
+
+The validation response returned when checking whether the requested
+user is valid.
+
+
+Available Commands
+==================
+
+* validate-user

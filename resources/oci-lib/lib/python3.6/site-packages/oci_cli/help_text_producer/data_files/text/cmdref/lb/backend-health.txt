@@ -1,0 +1,15 @@
+backend-health
+**************
+
+
+Description
+===========
+
+The health status of the specified backend server as reported by the
+primary and standby load balancers.
+
+
+Available Commands
+==================
+
+* get

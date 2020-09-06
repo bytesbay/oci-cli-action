@@ -1,0 +1,14 @@
+cross-connect-port-speed-shape
+******************************
+
+
+Description
+===========
+
+An individual port speed level for cross-connects.
+
+
+Available Commands
+==================
+
+* list

@@ -1,0 +1,76 @@
+"configure-physical-appliance"
+******************************
+
+
+Description
+===========
+
+Configure the physical appliance to copy data
+
+
+Usage
+=====
+
+   oci dts export configure-physical-appliance [OPTIONS]
+
+
+Required Parameters
+===================
+
+--appliance-cert-fingerprint [text]
+
+The transfer appliance X.509/SSL certificate fingerprint.
+
+--appliance-ip [text]
+
+AThe IP address of the transfer appliance.
+
+--job-id [text]
+
+OCID of the Export Job
+
+--rw [boolean]
+
+Read/Write option on export of dataset
+
+--world [boolean]
+
+World option on export of dataset
+
+
+Optional Parameters
+===================
+
+--access-token [text]
+
+the access token to authenticate with the transfer appliance.
+
+--appliance-port [integer]
+
+Appliance label.
+
+--appliance-profile [text]
+
+Appliance profile
+
+--ip [text]
+
+IP address to export dataset to
+
+--subnet-mask-length [integer]
+
+Subnet mask length for the IP address
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

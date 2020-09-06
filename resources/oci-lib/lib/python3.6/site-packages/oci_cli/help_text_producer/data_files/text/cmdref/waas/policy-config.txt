@@ -1,0 +1,16 @@
+policy-config
+*************
+
+
+Description
+===========
+
+The configuration details for the WAAS policy.
+
+
+Available Commands
+==================
+
+* get
+
+* update

@@ -1,0 +1,14 @@
+notebook-session-shape
+**********************
+
+
+Description
+===========
+
+The compute shape used to launch a notebook session compute instance.
+
+
+Available Commands
+==================
+
+* list

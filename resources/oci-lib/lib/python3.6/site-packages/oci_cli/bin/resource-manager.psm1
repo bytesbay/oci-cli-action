@@ -1,0 +1,106 @@
+function GetOciTopLevelCommand_resource_manager() {
+    return 'resource-manager'
+}
+
+function GetOciSubcommands_resource_manager() {
+    $ociSubcommands = @{
+        'resource-manager' = 'configuration-source-provider job stack work-request'
+        'resource-manager configuration-source-provider' = 'change-compartment create create-gitlab-access-token-provider delete get list update update-gitlab-access-token-provider'
+        'resource-manager job' = 'cancel create create-apply-job create-destroy-job create-import-tf-state-job create-plan-job get get-job-logs get-job-logs-content get-job-tf-config get-job-tf-state list update'
+        'resource-manager stack' = 'change-compartment create create-from-compartment create-from-git-provider delete detect-drift get get-stack-tf-config get-stack-tf-state list list-resource-discovery-services list-resource-drift-details list-terraform-versions update update-from-git-provider'
+        'resource-manager work-request' = 'get list list-work-request-errors list-work-request-logs'
+    }
+    return $ociSubcommands
+}
+
+function GetOciCommandsToLongParams_resource_manager() {
+    $ociCommandsToLongParams = @{
+        'resource-manager configuration-source-provider change-compartment' = 'compartment-id configuration-source-provider-id from-json help if-match'
+        'resource-manager configuration-source-provider create' = 'compartment-id config-source-provider-type defined-tags description display-name freeform-tags from-json help max-wait-seconds wait-for-state wait-interval-seconds'
+        'resource-manager configuration-source-provider create-gitlab-access-token-provider' = 'access-token api-endpoint compartment-id defined-tags description display-name freeform-tags from-json help max-wait-seconds wait-for-state wait-interval-seconds'
+        'resource-manager configuration-source-provider delete' = 'configuration-source-provider-id force from-json help if-match max-wait-seconds wait-for-state wait-interval-seconds'
+        'resource-manager configuration-source-provider get' = 'configuration-source-provider-id from-json help'
+        'resource-manager configuration-source-provider list' = 'all compartment-id configuration-source-provider-id display-name from-json help limit page page-size sort-by sort-order'
+        'resource-manager configuration-source-provider update' = 'config-source-provider-type configuration-source-provider-id defined-tags description display-name force freeform-tags from-json help if-match max-wait-seconds wait-for-state wait-interval-seconds'
+        'resource-manager configuration-source-provider update-gitlab-access-token-provider' = 'access-token api-endpoint configuration-source-provider-id defined-tags description display-name force freeform-tags from-json help if-match max-wait-seconds wait-for-state wait-interval-seconds'
+        'resource-manager job cancel' = 'force from-json help if-match job-id max-wait-seconds wait-for-state wait-interval-seconds'
+        'resource-manager job create' = 'apply-job-plan-resolution defined-tags display-name freeform-tags from-json help job-operation-details max-wait-seconds operation stack-id wait-for-state wait-interval-seconds'
+        'resource-manager job create-apply-job' = 'defined-tags display-name execution-plan-job-id execution-plan-strategy freeform-tags from-json help max-wait-seconds stack-id wait-for-state wait-interval-seconds'
+        'resource-manager job create-destroy-job' = 'defined-tags display-name execution-plan-strategy freeform-tags from-json help max-wait-seconds stack-id wait-for-state wait-interval-seconds'
+        'resource-manager job create-import-tf-state-job' = 'defined-tags display-name freeform-tags from-json help max-wait-seconds stack-id tf-state-file wait-for-state wait-interval-seconds'
+        'resource-manager job create-plan-job' = 'defined-tags display-name freeform-tags from-json help max-wait-seconds stack-id wait-for-state wait-interval-seconds'
+        'resource-manager job get' = 'from-json help job-id'
+        'resource-manager job get-job-logs' = 'all from-json help job-id level-greater-than-or-equal-to limit page sort-order timestamp-greater-than-or-equal-to timestamp-less-than-or-equal-to type'
+        'resource-manager job get-job-logs-content' = 'from-json help job-id'
+        'resource-manager job get-job-tf-config' = 'file from-json help job-id'
+        'resource-manager job get-job-tf-state' = 'file from-json help job-id'
+        'resource-manager job list' = 'all compartment-id display-name from-json help id lifecycle-state limit page page-size sort-by sort-order stack-id'
+        'resource-manager job update' = 'defined-tags display-name force freeform-tags from-json help if-match job-id max-wait-seconds wait-for-state wait-interval-seconds'
+        'resource-manager stack change-compartment' = 'compartment-id from-json help if-match max-wait-seconds stack-id wait-for-state wait-interval-seconds'
+        'resource-manager stack create' = 'compartment-id config-source defined-tags description display-name freeform-tags from-json help max-wait-seconds terraform-version variables wait-for-state wait-interval-seconds working-directory'
+        'resource-manager stack create-from-compartment' = 'compartment-id config-source-compartment-id config-source-region config-source-services-to-discover config-source-working-directory defined-tags description display-name freeform-tags from-json help max-wait-seconds terraform-version variables wait-for-state wait-interval-seconds'
+        'resource-manager stack create-from-git-provider' = 'compartment-id config-source-branch-name config-source-configuration-source-provider-id config-source-repository-url config-source-working-directory defined-tags description display-name freeform-tags from-json help max-wait-seconds terraform-version variables wait-for-state wait-interval-seconds'
+        'resource-manager stack delete' = 'force from-json help if-match max-wait-seconds stack-id wait-for-state wait-interval-seconds'
+        'resource-manager stack detect-drift' = 'from-json help if-match max-wait-seconds stack-id wait-for-state wait-interval-seconds'
+        'resource-manager stack get' = 'from-json help stack-id'
+        'resource-manager stack get-stack-tf-config' = 'file from-json help stack-id'
+        'resource-manager stack get-stack-tf-state' = 'file from-json help stack-id'
+        'resource-manager stack list' = 'all compartment-id display-name from-json help id lifecycle-state limit page page-size sort-by sort-order'
+        'resource-manager stack list-resource-discovery-services' = 'all compartment-id from-json help'
+        'resource-manager stack list-resource-drift-details' = 'all from-json help limit page page-size resource-drift-status stack-id'
+        'resource-manager stack list-terraform-versions' = 'all compartment-id from-json help'
+        'resource-manager stack update' = 'config-source defined-tags description display-name force freeform-tags from-json help if-match max-wait-seconds stack-id terraform-version variables wait-for-state wait-interval-seconds working-directory'
+        'resource-manager stack update-from-git-provider' = 'config-source-branch-name config-source-configuration-source-provider-id config-source-repository-url config-source-working-directory defined-tags description display-name force freeform-tags from-json help if-match max-wait-seconds stack-id terraform-version variables wait-for-state wait-interval-seconds'
+        'resource-manager work-request get' = 'from-json help work-request-id'
+        'resource-manager work-request list' = 'all compartment-id from-json help limit page page-size resource-id'
+        'resource-manager work-request list-work-request-errors' = 'all compartment-id from-json help limit page page-size sort-order work-request-id'
+        'resource-manager work-request list-work-request-logs' = 'all compartment-id from-json help limit page page-size sort-order work-request-id'
+    }
+    return $ociCommandsToLongParams
+}
+
+function GetOciCommandsToShortParams_resource_manager() {
+    $ociCommandsToShortParams = @{
+        'resource-manager configuration-source-provider change-compartment' = '? c h'
+        'resource-manager configuration-source-provider create' = '? c h'
+        'resource-manager configuration-source-provider create-gitlab-access-token-provider' = '? c h'
+        'resource-manager configuration-source-provider delete' = '? h'
+        'resource-manager configuration-source-provider get' = '? h'
+        'resource-manager configuration-source-provider list' = '? c h'
+        'resource-manager configuration-source-provider update' = '? h'
+        'resource-manager configuration-source-provider update-gitlab-access-token-provider' = '? h'
+        'resource-manager job cancel' = '? h'
+        'resource-manager job create' = '? h'
+        'resource-manager job create-apply-job' = '? h'
+        'resource-manager job create-destroy-job' = '? h'
+        'resource-manager job create-import-tf-state-job' = '? h'
+        'resource-manager job create-plan-job' = '? h'
+        'resource-manager job get' = '? h'
+        'resource-manager job get-job-logs' = '? h'
+        'resource-manager job get-job-logs-content' = '? h'
+        'resource-manager job get-job-tf-config' = '? h'
+        'resource-manager job get-job-tf-state' = '? h'
+        'resource-manager job list' = '? c h'
+        'resource-manager job update' = '? h'
+        'resource-manager stack change-compartment' = '? c h'
+        'resource-manager stack create' = '? c h'
+        'resource-manager stack create-from-compartment' = '? c h'
+        'resource-manager stack create-from-git-provider' = '? c h'
+        'resource-manager stack delete' = '? h'
+        'resource-manager stack detect-drift' = '? h'
+        'resource-manager stack get' = '? h'
+        'resource-manager stack get-stack-tf-config' = '? h'
+        'resource-manager stack get-stack-tf-state' = '? h'
+        'resource-manager stack list' = '? c h'
+        'resource-manager stack list-resource-discovery-services' = '? c h'
+        'resource-manager stack list-resource-drift-details' = '? h'
+        'resource-manager stack list-terraform-versions' = '? c h'
+        'resource-manager stack update' = '? h'
+        'resource-manager stack update-from-git-provider' = '? h'
+        'resource-manager work-request get' = '? h'
+        'resource-manager work-request list' = '? c h'
+        'resource-manager work-request list-work-request-errors' = '? c h'
+        'resource-manager work-request list-work-request-logs' = '? c h'
+    }
+    return $ociCommandsToShortParams
+}

@@ -1,0 +1,291 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "WAAS_POLICY-CONFIG_UPDATE" "1" "Aug 31, 2020" "2.12.9" "OCI CLI Command Reference"
+.SH NAME
+waas_policy-config_update \- 
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.SH DESCRIPTION
+.sp
+Updates the configuration for a WAAS policy. Only the fields specified in the request body will be updated; all other properties will remain unchanged.
+.SH USAGE
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+oci waas policy\-config update [OPTIONS]
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH REQUIRED PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-waas\-policy\-id [text]
+.UNINDENT
+.sp
+The \fI\%OCID\fP <\fBhttps://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm\fP> of the WAAS policy.
+.SH OPTIONAL PARAMETERS
+.INDENT 0.0
+.TP
+.B \-\-certificate\-id [text]
+.UNINDENT
+.sp
+The OCID of the SSL certificate to use if HTTPS is supported.
+.INDENT 0.0
+.TP
+.B \-\-cipher\-group [text]
+.UNINDENT
+.sp
+The set cipher group for the configured TLS protocol. This sets the configuration for the TLS connections between clients and edge nodes only. \- \fBDEFAULT:\fP Cipher group supports TLS 1.0, TLS 1.1, TLS 1.2, TLS 1.3 protocols. It has the following ciphers enabled: \fIECDHE\-RSA\-AES128\-GCM\-SHA256:ECDHE\-ECDSA\-AES128\-GCM\-SHA256:ECDHE\-RSA\-AES256\-GCM\-SHA384:ECDHE\-ECDSA\-AES256\-GCM\-SHA384:DHE\-RSA\-AES128\-GCM\-SHA256:DHE\-DSS\-AES128\-GCM\-SHA256:kEDH+AESGCM:ECDHE\-RSA\-AES128\-SHA256:ECDHE\-ECDSA\-AES128\-SHA256:ECDHE\-RSA\-AES128\-SHA:ECDHE\-ECDSA\-AES128\-SHA:ECDHE\-RSA\-AES256\-SHA384:ECDHE\-ECDSA\-AES256\-SHA384:ECDHE\-RSA\-AES256\-SHA:ECDHE\-ECDSA\-AES256\-SHA:DHE\-RSA\-AES128\-SHA256:DHE\-RSA\-AES128\-SHA:DHE\-DSS\-AES128\-SHA256:DHE\-RSA\-AES256\-SHA256:DHE\-DSS\-AES256\-SHA:DHE\-RSA\-AES256\-SHA:AES128\-GCM\-SHA256:AES256\-GCM\-SHA384:AES128\-SHA256:AES256\-SHA256:AES128\-SHA:AES256\-SHA:AES:CAMELLIA:!DES\-CBC3\-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH\-DSS\-DES\-CBC3\-SHA:!EDH\-RSA\-DES\-CBC3\-SHA:!KRB5\-DES\-CBC3\-SHA\fP
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+DEFAULT
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-client\-address\-header [text]
+.UNINDENT
+.sp
+Specifies an HTTP header name which is treated as the connecting client\(aqs IP address. Applicable only if \fIisBehindCdn\fP is enabled.
+.sp
+The edge node reads this header and its value and sets the client IP address as specified. It does not create the header if the header is not present in the request. If the header is not present, the connecting IP address will be used as the client\(aqs true IP address. It uses the last IP address in the header\(aqs value as the true IP address.
+.sp
+Example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+X\-Client\-Ip: 11.1.1.1, 13.3.3.3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+In the case of multiple headers with the same name, only the first header will be used. It is assumed that CDN sets the correct client IP address to prevent spoofing.
+.INDENT 0.0
+.IP \(bu 2
+\fBX_FORWARDED_FOR:\fP Corresponds to \fIX\-Forwarded\-For\fP header name.
+.IP \(bu 2
+\fBX_CLIENT_IP:\fP Corresponds to \fIX\-Client\-Ip\fP header name.
+.IP \(bu 2
+\fBX_REAL_IP:\fP Corresponds to \fIX\-Real\-Ip\fP header name.
+.IP \(bu 2
+\fBCLIENT_IP:\fP Corresponds to \fIClient\-Ip\fP header name.
+.IP \(bu 2
+\fBTRUE_CLIENT_IP:\fP Corresponds to \fITrue\-Client\-Ip\fP header name.
+.UNINDENT
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+CLIENT_IP, TRUE_CLIENT_IP, X_CLIENT_IP, X_FORWARDED_FOR, X_REAL_IP
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-force
+.UNINDENT
+.sp
+Perform update without prompting for confirmation.
+.INDENT 0.0
+.TP
+.B \-\-from\-json [text]
+.UNINDENT
+.sp
+Provide input to this command as a JSON document from a file using the \fI\%file://path\-to/file\fP syntax.
+.sp
+The \fB\-\-generate\-full\-command\-json\-input\fP option can be used to generate a sample json file to be used with this command option. The key names are pre\-populated and match the command option names (converted to camelCase format, e.g. compartment\-id \-\-> compartmentId), while the values of the keys need to be populated by the user before using the sample file as an input to this command. For any command option that accepts multiple values, the value of the key can be a JSON array.
+.sp
+Options can still be provided on the command line. If an option exists in both the JSON document and the command line then the command line specified value will be used.
+.sp
+For examples on usage of this option, please see our "using CLI with advanced JSON options" link: \fI\%https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSONOptions\fP
+.INDENT 0.0
+.TP
+.B \-\-health\-checks [complex type]
+.UNINDENT
+.sp
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-if\-match [text]
+.UNINDENT
+.sp
+For optimistic concurrency control. In the \fIPUT\fP or \fIDELETE\fP call for a resource, set the \fIif\-match\fP parameter to the value of the etag from a previous \fIGET\fP or \fIPOST\fP response for that resource. The resource will be updated or deleted only if the etag provided matches the resource\(aqs current etag value.
+.INDENT 0.0
+.TP
+.B \-\-is\-behind\-cdn [boolean]
+.UNINDENT
+.sp
+Enabling \fIisBehindCdn\fP allows for the collection of IP addresses from client requests if the WAF is connected to a CDN.
+.INDENT 0.0
+.TP
+.B \-\-is\-cache\-control\-respected [boolean]
+.UNINDENT
+.sp
+Enable or disable automatic content caching based on the response \fIcache\-control\fP header. This feature enables the origin to act as a proxy cache. Caching is usually defined using \fIcache\-control\fP header. For example \fIcache\-control: max\-age=120\fP means that the returned resource is valid for 120 seconds. Caching rules will overwrite this setting.
+.INDENT 0.0
+.TP
+.B \-\-is\-https\-enabled [boolean]
+.UNINDENT
+.sp
+Enable or disable HTTPS support. If true, a \fIcertificateId\fP is required. If unspecified, defaults to \fIfalse\fP\&.
+.INDENT 0.0
+.TP
+.B \-\-is\-https\-forced [boolean]
+.UNINDENT
+.sp
+Force HTTP to HTTPS redirection. If unspecified, defaults to \fIfalse\fP\&.
+.INDENT 0.0
+.TP
+.B \-\-is\-origin\-compression\-enabled [boolean]
+.UNINDENT
+.sp
+Enable or disable GZIP compression of origin responses. If enabled, the header \fIAccept\-Encoding: gzip\fP is sent to origin, otherwise, the empty \fIAccept\-Encoding:\fP header is used.
+.INDENT 0.0
+.TP
+.B \-\-is\-response\-buffering\-enabled [boolean]
+.UNINDENT
+.sp
+Enable or disable buffering of responses from the origin. Buffering improves overall stability in case of network issues, but slightly increases Time To First Byte.
+.INDENT 0.0
+.TP
+.B \-\-is\-sni\-enabled [boolean]
+.UNINDENT
+.sp
+SNI stands for Server Name Indication and is an extension of the TLS protocol. It indicates which hostname is being contacted by the browser at the beginning of the \(aqhandshake\(aq\-process. This allows a server to connect multiple SSL Certificates to one IP address and port.
+.INDENT 0.0
+.TP
+.B \-\-load\-balancing\-method [complex type]
+.UNINDENT
+.sp
+An object that represents a load balancing method and its properties.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.INDENT 0.0
+.TP
+.B \-\-max\-wait\-seconds [integer]
+.UNINDENT
+.sp
+The maximum time to wait for the work request to reach the state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 1200 seconds.
+.INDENT 0.0
+.TP
+.B \-\-tls\-protocols [text]
+.UNINDENT
+.sp
+A list of allowed TLS protocols. Only applicable when HTTPS support is enabled. The TLS protocol is negotiated while the request is connecting and the most recent protocol supported by both the edge node and client browser will be selected. If no such version exists, the connection will be aborted. \- \fBTLS_V1:\fP corresponds to TLS 1.0 specification.
+.INDENT 0.0
+.IP \(bu 2
+\fBTLS_V1_1:\fP corresponds to TLS 1.1 specification.
+.IP \(bu 2
+\fBTLS_V1_2:\fP corresponds to TLS 1.2 specification.
+.IP \(bu 2
+\fBTLS_V1_3:\fP corresponds to TLS 1.3 specification.
+.UNINDENT
+.sp
+Enabled TLS protocols must go in a row. For example if \fITLS_v1_1\fP and \fITLS_V1_3\fP are enabled, \fITLS_V1_2\fP must be enabled too.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+TLS_V1, TLS_V1_1, TLS_V1_2, TLS_V1_3
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-for\-state [text]
+.UNINDENT
+.sp
+This operation asynchronously creates, modifies or deletes a resource and uses a work request to track the progress of the operation. Specify this option to perform the action and then wait until the work request reaches a certain state. Multiple states can be specified, returning on the first state. For example, \fB\-\-wait\-for\-state\fP SUCCEEDED \fB\-\-wait\-for\-state\fP FAILED would return on whichever lifecycle state is reached first. If timeout is reached, a return code of 2 is returned. For any other error, a return code of 1 is returned.
+.sp
+Accepted values are:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ACCEPTED, CANCELED, CANCELING, FAILED, IN_PROGRESS, SUCCEEDED
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.TP
+.B \-\-wait\-interval\-seconds [integer]
+.UNINDENT
+.sp
+Check every \fB\-\-wait\-interval\-seconds\fP to see whether the work request to see if it has reached the state defined by \fB\-\-wait\-for\-state\fP\&. Defaults to 30 seconds.
+.INDENT 0.0
+.TP
+.B \-\-websocket\-path\-prefixes [complex type]
+.UNINDENT
+.sp
+ModSecurity is not capable to inspect WebSockets. Therefore paths specified here have WAF disabled if Connection request header from the client has the value Upgrade (case insensitive matching) and Upgrade request header has the value websocket (case insensitive matching). Paths matches if the concatenation of request URL path and query starts with the contents of the one of \fIwebsocketPathPrefixes\fP array value. In All other cases challenges, like JSC, HIC and etc., remain active.
+This is a complex type whose value must be valid JSON. The value can be provided as a string on the command line or passed in as a file using
+the \fI\%file://path/to/file\fP syntax.
+.sp
+The \fB\-\-generate\-param\-json\-input\fP option can be used to generate an example of the JSON which must be provided. We recommend storing this example
+in a file, modifying it as needed and then passing it back in via the \fI\%file://\fP syntax.
+.SH GLOBAL PARAMETERS
+.sp
+Use \fBoci \-\-help\fP for help on global parameters.
+.sp
+\fB\-\-auth\-purpose\fP, \fB\-\-auth\fP, \fB\-\-cert\-bundle\fP, \fB\-\-cli\-rc\-file\fP, \fB\-\-config\-file\fP, \fB\-\-debug\fP, \fB\-\-defaults\-file\fP, \fB\-\-endpoint\fP, \fB\-\-generate\-full\-command\-json\-input\fP, \fB\-\-generate\-param\-json\-input\fP, \fB\-\-help\fP, \fB\-\-latest\-version\fP, \fB\-\-no\-retry\fP, \fB\-\-opc\-client\-request\-id\fP, \fB\-\-opc\-request\-id\fP, \fB\-\-output\fP, \fB\-\-profile\fP, \fB\-\-query\fP, \fB\-\-raw\-output\fP, \fB\-\-region\fP, \fB\-\-release\-info\fP, \fB\-\-request\-id\fP, \fB\-\-version\fP, \fB\-?\fP, \fB\-d\fP, \fB\-h\fP, \fB\-v\fP
+.SH AUTHOR
+Oracle
+.SH COPYRIGHT
+2016, 2020, Oracle
+.\" Generated by docutils manpage writer.
+.

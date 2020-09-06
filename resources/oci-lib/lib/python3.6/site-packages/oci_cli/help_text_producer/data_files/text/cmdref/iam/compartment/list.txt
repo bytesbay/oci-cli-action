@@ -1,0 +1,166 @@
+"list"
+******
+
+
+Description
+===========
+
+Lists the compartments in a specified compartment. The members of the
+list returned depends on the values set for several parameters.
+
+With the exception of the tenancy (root compartment), the
+ListCompartments operation returns only the first-level child
+compartments in the parent compartment specified in *compartmentId*.
+The list does not include any subcompartments of the child
+compartments (grandchildren).
+
+The parameter *accessLevel* specifies whether to return only those
+compartments for which the requestor has INSPECT permissions on at
+least one resource directly or indirectly (the resource can be in a
+subcompartment).
+
+The parameter *compartmentIdInSubtree* applies only when you perform
+ListCompartments on the tenancy (root compartment). When set to true,
+the entire hierarchy of compartments can be returned. To get a full
+list of all compartments and subcompartments in the tenancy (root
+compartment), set the parameter *compartmentIdInSubtree* to true and
+*accessLevel* to ANY.
+
+See Where to Get the Tenancy's OCID and User's OCID.
+
+
+Usage
+=====
+
+   oci iam compartment list [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--access-level [text]
+
+Valid values are *ANY* and *ACCESSIBLE*. Default is *ANY*. Setting
+this to *ACCESSIBLE* returns only those compartments for which the
+user has INSPECT permissions directly or indirectly (permissions can
+be on a resource in a subcompartment). For the compartments on which
+the user indirectly has INSPECT permissions, a restricted set of
+fields is returned.
+
+When set to *ANY* permissions are not checked.
+
+Accepted values are:
+
+   ACCESSIBLE, ANY
+
+--all
+
+Fetches all pages of results. If you provide this option, then you
+cannot provide the "--limit" option.
+
+--compartment-id, -c [text]
+
+The OCID of the compartment (remember that the tenancy is simply the
+root compartment). If not provided, this parameter will use the
+tenancy's OCID (root compartment's OCID) from the config file.
+
+--compartment-id-in-subtree [boolean]
+
+Default is false. Can only be set to true when performing
+ListCompartments on the tenancy (root compartment). When set to true,
+the hierarchy of compartments is traversed and all compartments and
+subcompartments in the tenancy are returned depending on the the
+setting of *accessLevel*.
+
+--from-json [text]
+
+Provide input to this command as a JSON document from a file using the
+file://path-to/file syntax.
+
+The "--generate-full-command-json-input" option can be used to
+generate a sample json file to be used with this command option. The
+key names are pre-populated and match the command option names
+(converted to camelCase format, e.g. compartment-id -->
+compartmentId), while the values of the keys need to be populated by
+the user before using the sample file as an input to this command. For
+any command option that accepts multiple values, the value of the key
+can be a JSON array.
+
+Options can still be provided on the command line. If an option exists
+in both the JSON document and the command line then the command line
+specified value will be used.
+
+For examples on usage of this option, please see our "using CLI with
+advanced JSON options" link: https://docs.cloud.oracle.com/iaas/Conte
+nt/API/SDKDocs/cliusing.htm#AdvancedJSONOptions
+
+--lifecycle-state [text]
+
+A filter to only return resources that match the given lifecycle
+state.  The state value is case-insensitive.
+
+Accepted values are:
+
+   ACTIVE, CREATING, DELETED, DELETING, INACTIVE
+
+--limit [integer]
+
+The maximum number of items to return in a paginated "List" call.
+
+--name [text]
+
+A filter to only return resources that match the given name exactly.
+
+--page [text]
+
+The value of the *opc-next-page* response header from the previous
+"List" call.
+
+--page-size [integer]
+
+When fetching results, the number of results to fetch per call. Only
+valid when used with "--all" or "--limit", and ignored otherwise.
+
+--sort-by [text]
+
+The field to sort by. You can provide one sort order (*sortOrder*).
+Default order for TIMECREATED is descending. Default order for NAME is
+ascending. The NAME sort order is case sensitive.
+
+**Note:** In general, some "List" operations (for example,
+*ListInstances*) let you optionally filter by Availability Domain if
+the scope of the resource type is within a single Availability Domain.
+If you call one of these "List" operations without specifying an
+Availability Domain, the resources are grouped by Availability Domain,
+then sorted.
+
+Accepted values are:
+
+   NAME, TIMECREATED
+
+--sort-order [text]
+
+The sort order to use, either ascending (*ASC*) or descending
+(*DESC*). The NAME sort order is case sensitive.
+
+Accepted values are:
+
+   ASC, DESC
+
+--include-root
+
+Include root compartment
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"

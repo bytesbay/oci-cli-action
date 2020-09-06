@@ -1,0 +1,23 @@
+volume-backup-policy-assignment
+*******************************
+
+
+Description
+===========
+
+Specifies the volume that the volume backup policy is assigned to.
+
+For more information about Oracle defined backup policies and custom
+backup policies, see Policy-Based Backups.
+
+
+Available Commands
+==================
+
+* create
+
+* delete
+
+* get
+
+* get-volume-backup-policy-asset-assignment

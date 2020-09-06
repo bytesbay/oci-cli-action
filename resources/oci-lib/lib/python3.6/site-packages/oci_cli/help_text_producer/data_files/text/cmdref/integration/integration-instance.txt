@@ -1,0 +1,28 @@
+integration-instance
+********************
+
+
+Description
+===========
+
+Description of Integration Instance.
+
+
+Available Commands
+==================
+
+* change-compartment
+
+* create
+
+* delete
+
+* get
+
+* list
+
+* start
+
+* stop
+
+* update

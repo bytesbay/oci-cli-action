@@ -1,0 +1,34 @@
+appliance
+*********
+
+
+Description
+===========
+
+Transfer appliance operations
+
+
+Available Commands
+==================
+
+* cancel
+
+* delete
+
+* get-passphrase
+
+* list
+
+* never-receive
+
+* request
+
+* request-entitlement
+
+* setup-notifications
+
+* show
+
+* show-entitlement
+
+* update-shipping-address

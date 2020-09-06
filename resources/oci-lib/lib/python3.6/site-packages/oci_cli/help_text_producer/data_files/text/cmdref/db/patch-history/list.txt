@@ -1,0 +1,17 @@
+list
+****
+
+
+Description
+===========
+
+Gets history of the actions taken for patches for the specified
+Database Home.
+
+
+Available Commands
+==================
+
+* by-database
+
+* by-db-system

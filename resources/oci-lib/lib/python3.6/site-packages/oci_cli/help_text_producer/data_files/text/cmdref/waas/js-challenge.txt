@@ -1,0 +1,18 @@
+js-challenge
+************
+
+
+Description
+===========
+
+The JavaScript challenge settings. JavaScript Challenge is the
+function to filter abnormal or malicious bots and allow access to real
+clients.
+
+
+Available Commands
+==================
+
+* get
+
+* update

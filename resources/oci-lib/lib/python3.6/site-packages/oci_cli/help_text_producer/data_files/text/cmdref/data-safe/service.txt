@@ -1,0 +1,14 @@
+service
+*******
+
+
+Description
+===========
+
+The information needed to enable Data Safe in the tenancy.
+
+
+Available Commands
+==================
+
+* enable

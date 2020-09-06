@@ -1,0 +1,410 @@
+db
+**
+
+
+Description
+===========
+
+The CLI for the Database Service. Use this CLI to manage resources
+such as databases and DB Systems. For more information, see Overview
+of the Database Service.
+
+
+Available Commands
+==================
+
+* autonomous-container-database
+
+  * change-compartment
+
+  * create
+
+  * get
+
+  * list
+
+  * restart
+
+  * terminate
+
+  * update
+
+* autonomous-data-warehouse
+
+  * create
+
+  * delete
+
+  * generate-wallet
+
+  * get
+
+  * list
+
+  * restore
+
+  * start
+
+  * stop
+
+  * update
+
+* autonomous-data-warehouse-backup
+
+  * create
+
+  * get
+
+  * list
+
+* autonomous-database
+
+  * change-compartment
+
+  * create
+
+  * create-from-backup-id
+
+  * create-from-backup-timestamp
+
+  * create-from-clone
+
+  * create-refreshable-clone
+
+  * data-safe
+
+    * deregister
+
+    * register
+
+  * delete
+
+  * fail-over
+
+  * generate-wallet
+
+  * get
+
+  * list
+
+  * list-clones
+
+  * manual-refresh
+
+  * restart
+
+  * restore
+
+  * start
+
+  * stop
+
+  * switchover
+
+  * update
+
+* autonomous-database-backup
+
+  * create
+
+  * get
+
+  * list
+
+* autonomous-database-wallet
+
+  * get-metadata
+
+  * get-regional-wallet-metadata
+
+  * rotate
+
+  * rotate-regional-wallet
+
+* autonomous-db-preview-version
+
+  * list
+
+* autonomous-db-version
+
+  * list
+
+* autonomous-exadata-infrastructure
+
+  * change-compartment
+
+  * get
+
+  * launch
+
+  * list
+
+  * terminate
+
+  * update
+
+* autonomous-exadata-infrastructure-shape
+
+  * list
+
+* autonomous-vm-cluster
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* backup
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* backup-destination
+
+  * change-compartment
+
+  * create-nfs-details
+
+  * create-recovery-appliance-details
+
+  * delete
+
+  * get
+
+  * update
+
+* console-connection
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* data-guard-association
+
+  * create
+
+    * from-existing-db-system
+
+    * from-existing-vm-cluster
+
+    * with-new-db-system
+
+  * failover
+
+  * get
+
+  * list
+
+  * reinstate
+
+  * switchover
+
+* database
+
+  * create
+
+  * create-database-from-backup
+
+  * create-from-backup
+
+  * create-from-database
+
+  * delete
+
+  * get
+
+  * list
+
+  * patch
+
+  * restore
+
+  * update
+
+* db-home
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+* exadata-infrastructure
+
+  * activate
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * download-exadata-infrastructure-config-file
+
+  * generate-recommended-vm-cluster-network
+
+  * get
+
+  * get-compute-units
+
+  * list
+
+  * update
+
+* external-backup-job
+
+  * complete
+
+  * create
+
+  * get
+
+* gi-version
+
+  * list
+
+* maintenance-run
+
+  * get
+
+  * list
+
+  * update
+
+* node
+
+  * get
+
+  * list
+
+  * reset
+
+  * soft-reset
+
+  * start
+
+  * stop
+
+* patch
+
+  * get
+
+    * by-database
+
+    * by-db-system
+
+  * get-db-home
+
+  * get-vm-cluster
+
+  * list
+
+    * by-database
+
+    * by-db-system
+
+  * list-db-home
+
+  * list-vm-cluster
+
+* patch-history
+
+  * get
+
+    * by-database
+
+    * by-db-system
+
+  * get-db-home
+
+  * get-vm-cluster
+
+  * list
+
+    * by-database
+
+    * by-db-system
+
+  * list-db-home
+
+  * list-vm-cluster
+
+* system
+
+  * change-compartment
+
+  * get
+
+  * get-exadata-iorm-config
+
+  * launch
+
+  * launch-from-backup
+
+  * launch-from-db-system
+
+  * list
+
+  * patch
+
+  * terminate
+
+  * update
+
+  * update-exadata-iorm-config
+
+* system-shape
+
+  * list
+
+* version
+
+  * list
+
+* vm-cluster
+
+  * change-compartment
+
+  * create
+
+  * delete
+
+  * get
+
+  * list
+
+  * update
+
+* vm-cluster-network
+
+  * create
+
+  * delete
+
+  * download-vm-cluster-network-config-file
+
+  * get
+
+  * list
+
+  * update
+
+  * validate

@@ -1,0 +1,17 @@
+whitelist
+*********
+
+
+Description
+===========
+
+An array of IP addresses that bypass the Web Application Firewall.
+Supports both single IP addresses or subnet masks (CIDR notation).
+
+
+Available Commands
+==================
+
+* list
+
+* update

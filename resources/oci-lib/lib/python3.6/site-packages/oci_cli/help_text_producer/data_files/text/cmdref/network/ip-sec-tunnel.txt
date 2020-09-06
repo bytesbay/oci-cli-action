@@ -1,0 +1,20 @@
+ip-sec-tunnel
+*************
+
+
+Description
+===========
+
+Information about a single tunnel in an IPSec connection. This object
+does not include the tunnel's shared secret (pre-shared key). That is
+in the IPSecConnectionTunnelSharedSecret object.
+
+
+Available Commands
+==================
+
+* get
+
+* list
+
+* update

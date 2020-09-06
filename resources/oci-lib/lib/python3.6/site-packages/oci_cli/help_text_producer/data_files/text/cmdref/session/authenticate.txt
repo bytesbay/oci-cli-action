@@ -1,0 +1,42 @@
+"authenticate"
+**************
+
+
+Description
+===========
+
+Creates a CLI session using a browser based login flow. --region is a
+argument
+
+
+Usage
+=====
+
+   oci session authenticate [OPTIONS]
+
+
+Optional Parameters
+===================
+
+--region [text]
+
+ap-melbourne-1,ap-mumbai-1,ap-hyderabad-1,ap-osaka-1,ap-seoul-1,ap-
+sydney-1,ap-tokyo-1,ap-chuncheon-1,ap-chiyoda-1,us-phoenix-1,us-
+ashburn-1,us-sanjose-1,eu-amsterdam-1,eu-frankfurt-1,eu-zurich-1,me-
+jeddah-1,uk-london-1,uk-gov-cardiff-1,ca-toronto-1,ca-montreal-1,us-
+langley-1,us-luke-1,us-gov-ashburn-1,us-gov-chicago-1,us-gov-phoenix-1
+,sa-saopaulo-1,uk-gov-london-1
+
+
+Global Parameters
+=================
+
+Use "oci --help" for help on global parameters.
+
+"--auth-purpose", "--auth", "--cert-bundle", "--cli-rc-file", "--
+config-file", "--debug", "--defaults-file", "--endpoint", "--generate-
+full-command-json-input", "--generate-param-json-input", "--help", "--
+latest-version", "--no-retry", "--opc-client-request-id", "--opc-
+request-id", "--output", "--profile", "--query", "--raw-output", "--
+region", "--release-info", "--request-id", "--version", "-?", "-d",
+"-h", "-v"
