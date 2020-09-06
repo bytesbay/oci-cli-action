@@ -11,6 +11,8 @@ jobs:
     steps:
 
       - uses: actions/checkout@v1
+
+      - run: export
       
       - name: Install oci-cli
         uses: ./
