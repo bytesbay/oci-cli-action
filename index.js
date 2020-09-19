@@ -5,8 +5,6 @@ const OS = require('os');
 const Util = require('util');
 const execSync = Util.promisify(require('child_process').execSync);
 
-const recursiveSudeMove
-
 try {
 
   if(process.platform !== 'linux') {
