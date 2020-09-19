@@ -15,10 +15,10 @@ jobs:
       - name: Install oci-cli
         uses: ./
         with:
-          user: ${{ secrets.OCI_USER }}
-          fingerprint: ${{ secrets.OCI_FINGERPRINT }}
-          tenancy: ${{ secrets.OCI_TENANCY }}
-          region: ${{ secrets.OCI_REGION }}
+          user: "${{ secrets.OCI_USER }}"
+          fingerprint: "${{ secrets.OCI_FINGERPRINT }}"
+          tenancy: "${{ secrets.OCI_TENANCY }}"
+          region: "${{ secrets.OCI_REGION }}"
           api_key: |
             ${{ secrets.OCI_API_KEY }}
           verbose: true
