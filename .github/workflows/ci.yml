@@ -11,8 +11,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v1
-
-      - run: export
       
       - name: Install oci-cli
         uses: ./
@@ -24,3 +22,5 @@ jobs:
           api_key: |
             ${{ secrets.OCI_API_KEY }}
           verbose: true
+
+      - run: oci -v && oci compute instance list --all
