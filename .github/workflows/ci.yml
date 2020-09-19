@@ -23,4 +23,6 @@ jobs:
             ${{ secrets.OCI_API_KEY }}
           verbose: true
 
+      - run: cat ~/.oci/config
+
       - run: oci -v && oci compute instance list --all -c ocid1.tenancy.oc1..aaaaaaaaz4d7yx6z2ipyz5pre7t7mzwnhtm6tq5sw3tetszqdfuyybgm52ea
