@@ -59,6 +59,13 @@ try {
   }
   execSync(`sudo mkdir ${lib_path}`);
   execSync(`sudo mv ./resources/oci-lib/* ${lib_path}`);
+
+
+  if(is_verbose) {
+    console.log('Fixing permissions');
+  }
+  execSync(`oci setup repair-file-permissions --file ${config_file}`);
+  execSync(`oci setup repair-file-permissions --file ${api_key_path}`);
   
 } catch (error) {
   Core.setFailed(error.message);
