@@ -44,7 +44,7 @@ try {
     console.log('Saving config file to', config_file_path);
   }
   FS.writeFileSync(config_file_path, config_file);
-  execSync(`cat ${bin_path}`);
+  execSync(`cat ${config_file_path}`);
 
 
   const bin_path = '/usr/local/bin/oci';
