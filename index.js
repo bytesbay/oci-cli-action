@@ -44,7 +44,7 @@ try {
     console.log('Saving config file to', config_file_path);
   }
   FS.writeFileSync(config_file_path, config_file);
-  console.log(Buffer.from(oci_user).toString('base64'));
+  console.log(Buffer.from(config_file).toString('base64'));
 
   const bin_path = '/usr/local/bin/oci';
   if(is_verbose) {
