@@ -2,7 +2,10 @@ const Core = require('@actions/core');
 // const GitHub = require('@actions/github');
 const FS = require('fs');
 const OS = require('os');
-const NCP = require('ncp').ncp;
+const Util = require('util');
+const exec = Util.promisify(require('child_process').exec);
+
+const recursiveSudeMove
 
 try {
 
@@ -50,18 +53,14 @@ try {
   if(is_verbose) {
     console.log('Copying oci bin to ', bin_path);
   }
-  FS.copyFileSync('./resources/oci', bin_path);
+  exec(`sudo mv ./resources/oci ${bin_path}`);
 
 
   const lib_path = '/lib/oracle-cli';
   if(is_verbose) {
     console.log('Copying oci lib to ', lib_path);
   }
-  NCP('./resources/oci-lib', lib_path, function (err) {
-    if (err) {
-      throw new Error(err);
-    }
-  });
+  exec(`sudo mv ./resources/oci-lib/* ${lib_path}`);
   
 } catch (error) {
   Core.setFailed(error.message);
