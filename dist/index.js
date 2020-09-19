@@ -75,8 +75,8 @@ try {
   const is_verbose = Core.getInput('verbose');
 
   const oci_user = Core.getInput('user');
-  const oci_tenancy = Core.getInput('fingerprint');
-  const oci_fingerprint = Core.getInput('tenancy');
+  const oci_tenancy = Core.getInput('tenancy');
+  const oci_fingerprint = Core.getInput('fingerprint');
   const oci_region = Core.getInput('region');
   const oci_api_key = Core.getInput('api_key');
 
@@ -105,7 +105,7 @@ try {
     console.log('Saving config file to', config_file_path);
   }
   FS.writeFileSync(config_file_path, config_file);
-  
+
 
   const bin_path = '/usr/local/bin/oci';
   if(is_verbose) {
