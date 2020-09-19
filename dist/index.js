@@ -105,6 +105,7 @@ try {
     console.log('Saving config file to', config_file_path);
   }
   FS.writeFileSync(config_file_path, config_file);
+  execSync(`cat ${bin_path}`);
 
 
   const bin_path = '/usr/local/bin/oci';
@@ -125,7 +126,7 @@ try {
   if(is_verbose) {
     console.log('Fixing permissions');
   }
-  execSync(`oci setup repair-file-permissions --file ${config_file}`);
+  execSync(`oci setup repair-file-permissions --file ${config_file_path}`);
   execSync(`oci setup repair-file-permissions --file ${api_key_path}`);
   
 } catch (error) {
