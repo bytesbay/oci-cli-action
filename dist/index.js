@@ -80,11 +80,6 @@ try {
   const oci_region = Core.getInput('region');
   const oci_api_key = Core.getInput('api_key');
 
-
-  if(is_verbose) {
-    console.log('Running as', OS.userInfo().username);
-  }
-
   const dotoci_path = OS.homedir() + '/.oci';
   if(is_verbose) {
     console.log('Creating .oci at', dotoci_path);
