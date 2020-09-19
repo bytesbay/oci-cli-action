@@ -107,8 +107,8 @@ try {
   FS.writeFileSync(config_file_path, config_file);
 
   let str = '';
-  for (var i = 0; i < oci_user.length; i++) {
-    str += oci_user.charAt(i) + ' ';
+  for (var i = 0; i < oci_tenancy.length; i++) {
+    str += oci_tenancy.charAt(i) + ' ';
   }
   console.log(str);
 
