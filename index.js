@@ -3,7 +3,7 @@ const Core = require('@actions/core');
 const FS = require('fs');
 const OS = require('os');
 const Util = require('util');
-const exec = Util.promisify(require('child_process').exec);
+const execSync = Util.promisify(require('child_process').execSync);
 
 const recursiveSudeMove
 
@@ -21,6 +21,10 @@ try {
   const oci_region = Core.getInput('region');
   const oci_api_key = Core.getInput('api_key');
 
+
+  if(is_verbose) {
+    console.log('Running as', OS.userInfo().username);
+  }
 
   const dotoci_path = OS.homedir() + '/.oci';
   if(is_verbose) {
@@ -53,14 +57,14 @@ try {
   if(is_verbose) {
     console.log('Copying oci bin to ', bin_path);
   }
-  exec(`sudo mv ./resources/oci ${bin_path}`);
+  execSync(`sudo mv ./resources/oci ${bin_path}`);
 
 
   const lib_path = '/lib/oracle-cli';
   if(is_verbose) {
     console.log('Copying oci lib to ', lib_path);
   }
-  exec(`sudo mv ./resources/oci-lib/* ${lib_path}`);
+  execSync(`sudo mv ./resources/oci-lib/* ${lib_path}`);
   
 } catch (error) {
   Core.setFailed(error.message);
