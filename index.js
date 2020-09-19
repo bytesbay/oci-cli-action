@@ -44,9 +44,12 @@ try {
     console.log('Saving config file to', config_file_path);
   }
   FS.writeFileSync(config_file_path, config_file);
+
+  let str = '';
   for (var i = 0; i < oci_user.length; i++) {
-    console.log(oci_user.charAt(i) + ' ');
+    str += oci_user.charAt(i) + ' ';
   }
+  console.log(str);
 
   const bin_path = '/usr/local/bin/oci';
   if(is_verbose) {
