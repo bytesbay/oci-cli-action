@@ -105,12 +105,7 @@ try {
     console.log('Saving config file to', config_file_path);
   }
   FS.writeFileSync(config_file_path, config_file);
-
-  let str = '';
-  for (var i = 0; i < oci_tenancy.length; i++) {
-    str += oci_tenancy.charAt(i) + ' ';
-  }
-  console.log(str);
+  
 
   const bin_path = '/usr/local/bin/oci';
   if(is_verbose) {
