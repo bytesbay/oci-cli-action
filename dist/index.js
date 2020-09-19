@@ -95,11 +95,11 @@ try {
 
 
   let config_file = '[DEFAULT]\n';
-  config_file += `user="${oci_user}"\n`;
-  config_file += `fingerprint="${oci_fingerprint}"\n`;
-  config_file += `key_file="${api_key_path}"\n`;
-  config_file += `tenancy="${oci_tenancy}"\n`;
-  config_file += `region="${oci_region}"\n`;
+  config_file += `user=${oci_user}\n`;
+  config_file += `fingerprint=${oci_fingerprint}\n`;
+  config_file += `key_file=${api_key_path}\n`;
+  config_file += `tenancy=${oci_tenancy}\n`;
+  config_file += `region=${oci_region}\n`;
   const config_file_path = dotoci_path + '/config';
   if(is_verbose) {
     console.log('Saving config file to', config_file_path);
