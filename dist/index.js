@@ -114,15 +114,16 @@ try {
 
   const bin_path = '/usr/local/bin/oci';
   if(is_verbose) {
-    console.log('Copying oci bin to ', bin_path);
+    console.log('Copying oci bin to', bin_path);
   }
   execSync(`sudo mv ./resources/oci ${bin_path}`);
 
 
   const lib_path = '/lib/oracle-cli';
   if(is_verbose) {
-    console.log('Copying oci lib to ', lib_path);
+    console.log('Copying oci lib to', lib_path);
   }
+  execSync(`sudo mkdir ${lib_path}`);
   execSync(`sudo mv ./resources/oci-lib/* ${lib_path}`);
   
 } catch (error) {
