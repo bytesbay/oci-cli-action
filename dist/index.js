@@ -108,7 +108,7 @@ try {
   
 
   if(is_verbose) {
-    console.log('Downloading OCI install script', bin_path);
+    console.log('Downloading OCI install script');
   }
   // version 2.25.4
   execSync(`wget https://raw.githubusercontent.com/oracle/oci-cli/ec0093aff18e040a35f440c34f45af07c6eb53c5/scripts/install/install.sh`);
