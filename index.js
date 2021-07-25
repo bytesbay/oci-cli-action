@@ -46,19 +46,18 @@ try {
   FS.writeFileSync(config_file_path, config_file);
   
 
-  const bin_path = '/usr/local/bin/oci';
   if(is_verbose) {
-    console.log('Copying oci bin to', bin_path);
+    console.log('Downloading OCI install script', bin_path);
   }
-  execSync(`sudo mv ./resources/oci ${bin_path}`);
+  // version 2.25.4
+  execSync(`wget https://raw.githubusercontent.com/oracle/oci-cli/ec0093aff18e040a35f440c34f45af07c6eb53c5/scripts/install/install.sh`);
 
 
-  const lib_path = '/lib/oracle-cli';
+  const bin_path = '/usr/local/bin';
   if(is_verbose) {
-    console.log('Copying oci lib to', lib_path);
+    console.log('Installing OCI', bin_path);
   }
-  execSync(`sudo mkdir ${lib_path}`);
-  execSync(`sudo mv ./resources/oci-lib/* ${lib_path}`);
+  execSync(`sudo bash install.sh --accept-all-defaults --exec-dir ${bin_path}`);
 
 
   if(is_verbose) {
