@@ -118,7 +118,7 @@ try {
   if(is_verbose) {
     console.log('Installing OCI', bin_path);
   }
-  execSync(`sudo bash install.sh --accept-all-defaults --exec-dir ${bin_path}`);
+  execSync(`bash install.sh --accept-all-defaults --exec-dir ${bin_path}`);
 
 
   if(is_verbose) {
