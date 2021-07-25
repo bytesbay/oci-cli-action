@@ -5,7 +5,7 @@ Action for installing oci-cli (Oracle Cloud Infrastructure CLI)
 # Example usage
 ```
 - name: Install oci-cli
-  uses: bytesbay/oci-cli-action@v1.0.1
+  uses: bytesbay/oci-cli-action@v1.0.2
   with:
     user: "${{ secrets.OCI_USER }}"
     fingerprint: "${{ secrets.OCI_FINGERPRINT }}"
