@@ -3,7 +3,7 @@ Action for installing oci-cli (Oracle Cloud Infrastructure CLI)
 
 
 # Example usage
-```
+```yaml
 - name: Install oci-cli
   uses: bytesbay/oci-cli-action@v1.0.2
   with:
